@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-dark-theme="dark" data-light-theme="light" lang="zh-CN">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href='https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/Primer/21.0.7/primer.css' rel='stylesheet' />
+    
+    <link rel="icon" href="https://avatars.githubusercontent.com/u/228253165?v=4&size=64"><script>
+        let theme = localStorage.getItem("meek_theme") || "light";
+        document.documentElement.setAttribute("data-color-mode", theme);
+    </script>
+<meta name="description" content="<html>
+<body>
+<!--StartFragment--><!-- obsidian --><p>相信大家一定受够了沉浸式翻译昂贵的订阅价格</p>
+<p>不仅仅是沉浸式翻译，下面这些方案相较沉浸式翻译的月订阅来说，虽然便宜一些，成本用量和使用也比较灵活，但还是有许多不足之处：</p><html>
+<body>
+<!--StartFragment--><!-- obsidian --><p>相信大家一定受够了沉浸式翻译昂贵的订阅价格</p>
+<p>不仅仅是沉浸式翻译，下面这些方案相较沉浸式翻译的月订阅来说，虽然便宜一些，成本用量和使用也比较灵活，但还是有许多不足之处：</p>
+
+工具 | 缺点
+-- | --
+知云文献翻译 | 无法保留排版，免费积分获取麻烦
+doc2x | 程繁琐、排版不行、积分同样昂贵
+supper超能文献翻译 | 不支持自定义模型、积分同样要钱
+
+
+<h3 data-heading='注意事项'>注意事项</h3>
+<ul>
+<li><strong>uv 用户</strong> ：安装后请不要移动或重命名 <code>server</code> 文件夹（会影响环境路径）。">
+<meta property="og:title" content="PDFMathTranslate和pdf2zh如何配置——论文高精度翻译教程">
+<meta property="og:description" content="<html>
+<body>
+<!--StartFragment--><!-- obsidian --><p>相信大家一定受够了沉浸式翻译昂贵的订阅价格</p>
+<p>不仅仅是沉浸式翻译，下面这些方案相较沉浸式翻译的月订阅来说，虽然便宜一些，成本用量和使用也比较灵活，但还是有许多不足之处：</p><html>
+<body>
+<!--StartFragment--><!-- obsidian --><p>相信大家一定受够了沉浸式翻译昂贵的订阅价格</p>
+<p>不仅仅是沉浸式翻译，下面这些方案相较沉浸式翻译的月订阅来说，虽然便宜一些，成本用量和使用也比较灵活，但还是有许多不足之处：</p>
+
+工具 | 缺点
+-- | --
+知云文献翻译 | 无法保留排版，免费积分获取麻烦
+doc2x | 程繁琐、排版不行、积分同样昂贵
+supper超能文献翻译 | 不支持自定义模型、积分同样要钱
+
+
+<h3 data-heading='注意事项'>注意事项</h3>
+<ul>
+<li><strong>uv 用户</strong> ：安装后请不要移动或重命名 <code>server</code> 文件夹（会影响环境路径）。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://luffysolution-svg.github.io/luffy.github.io/post/PDFMathTranslate-he-pdf2zh-ru-he-pei-zhi-%E2%80%94%E2%80%94-lun-wen-gao-jing-du-fan-yi-jiao-cheng.html">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/228253165?v=4&size=64">
+<title>PDFMathTranslate和pdf2zh如何配置——论文高精度翻译教程</title>
+<link href="//unpkg.com/@wooorm/starry-night@2.1.1/style/both.css" rel="stylesheet" />
+
+
+</head>
+<style>
+body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;padding: 45px;font-size: 16px;font-family: sans-serif;line-height: 1.25;}
+#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
+#footer {margin-top:64px; text-align: center;font-size: small;}
+
+</style>
+
+<style>
+.postTitle{margin: auto 0;font-size:40px;font-weight:bold;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
+@media (max-width: 600px) {
+    body {padding: 8px;}
+    .postTitle{font-size:24px;}
+}
+.copy-feedback {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 50px;
+    color: var(--color-fg-on-emphasis);
+    background-color: var(--color-fg-muted);
+    border-radius: 3px;
+    padding: 5px 8px;
+    font-size: 12px;
+}
+</style>
+
+
+
+
+<body>
+    <div id="header">
+<h1 class="postTitle">PDFMathTranslate和pdf2zh如何配置——论文高精度翻译教程</h1>
+<div class="title-right">
+    <a href="https://luffysolution-svg.github.io/luffy.github.io" id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+    <a href="https://github.com/luffysolution-svg/luffy.github.io/issues/2" target="_blank" class="btn btn-invisible circle" title="Issue">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathIssue" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+
+    <a class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题">
+        <svg class="octicon" width="16" height="16" >
+            <path id="themeSwitch" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+
+</div>
+</div>
+    <div id="content">
+<div class="markdown-body" id="postBody">
+
+<p>相信大家一定受够了沉浸式翻译昂贵的订阅价格</p>
+<p>不仅仅是沉浸式翻译，下面这些方案相较沉浸式翻译的月订阅来说，虽然便宜一些，成本用量和使用也比较灵活，但还是有许多不足之处：</p>
+
+<p>相信大家一定受够了沉浸式翻译昂贵的订阅价格</p>
+<p>不仅仅是沉浸式翻译，下面这些方案相较沉浸式翻译的月订阅来说，虽然便宜一些，成本用量和使用也比较灵活，但还是有许多不足之处：</p>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>工具</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>知云文献翻译</td>
+<td>无法保留排版，免费积分获取麻烦</td>
+</tr>
+<tr>
+<td>doc2x</td>
+<td>程繁琐、排版不行、积分同样昂贵</td>
+</tr>
+<tr>
+<td>supper超能文献翻译</td>
+<td>不支持自定义模型、积分同样要钱</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<h3>注意事项</h3>
+<ul>
+<li><strong>uv 用户</strong> ：安装后请不要移动或重命名 <code class="notranslate">server</code> 文件夹（会影响环境路径）。</li>
+<li><strong>conda 用户</strong> ：环境存储在 conda 的 envs 目录中，可以安全移动 <code class="notranslate">server</code> 文件夹。</li>
+</ul>
+<h3>下载并安装插件（地址见上文）</h3>
+<ol>
+<li>安装方式：在zotero中打开“工具-插件”，将xpi文件拖入，进行安装。（若拖入后功能未生效，请重启Zotero）</li>
+<li>如何更新：您可以在zotero中检查更新，或选择自动更新，来获取最新版本插件。</li>
+</ol>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/9aec5c7cd1505ce4e4a2e913577f2cfae30383a4e8ea74b3cc8e63809487d5d4/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31342d34302d34382e676966"><img src="https://camo.githubusercontent.com/9aec5c7cd1505ce4e4a2e913577f2cfae30383a4e8ea74b3cc8e63809487d5d4/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31342d34302d34382e676966" alt="PixPin_2026-07-04_14-40-48.gif" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-07-04_14-40-48.gif" style="max-width: 100%;"></a></p>
+<h3>Zotero端插件设置</h3>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/cd4909f561f8cd0fec8fe37125c4479e279e4233d5680aff0b73ed5af60790df/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31352d31322d30342e706e67"><img src="https://camo.githubusercontent.com/cd4909f561f8cd0fec8fe37125c4479e279e4233d5680aff0b73ed5af60790df/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31352d31322d30342e706e67" alt="PixPin_2026-07-04_15-12-04.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-07-04_15-12-04.png" style="max-width: 100%;"></a></p>
+<p>检查没问题就可以了，不过最好重启一下zotero </p>
+<p>后面就和之前一样的步骤，配置大模型、QPS等</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/557242ac19b22e1c7cabefa72248466071f134d48cd50a8332dcc6dd5f7612b6/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31352d31362d32382e706e67"><img src="https://camo.githubusercontent.com/557242ac19b22e1c7cabefa72248466071f134d48cd50a8332dcc6dd5f7612b6/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31352d31362d32382e706e67" alt="PixPin_2026-07-04_15-16-28.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-07-04_15-16-28.png" style="max-width: 100%;"></a></p>
+<p>接下来右键选择任意一篇文献进行翻译</p>
+<p>第一次会自动安装相关包，会耗费一些时间</p>
+<p>然后静静等待、速度有时和网络有关</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/853aee96e7e9b0d1ccc71aad2b0a55e28ec57497d93b2373803015bba258e492/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31352d32312d33302e706e67"><img src="https://camo.githubusercontent.com/853aee96e7e9b0d1ccc71aad2b0a55e28ec57497d93b2373803015bba258e492/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31352d32312d33302e706e67" alt="PixPin_2026-07-04_15-21-30.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-07-04_15-21-30.png" style="max-width: 100%;"></a></p>
+<p>之后就大功告成了！！！</p>
+<p>翻译后的文件地址在这里：</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/35f0dbb70f740c271eee5719e0244204f2db69870e16a6f64e3253d86a19acc1/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31352d33372d31382e706e67"><img src="https://camo.githubusercontent.com/35f0dbb70f740c271eee5719e0244204f2db69870e16a6f64e3253d86a19acc1/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31352d33372d31382e706e67" alt="PixPin_2026-07-04_15-37-18.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-07-04_15-37-18.png" style="max-width: 100%;"></a></p>
+<p>如果闲每次都要启动那个脚本，可以让AI帮我生成一个bat启动脚本，保存到桌面点击使用即可（前文已提到过）</p>
+<h3>效果展示</h3>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/fc66a07b0395a0e794dd46e04990d0787392cd3202e2043d4d87e392a8de547a/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31352d33322d34322e706e67"><img src="https://camo.githubusercontent.com/fc66a07b0395a0e794dd46e04990d0787392cd3202e2043d4d87e392a8de547a/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31352d33322d34322e706e67" alt="PixPin_2026-07-04_15-32-42.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-07-04_15-32-42.png" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/e28f18643591e204b322ba28c743766746a5e4fecb0443040fc359d64e318e69/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31352d33332d33302e706e67"><img src="https://camo.githubusercontent.com/e28f18643591e204b322ba28c743766746a5e4fecb0443040fc359d64e318e69/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31352d33332d33302e706e67" alt="PixPin_2026-07-04_15-33-30.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-07-04_15-33-30.png" style="max-width: 100%;"></a></p>
+<h1>写在最后</h1>
+<p>其实吧，为了出这一期教程，我特定重新安装了一遍，然后我用的是Windows系统，Mac系统还没有体验过，所以如果是官方没有及时更新安装命令可能需要让AI来排查</p>
+<p>然后安装的依赖脚本国内网络也许比较慢，可以使用清华镜像源</p>
+<p><a href="https://mirrors.tuna.tsinghua.edu.cn/" rel="nofollow">https://mirrors.tuna.tsinghua.edu.cn/</a></p>
+<p>emm~</p>
+<p>这个部署其实对于大部分小白来说还是相对困难一些，但是这是<strong>最便宜</strong>、<strong>翻译质量最高</strong>、<strong>排版最规整</strong>、<strong>灵活度最高</strong>、<strong>可控性最多</strong>的方案</p>
+<p>就是技术比较麻烦是唯一缺点</p>
+<p>不过，各位如果是有搞科研的需求</p>
+<p>翻译质量和排版怎么能不追求？</p>
+<p>所以我今天还是给大家完完整整演示一遍安装过程</p>
+<p>当然我知道，如果有视频教程观感会更好一些，我也尽可能在未来考虑发布到视频号和b站，希望大家多多光顾</p>
+<p>我是三木，感谢你的陪伴与支持，我们下期再见。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/3cd8e475ba7a63755a818edd61ea9f6c5a8b85cc14e7749540786ed3871664df/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f4c756666792e6a7067"><img src="https://camo.githubusercontent.com/3cd8e475ba7a63755a818edd61ea9f6c5a8b85cc14e7749540786ed3871664df/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f4c756666792e6a7067" alt="Luffy.jpg" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/Luffy.jpg" style="max-width: 100%;"></a><br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/e49db4d2c082b399ad08d9ec9368b0dfcb25de90d7271380de29d17a8fd09f94/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f43686174475054253230496d61676525323032303236254535254239254234372545362539432538383425453625393725413525323031365f31325f31312e706e67"><img src="https://camo.githubusercontent.com/e49db4d2c082b399ad08d9ec9368b0dfcb25de90d7271380de29d17a8fd09f94/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f43686174475054253230496d61676525323032303236254535254239254234372545362539432538383425453625393725413525323031365f31325f31312e706e67" alt="ChatGPT Image 2026年7月4日 16_12_11.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/ChatGPT%20Image%202026%E5%B9%B47%E6%9C%884%E6%97%A5%2016_12_11.png" style="max-width: 100%;"></a></p>
+
+相信大家一定受够了沉浸式翻译昂贵的订阅价格
+<p>不仅仅是沉浸式翻译，下面这些方案相较沉浸式翻译的月订阅来说，虽然便宜一些，成本用量和使用也比较灵活，但还是有许多不足之处：</p>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>工具</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>知云文献翻译</strong></td>
+<td>无法保留排版，免费积分获取麻烦</td>
+</tr>
+<tr>
+<td><strong>doc2x</strong></td>
+<td>程繁琐、排版不行、积分同样昂贵</td>
+</tr>
+<tr>
+<td><strong>supper超能文献翻译</strong></td>
+<td>不支持自定义模型、积分同样要钱</td>
+</tr>
+<tr>
+<td><strong>真正拉开论文阅读效率差距的，不是翻译工具本身，而是“是否能完整保留信息结构”。</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<p>那么今天就为大家推荐一款免费开源、准确度更高的替代方案——PDFMathTranslate，它能完美保留原文排版，尤其适合学术论文和专业文献翻译，再也不用为每月几十块的订阅费肉疼了。</p>
+<h1>如何使用</h1>
+<h2>官网下载</h2>
+<p><a href="https://pdf2zh-next.com/zh/getting-started/getting-started.html" rel="nofollow">https://pdf2zh-next.com/zh/getting-started/getting-started.html</a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/f87ac64607d14c8c5ff23c16ced521a1e389821946e7219e9885737c37f7c78c/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f30366361636665343234646161373330633164323732366435653434333439365f4d44352e706e67"><img src="https://camo.githubusercontent.com/f87ac64607d14c8c5ff23c16ced521a1e389821946e7219e9885737c37f7c78c/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f30366361636665343234646161373330633164323732366435653434333439365f4d44352e706e67" alt="06cacfe424daa730c1d2726d5e443496_MD5" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/06cacfe424daa730c1d2726d5e443496_MD5.png" style="max-width: 100%;"></a></p>
+<p>根据自己的电脑系统选择合适的方式</p>
+<p>如果是Windows系统：</p>
+<p>前往GitHub源码安装包地址：</p>
+<p><a href="https://github.com/PDFMathTranslate-next/PDFMathTranslate-next/releases#release-v2.9.0">https://github.com/PDFMathTranslate-next/PDFMathTranslate-next/releases#release-v2.9.0</a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/76d564c069ef58838a52e5a99233a9c6cf439c89fb88a66657afe3d84f455431/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f65623662616366303865643364373461316163396432653933376434346365635f4d44352e706e67"><img src="https://camo.githubusercontent.com/76d564c069ef58838a52e5a99233a9c6cf439c89fb88a66657afe3d84f455431/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f65623662616366303865643364373461316163396432653933376434346365635f4d44352e706e67" alt="eb6bacf08ed3d74a1ac9d2e937d44cec_MD5" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/eb6bacf08ed3d74a1ac9d2e937d44cec_MD5.png" style="max-width: 100%;"></a></p>
+<p>如果GitHub访问不了的，可以到我的百度网盘链接下载：</p>
+<pre class="notranslate"><code class="notranslate">通过网盘分享的文件：pdf2zh-v2.9.0-BabelDOC-v0.6.3-with-assets-win64.zip
+链接: https://pan.baidu.com/s/1Lc1vn1wDIPiA502LAT-YSg?pwd=c3eu 提取码: c3eu
+</code></pre>
+<p>保存到一个干净的非C盘目录，然后最好不要有中文路径</p>
+<p>解压可能要花费一些时间</p>
+<p>解压好后打开exe可执行文件</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/f46618aad54bd1cef8af1508ec462cc4629b5eefb01c4e68a6eb9a74a784af24/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f30623431653338626532316430396130323566623263306237336262343432665f4d44352e706e67"><img src="https://camo.githubusercontent.com/f46618aad54bd1cef8af1508ec462cc4629b5eefb01c4e68a6eb9a74a784af24/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f30623431653338626532316430396130323566623263306237336262343432665f4d44352e706e67" alt="0b41e38be21d09a025fb2c0b73bb442f_MD5" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/0b41e38be21d09a025fb2c0b73bb442f_MD5.png" style="max-width: 100%;"></a></p>
+<p>等一段时间会自动打开webUI界面（浏览器窗口）</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/c07281020ba1e7e85f8725cf9a1a54c8e09cdfddabc74bca7033d8066ff4aeae/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f64303530353062366664346536626439373265343566376362653635313364365f4d44352e706e67"><img src="https://camo.githubusercontent.com/c07281020ba1e7e85f8725cf9a1a54c8e09cdfddabc74bca7033d8066ff4aeae/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f64303530353062366664346536626439373265343566376362653635313364365f4d44352e706e67" alt="d05050b6fd4e6bd972e45f7cbe6513d6_MD5" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/d05050b6fd4e6bd972e45f7cbe6513d6_MD5.png" style="max-width: 100%;"></a></p>
+<p>如果是Mac系统，使用uv进行安装</p>
+<p>uv 是一款用 Rust 编写的极速 Python 包和项目管理工具。</p>
+<p>有了它才能进行文档的高质量翻译</p>
+<p>前置要求：</p>
+<ul>
+<li>已安装 Python（版本需要在3.10-3.12，有条件可以使用conda进行版本管理）<br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/db15f4d36dc4786fd4ea6ede7d58e14383a7ad9ab8f5e33d3a899295db880514/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f61623037656666306534396462346337373535383966346461383864383563315f4d44352e706e67"><img src="https://camo.githubusercontent.com/db15f4d36dc4786fd4ea6ede7d58e14383a7ad9ab8f5e33d3a899295db880514/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f61623037656666306534396462346337373535383966346461383864383563315f4d44352e706e67" alt="ab07eff0e49db4c775589f4da88d85c1_MD5" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/ab07eff0e49db4c775589f4da88d85c1_MD5.png" style="max-width: 100%;"></a></li>
+<li>安装cmd命令行安装uv的Python管理包：</li>
+</ul>
+<div class="highlight highlight-source-shell"><pre class="notranslate">pip install uv
+uv tool install --python 3.12 pdf2zh-next</pre></div>
+<p>安装完成后，您可以通过 <strong>命令行</strong> 或 <strong>WebUI</strong> 开始文档翻译。</p>
+<p>详细问题可以看官网文档进行排查，或者让Codex/Codebuddy帮忙安装和解决</p>
+<p>如果是使用uv安装的，可能没有exe那样有图形窗口，这是你就可以让Codex帮忙解决这个问题</p>
+<p>比如我使用Codex让他帮我安装并配置bat一键启动脚本，以后点击start.bat文件，即可跳转到webUI进行文档解析，告别复杂的cmd命令行学习成本<br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/25fa14d1e5464848049092f17f535c7f1f055339481687076df5652dc22a28ee/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f34303431333764383266336131613530633330626465643066333766393733385f4d44352e706e67"><img src="https://camo.githubusercontent.com/25fa14d1e5464848049092f17f535c7f1f055339481687076df5652dc22a28ee/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f34303431333764383266336131613530633330626465643066333766393733385f4d44352e706e67" alt="404137d82f3a1a50c30bded0f37f9738_MD5" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/404137d82f3a1a50c30bded0f37f9738_MD5.png" style="max-width: 100%;"></a></p>
+<h2>配置翻译服务</h2>
+<p>这里新版本的PDFMathTranslate提供了便捷的翻译服务UI界面<br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/e4379c1611acaa1bd53b6eeeae61c9b1c2dcac317bcebf074484e3e13e5cdc65/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f36353338383864646336613164343431306133366262343630346566646531395f4d44352e706e67"><img src="https://camo.githubusercontent.com/e4379c1611acaa1bd53b6eeeae61c9b1c2dcac317bcebf074484e3e13e5cdc65/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f36353338383864646336613164343431306133366262343630346566646531395f4d44352e706e67" alt="653888ddc6a1d4410a36bb4604efde19_MD5" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/653888ddc6a1d4410a36bb4604efde19_MD5.png" style="max-width: 100%;"></a></p>
+<p>选择一个模型提供商，这里我以DeepSeek为例进行讲解：</p>
+<p><a href="https://platform.deepseek.com/usage" rel="nofollow">https://platform.deepseek.com/usage</a></p>
+<p>先到开放平台小额充值并创建API key：</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/7d845e0f564af2c9d1c551d63cdb7cf51350d2257c915a06a2067f3c02111ed4/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f34373036303366663839356366616365313165633164663830656536363031305f4d44352e706e67"><img src="https://camo.githubusercontent.com/7d845e0f564af2c9d1c551d63cdb7cf51350d2257c915a06a2067f3c02111ed4/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f34373036303366663839356366616365313165633164663830656536363031305f4d44352e706e67" alt="470603ff895cface11ec1df80ee66010_MD5" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/470603ff895cface11ec1df80ee66010_MD5.png" style="max-width: 100%;"></a></p>
+<p>然后把创建好的API key复制（注意保存到其他地方，下一次无法查看和复制了<g-emoji class="g-emoji" alias="warning">⚠️</g-emoji>)</p>
+<p>接着回到PDFMathTranslate配置页面</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/5b99a2392d11a4fedb9076ae4dac2b40123f7e7788bc887bfc34cdc271ecfccd/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f32363165336139656639643066336664356565383335666534343539333736365f4d44352e706e67"><img src="https://camo.githubusercontent.com/5b99a2392d11a4fedb9076ae4dac2b40123f7e7788bc887bfc34cdc271ecfccd/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f32363165336139656639643066336664356565383335666534343539333736365f4d44352e706e67" alt="261e3a9ef9d0f3fd5ee835fe44593766_MD5" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/261e3a9ef9d0f3fd5ee835fe44593766_MD5.png" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/2d361e72d74c9206a3b6f0fbf248b989a4d3c1fc3e8efb20c103d0f0f3ef0b46/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f65633266376135393734306535636161373362303634376131393265343638395f4d44352e706e67"><img src="https://camo.githubusercontent.com/2d361e72d74c9206a3b6f0fbf248b989a4d3c1fc3e8efb20c103d0f0f3ef0b46/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f65633266376135393734306535636161373362303634376131393265343638395f4d44352e706e67" alt="ec2f7a59740e5caa73b0647a192e4689_MD5" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/ec2f7a59740e5caa73b0647a192e4689_MD5.png" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/8efc63106730de0ed03dc93cc11eebaa88669b48a856078e24cb16ff07abcd64/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66643436313061343339396464386264323734653935373333383534353266625f4d44352e706e67"><img src="https://camo.githubusercontent.com/8efc63106730de0ed03dc93cc11eebaa88669b48a856078e24cb16ff07abcd64/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66643436313061343339396464386264323734653935373333383534353266625f4d44352e706e67" alt="fd4610a4399dd8bd274e9573385452fb_MD5" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/fd4610a4399dd8bd274e9573385452fb_MD5.png" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/32862cf154ef3306eb9420a2867a746e0668c6b855ddcb95535eeba3533ee1b2/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f63306635306637623662386434323136343161323566313731313866373835365f4d44352e706e67"><img src="https://camo.githubusercontent.com/32862cf154ef3306eb9420a2867a746e0668c6b855ddcb95535eeba3533ee1b2/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f63306635306637623662386434323136343161323566313731313866373835365f4d44352e706e67" alt="c0f50f7b6b8d421641a25f17118f7856_MD5" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/c0f50f7b6b8d421641a25f17118f7856_MD5.png" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/848f2f93f3b5d4b21375482494f72605a1757d0036cedfbd4bacf90a48e75080/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f62663266623433383731393666326230326461656238323965666136366335335f4d44352e706e67"><img src="https://camo.githubusercontent.com/848f2f93f3b5d4b21375482494f72605a1757d0036cedfbd4bacf90a48e75080/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f62663266623433383731393666326230326461656238323965666136366335335f4d44352e706e67" alt="bf2fb4387196f2b02daeb829efa66c53_MD5" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/bf2fb4387196f2b02daeb829efa66c53_MD5.png" style="max-width: 100%;"></a></p>
+<p>记得在底部点击「<strong>保存配置</strong>」按钮</p>
+<p>到这里接搞定一切工作了</p>
+<h2>上传翻译</h2>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/0355a6f5b777ff8c69e39203c213d2720717f5a398633bf51ffd28c5992ef446/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f30616235326666353439616235663836313835353630323536656238343032645f4d44352e706e67"><img src="https://camo.githubusercontent.com/0355a6f5b777ff8c69e39203c213d2720717f5a398633bf51ffd28c5992ef446/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f30616235326666353439616235663836313835353630323536656238343032645f4d44352e706e67" alt="0ab52ff549ab5f86185560256eb8402d_MD5" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/0ab52ff549ab5f86185560256eb8402d_MD5.png" style="max-width: 100%;"></a></p>
+<p>等待即可，大概3、4分钟就翻译好了👇</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/e2c844d0f46a08e314a6460dce1ea19c9d025ac9e9dcb82c2b4fe477d6b36c1a/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66366662343564373833323763396635626164313633663134323363303432335f4d44352e706e67"><img src="https://camo.githubusercontent.com/e2c844d0f46a08e314a6460dce1ea19c9d025ac9e9dcb82c2b4fe477d6b36c1a/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66366662343564373833323763396635626164313633663134323363303432335f4d44352e706e67" alt="f6fb45d78327c9f5bad163f1423c0423_MD5" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/f6fb45d78327c9f5bad163f1423c0423_MD5.png" style="max-width: 100%;"></a></p>
+<p>排版、公式、表格全部整整齐齐，翻译质量极高！</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/fa8d787b2f58834b2ee27c6b3b0961f51c2837c9ec019dcc169143a00a325933/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31352d30362d35362e706e67"><img src="https://camo.githubusercontent.com/fa8d787b2f58834b2ee27c6b3b0961f51c2837c9ec019dcc169143a00a325933/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31352d30362d35362e706e67" alt="PixPin_2026-07-04_15-06-56.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-07-04_15-06-56.png" style="max-width: 100%;"></a></p>
+<p>如果你有能力的话，可以接入第三方中转站openai兼容的模型，翻译质量更加高，成本也比DeepSeek便宜</p>
+<p>这是我用GPT-5.4模型翻译了7篇文献（一共76页）所花费的成本<br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/582cc2c3785d20a34a448bffee0cb1ccc5ee679d0ee415c9a5e8d1fbf1a50942/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f31313965326532363037663464386638363036346235353336633532643166635f4d44352e706e67"><img src="https://camo.githubusercontent.com/582cc2c3785d20a34a448bffee0cb1ccc5ee679d0ee415c9a5e8d1fbf1a50942/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f31313965326532363037663464386638363036346235353336633532643166635f4d44352e706e67" alt="119e2e2607f4d8f86064b5536c52d1fc_MD5" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/119e2e2607f4d8f86064b5536c52d1fc_MD5.png" style="max-width: 100%;"></a><br>
+这要是沉浸式翻译和super超能文献翻译，积分很快就消耗完了，还不能自己接入便宜模型</p>
+<h2>关闭翻译后台</h2>
+<p>翻译完之后</p>
+<p>需要关闭浏览器UI界面以及回到命令行窗口，按住ctrl+c两下，会自动停止后台运行脚本，防止占用系统内存资源</p>
+<h2>与zotero联动</h2>
+<p>这部分就更简单了，安装好zotero插件就完事了</p>
+<p>这里配置更加方便和简单，涉及到的相关知识都是贯通的，如果你PDFMathTranslate都能部署搞定</p>
+<p>恭喜你，你在zotero这里可以直接略过了</p>
+<p>插件下载地址：<br>
+<a href="https://github.com/guaguastandup/zotero-pdf2zh/releases">https://github.com/guaguastandup/zotero-pdf2zh/releases</a></p>
+<p>如果国内访问不了可以到zotero中文插件市场里的镜像源下载xpi文件<br>
+<a href="https://zotero-chinese.com/plugins/" rel="nofollow">https://zotero-chinese.com/plugins/</a></p>
+<p>或者我的百度网盘地址：</p>
+<pre class="notranslate"><code class="notranslate">通过网盘分享的文件：zotero-pdf-2-zh.xpi等2个文件
+链接: https://pan.baidu.com/s/1Dt8Jec1gT8TQjghchPl42g?pwd=wrwk 提取码: wrwk
+</code></pre>
+<p>当然为了照顾大家，我还是细讲一下：</p>
+<h3><strong>环境配置</strong></h3>
+<ul>
+<li><strong>Python</strong> ： 建议安装 3.12 版本</li>
+<li><strong>Zotero</strong> ：支持 [<a href="https://www.zotero.org/" rel="nofollow">Zotero 7</a>](<a href="https://www.zotero.org/" rel="nofollow">https://www.zotero.org/</a>) 和 [<a href="https://www.zotero.org/download/" rel="nofollow">Zotero 8</a>](<a href="https://www.zotero.org/download/" rel="nofollow">https://www.zotero.org/download/</a>)</li>
+</ul>
+<p><strong>后续步骤除手动操作外都在命令行中执行</strong></p>
+<p>打开命令行工具：</p>
+<ul>
+<li><strong>Windows</strong> ：按 <code class="notranslate">Win + R</code> → 输入 <code class="notranslate">cmd</code> → 回车（建议以 <strong>管理员身份运行</strong> ）</li>
+<li><strong>macOS</strong> ：按 <code class="notranslate">Cmd + 空格</code> → 输入"终端" → 回车</li>
+<li><strong>Linux</strong> ： <code class="notranslate">Ctrl + Alt + T</code></li>
+</ul>
+<p>选择一个环境管理工具。如果不确定选哪个，推荐 uv。</p>
+<p><strong>uv安装(推荐)</strong></p>
+<pre class="notranslate"><code class="notranslate"># macOS/Linux
+wget -qO- https://astral.sh/uv/install.sh | sh
+# Windows（在PowerShell中执行）
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+</code></pre>
+<p>安装后执行 <code class="notranslate">uv --version</code> ，能看到版本号即成功。</p>
+<p>如果提示找不到命令，需将 uv 路径添加到环境变量并重启终端：</p>
+<pre class="notranslate"><code class="notranslate"># MacOS/Linux
+export PATH="$HOME/.local/bin:$PATH"
+# Windows PowerShell
+$env:Path = "$env:USERPROFILE\.local\bin;$env:Path"
+</code></pre>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/8ca9320ce72b43b8f953676ff85ec25fde4d8827a07204da0430017c563def08/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31342d33352d30302e706e67"><img src="https://camo.githubusercontent.com/8ca9320ce72b43b8f953676ff85ec25fde4d8827a07204da0430017c563def08/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31342d33352d30302e706e67" alt="PixPin_2026-07-04_14-35-00.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-07-04_14-35-00.png" style="max-width: 100%;"></a></p>
+<p><strong>conda安装</strong></p>
+<p>参考 [<a href="https://www.anaconda.com/docs/getting-started/miniconda/install#windows-command-prompt" rel="nofollow">Miniconda 安装指南</a>](<a href="https://www.anaconda.com/docs/getting-started/miniconda/install#windows-command-prompt" rel="nofollow">https://www.anaconda.com/docs/getting-started/miniconda/install#windows-command-prompt</a>) 进行安装，安装后执行 <code class="notranslate">conda --version</code> 验证。</p>
+<blockquote>
+<p>[!warning] 注意<br>
+<strong>Windows用户注意</strong> ：请勿在C盘（系统盘）下创建项目文件夹，建议在D盘或其他非系统盘操作。例如：先执行 <code class="notranslate">D:</code> 切换到D盘，再执行后续命令。</p>
+</blockquote>
+<h3><strong>安装依赖脚本文件</strong>：</h3>
+<pre class="notranslate"><code class="notranslate"># 1. 创建并进入zotero-pdf2zh文件夹
+mkdir zotero-pdf2zh &amp;&amp; cd zotero-pdf2zh
+
+# 2. 下载并解压server文件夹
+直接访问: https://github.com/guaguastandup/zotero-pdf2zh/releases/ 下载
+保存到你创建好的文件夹位置
+
+# 3. 解压好后进入server文件夹
+cd server
+</code></pre>
+<p>解压好后的文件夹结果应该是类似下面的结构：</p>
+<pre class="notranslate"><code class="notranslate">zotero-pdf2zh/
+└── server/
+   ├── server.py
+   ├── ...
+   └── requirements.txt
+</code></pre>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/86ed699f0137894453e76e5c5df950430138b98c6f96338c4078d0f3ea09b6da/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31342d35312d32322e706e67"><img src="https://camo.githubusercontent.com/86ed699f0137894453e76e5c5df950430138b98c6f96338c4078d0f3ea09b6da/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31342d35312d32322e706e67" alt="PixPin_2026-07-04_14-51-22.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-07-04_14-51-22.png" style="max-width: 100%;"></a></p>
+<p>上面的是Mac系统使用，Windows系统选下面那个（保留一个即可）</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/5067b5b63b32bb8c2c1274af7dd8a401a51f4eba61f61f020217e1d9c9262c1c/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31342d35322d35302e706e67"><img src="https://camo.githubusercontent.com/5067b5b63b32bb8c2c1274af7dd8a401a51f4eba61f61f020217e1d9c9262c1c/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31342d35322d35302e706e67" alt="PixPin_2026-07-04_14-52-50.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-07-04_14-52-50.png" style="max-width: 100%;"></a></p>
+<p>如果您看到的是 <code class="notranslate">server/server/</code> 这样的嵌套结构（两层 server），说明解压出现了嵌套问题</p>
+<p>可以直接剪切内层的server文件夹，然后回到外层server进行粘贴，即可覆盖解决</p>
+<p>然后到这里请在顶部输入框输入<code class="notranslate">cmd</code>，然后<code class="notranslate">enter</code>回车，进入cmd命令行窗口</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/aff5b826ed78661600b31e7ec294b40661a040c7d5b32f18412ce9eb902697b2/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31352d31302d34392e706e67"><img src="https://camo.githubusercontent.com/aff5b826ed78661600b31e7ec294b40661a040c7d5b32f18412ce9eb902697b2/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31352d31302d34392e706e67" alt="PixPin_2026-07-04_15-10-49.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-07-04_15-10-49.png" style="max-width: 100%;"></a></p>
+<h3><strong>启动服务：</strong></h3>
+<p><strong>uv 用户（推荐）</strong></p>
+<pre class="notranslate"><code class="notranslate">uv run --python 3.12 --with-requirements requirements.txt server.py
+</code></pre>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/f8c822c90313dcfc17d8a42a8343c55f17e0356409b558c807bd91db65ff16c2/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31352d30382d34332e706e67"><img src="https://camo.githubusercontent.com/f8c822c90313dcfc17d8a42a8343c55f17e0356409b558c807bd91db65ff16c2/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31352d30382d34332e706e67" alt="PixPin_2026-07-04_15-08-43.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-07-04_15-08-43.png" style="max-width: 100%;"></a></p>
+<p><strong>conda 用户</strong></p>
+<pre class="notranslate"><code class="notranslate"># 1. 创建环境（仅首次需要）
+conda create -n zotero-pdf2zh-server python=3.12 -y
+# 2. 激活环境
+conda activate zotero-pdf2zh-server
+# 3. 安装依赖（仅首次需要）
+pip install -r requirements.txt
+# 4. 启动服务
+python server.py --env_tool=conda
+</code></pre>
+<blockquote>
+<p>[!warning] 注意<br>
+翻译功能依赖本脚本运行，使用翻译时 <strong>不要关闭此终端窗口</strong></p>
+</blockquote>
+<h3>常用参数</h3>
+<p>在启动命令后面追加参数即可，例如 <code class="notranslate">... server.py --port=9999</code> ：</p>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class="notranslate">--port</code></td>
+<td>服务端口号</td>
+<td><code class="notranslate">8890</code></td>
+</tr>
+<tr>
+<td><code class="notranslate">--check_update</code></td>
+<td>启动时检查更新</td>
+<td><code class="notranslate">True</code></td>
+</tr>
+<tr>
+<td><code class="notranslate">--update_source</code></td>
+<td>更新源（ <code class="notranslate">github</code> / <code class="notranslate">gitee</code> ）</td>
+<td><code class="notranslate">gitee</code></td>
+</tr>
+<tr>
+<td><code class="notranslate">--enable_mirror</code></td>
+<td>启用 pip 镜像加速</td>
+<td><code class="notranslate">True</code></td>
+</tr>
+<tr>
+<td><code class="notranslate">--mirror_source</code></td>
+<td>自定义镜像源 URL</td>
+<td><code class="notranslate">https://mirrors.ustc.edu.cn/pypi/simple</code></td>
+</tr>
+<tr>
+<td><code class="notranslate">--enable_winexe</code></td>
+<td>使用 Windows exe 模式（需配合 <code class="notranslate">--winexe_path</code> ）</td>
+<td><code class="notranslate">False</code></td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<h3>注意事项</h3>
+<ul>
+<li><strong>uv 用户</strong> ：安装后请不要移动或重命名 <code class="notranslate">server</code> 文件夹（会影响环境路径）。</li>
+<li><strong>conda 用户</strong> ：环境存储在 conda 的 envs 目录中，可以安全移动 <code class="notranslate">server</code> 文件夹。</li>
+</ul>
+<h3>下载并安装插件（地址见上文）</h3>
+<ol>
+<li>安装方式：在zotero中打开“工具-插件”，将xpi文件拖入，进行安装。（若拖入后功能未生效，请重启Zotero）</li>
+<li>如何更新：您可以在zotero中检查更新，或选择自动更新，来获取最新版本插件。</li>
+</ol>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/9aec5c7cd1505ce4e4a2e913577f2cfae30383a4e8ea74b3cc8e63809487d5d4/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31342d34302d34382e676966"><img src="https://camo.githubusercontent.com/9aec5c7cd1505ce4e4a2e913577f2cfae30383a4e8ea74b3cc8e63809487d5d4/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31342d34302d34382e676966" alt="PixPin_2026-07-04_14-40-48.gif" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-07-04_14-40-48.gif" style="max-width: 100%;"></a></p>
+<h3>Zotero端插件设置</h3>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/cd4909f561f8cd0fec8fe37125c4479e279e4233d5680aff0b73ed5af60790df/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31352d31322d30342e706e67"><img src="https://camo.githubusercontent.com/cd4909f561f8cd0fec8fe37125c4479e279e4233d5680aff0b73ed5af60790df/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31352d31322d30342e706e67" alt="PixPin_2026-07-04_15-12-04.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-07-04_15-12-04.png" style="max-width: 100%;"></a></p>
+<p>检查没问题就可以了，不过最好重启一下zotero</p>
+<p>后面就和之前一样的步骤，配置大模型、QPS等</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/557242ac19b22e1c7cabefa72248466071f134d48cd50a8332dcc6dd5f7612b6/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31352d31362d32382e706e67"><img src="https://camo.githubusercontent.com/557242ac19b22e1c7cabefa72248466071f134d48cd50a8332dcc6dd5f7612b6/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31352d31362d32382e706e67" alt="PixPin_2026-07-04_15-16-28.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-07-04_15-16-28.png" style="max-width: 100%;"></a></p>
+<p>接下来右键选择任意一篇文献进行翻译</p>
+<p>第一次会自动安装相关包，会耗费一些时间</p>
+<p>然后静静等待、速度有时和网络有关</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/853aee96e7e9b0d1ccc71aad2b0a55e28ec57497d93b2373803015bba258e492/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31352d32312d33302e706e67"><img src="https://camo.githubusercontent.com/853aee96e7e9b0d1ccc71aad2b0a55e28ec57497d93b2373803015bba258e492/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31352d32312d33302e706e67" alt="PixPin_2026-07-04_15-21-30.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-07-04_15-21-30.png" style="max-width: 100%;"></a></p>
+<p>之后就大功告成了！！！</p>
+<p>翻译后的文件地址在这里：</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/35f0dbb70f740c271eee5719e0244204f2db69870e16a6f64e3253d86a19acc1/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31352d33372d31382e706e67"><img src="https://camo.githubusercontent.com/35f0dbb70f740c271eee5719e0244204f2db69870e16a6f64e3253d86a19acc1/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31352d33372d31382e706e67" alt="PixPin_2026-07-04_15-37-18.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-07-04_15-37-18.png" style="max-width: 100%;"></a></p>
+<p>如果闲每次都要启动那个脚本，可以让AI帮我生成一个bat启动脚本，保存到桌面点击使用即可（前文已提到过）</p>
+<h3>效果展示</h3>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/fc66a07b0395a0e794dd46e04990d0787392cd3202e2043d4d87e392a8de547a/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31352d33322d34322e706e67"><img src="https://camo.githubusercontent.com/fc66a07b0395a0e794dd46e04990d0787392cd3202e2043d4d87e392a8de547a/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31352d33322d34322e706e67" alt="PixPin_2026-07-04_15-32-42.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-07-04_15-32-42.png" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/e28f18643591e204b322ba28c743766746a5e4fecb0443040fc359d64e318e69/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31352d33332d33302e706e67"><img src="https://camo.githubusercontent.com/e28f18643591e204b322ba28c743766746a5e4fecb0443040fc359d64e318e69/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31352d33332d33302e706e67" alt="PixPin_2026-07-04_15-33-30.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-07-04_15-33-30.png" style="max-width: 100%;"></a></p>
+<h1>写在最后</h1>
+<p>其实吧，为了出这一期教程，我特定重新安装了一遍，然后我用的是Windows系统，Mac系统还没有体验过，所以如果是官方没有及时更新安装命令可能需要让AI来排查</p>
+<p>然后安装的依赖脚本国内网络也许比较慢，可以使用清华镜像源</p>
+<p><a href="https://mirrors.tuna.tsinghua.edu.cn/" rel="nofollow">https://mirrors.tuna.tsinghua.edu.cn/</a></p>
+<p>emm~</p>
+<p>这个部署其实对于大部分小白来说还是相对困难一些，但是这是<strong>最便宜</strong>、<strong>翻译质量最高</strong>、<strong>排版最规整</strong>、<strong>灵活度最高</strong>、<strong>可控性最多</strong>的方案</p>
+<p>就是技术比较麻烦是唯一缺点</p>
+<p>不过，各位如果是有搞科研的需求</p>
+<p>翻译质量和排版怎么能不追求？</p>
+<p>所以我今天还是给大家完完整整演示一遍安装过程</p>
+<p>当然我知道，如果有视频教程观感会更好一些，我也尽可能在未来考虑发布到视频号和b站，希望大家多多光顾</p>
+<p>我是三木，感谢你的陪伴与支持，我们下期再见。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/3cd8e475ba7a63755a818edd61ea9f6c5a8b85cc14e7749540786ed3871664df/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f4c756666792e6a7067"><img src="https://camo.githubusercontent.com/3cd8e475ba7a63755a818edd61ea9f6c5a8b85cc14e7749540786ed3871664df/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f4c756666792e6a7067" alt="Luffy.jpg" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/Luffy.jpg" style="max-width: 100%;"></a><br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/e49db4d2c082b399ad08d9ec9368b0dfcb25de90d7271380de29d17a8fd09f94/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f43686174475054253230496d61676525323032303236254535254239254234372545362539432538383425453625393725413525323031365f31325f31312e706e67"><img src="https://camo.githubusercontent.com/e49db4d2c082b399ad08d9ec9368b0dfcb25de90d7271380de29d17a8fd09f94/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f43686174475054253230496d61676525323032303236254535254239254234372545362539432538383425453625393725413525323031365f31325f31312e706e67" alt="ChatGPT Image 2026年7月4日 16_12_11.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/ChatGPT%20Image%202026%E5%B9%B47%E6%9C%884%E6%97%A5%2016_12_11.png" style="max-width: 100%;"></a></p>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>工具</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>知云文献翻译</td>
+<td>无法保留排版，免费积分获取麻烦</td>
+</tr>
+<tr>
+<td>doc2x</td>
+<td>程繁琐、排版不行、积分同样昂贵</td>
+</tr>
+<tr>
+<td>supper超能文献翻译</td>
+<td>不支持自定义模型、积分同样要钱</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<h3>注意事项</h3>
+<ul>
+<li><strong>uv 用户</strong> ：安装后请不要移动或重命名 <code class="notranslate">server</code> 文件夹（会影响环境路径）。</li>
+<li><strong>conda 用户</strong> ：环境存储在 conda 的 envs 目录中，可以安全移动 <code class="notranslate">server</code> 文件夹。</li>
+</ul>
+<h3>下载并安装插件（地址见上文）</h3>
+<ol>
+<li>安装方式：在zotero中打开“工具-插件”，将xpi文件拖入，进行安装。（若拖入后功能未生效，请重启Zotero）</li>
+<li>如何更新：您可以在zotero中检查更新，或选择自动更新，来获取最新版本插件。</li>
+</ol>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/9aec5c7cd1505ce4e4a2e913577f2cfae30383a4e8ea74b3cc8e63809487d5d4/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31342d34302d34382e676966"><img src="https://camo.githubusercontent.com/9aec5c7cd1505ce4e4a2e913577f2cfae30383a4e8ea74b3cc8e63809487d5d4/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31342d34302d34382e676966" alt="PixPin_2026-07-04_14-40-48.gif" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-07-04_14-40-48.gif" style="max-width: 100%;"></a></p>
+<h3>Zotero端插件设置</h3>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/cd4909f561f8cd0fec8fe37125c4479e279e4233d5680aff0b73ed5af60790df/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31352d31322d30342e706e67"><img src="https://camo.githubusercontent.com/cd4909f561f8cd0fec8fe37125c4479e279e4233d5680aff0b73ed5af60790df/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31352d31322d30342e706e67" alt="PixPin_2026-07-04_15-12-04.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-07-04_15-12-04.png" style="max-width: 100%;"></a></p>
+<p>检查没问题就可以了，不过最好重启一下zotero </p>
+<p>后面就和之前一样的步骤，配置大模型、QPS等</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/557242ac19b22e1c7cabefa72248466071f134d48cd50a8332dcc6dd5f7612b6/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31352d31362d32382e706e67"><img src="https://camo.githubusercontent.com/557242ac19b22e1c7cabefa72248466071f134d48cd50a8332dcc6dd5f7612b6/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31352d31362d32382e706e67" alt="PixPin_2026-07-04_15-16-28.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-07-04_15-16-28.png" style="max-width: 100%;"></a></p>
+<p>接下来右键选择任意一篇文献进行翻译</p>
+<p>第一次会自动安装相关包，会耗费一些时间</p>
+<p>然后静静等待、速度有时和网络有关</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/853aee96e7e9b0d1ccc71aad2b0a55e28ec57497d93b2373803015bba258e492/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31352d32312d33302e706e67"><img src="https://camo.githubusercontent.com/853aee96e7e9b0d1ccc71aad2b0a55e28ec57497d93b2373803015bba258e492/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31352d32312d33302e706e67" alt="PixPin_2026-07-04_15-21-30.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-07-04_15-21-30.png" style="max-width: 100%;"></a></p>
+<p>之后就大功告成了！！！</p>
+<p>翻译后的文件地址在这里：</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/35f0dbb70f740c271eee5719e0244204f2db69870e16a6f64e3253d86a19acc1/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31352d33372d31382e706e67"><img src="https://camo.githubusercontent.com/35f0dbb70f740c271eee5719e0244204f2db69870e16a6f64e3253d86a19acc1/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31352d33372d31382e706e67" alt="PixPin_2026-07-04_15-37-18.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-07-04_15-37-18.png" style="max-width: 100%;"></a></p>
+<p>如果闲每次都要启动那个脚本，可以让AI帮我生成一个bat启动脚本，保存到桌面点击使用即可（前文已提到过）</p>
+<h3>效果展示</h3>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/fc66a07b0395a0e794dd46e04990d0787392cd3202e2043d4d87e392a8de547a/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31352d33322d34322e706e67"><img src="https://camo.githubusercontent.com/fc66a07b0395a0e794dd46e04990d0787392cd3202e2043d4d87e392a8de547a/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31352d33322d34322e706e67" alt="PixPin_2026-07-04_15-32-42.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-07-04_15-32-42.png" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/e28f18643591e204b322ba28c743766746a5e4fecb0443040fc359d64e318e69/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31352d33332d33302e706e67"><img src="https://camo.githubusercontent.com/e28f18643591e204b322ba28c743766746a5e4fecb0443040fc359d64e318e69/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31352d33332d33302e706e67" alt="PixPin_2026-07-04_15-33-30.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-07-04_15-33-30.png" style="max-width: 100%;"></a></p>
+<h1>写在最后</h1>
+<p>其实吧，为了出这一期教程，我特定重新安装了一遍，然后我用的是Windows系统，Mac系统还没有体验过，所以如果是官方没有及时更新安装命令可能需要让AI来排查</p>
+<p>然后安装的依赖脚本国内网络也许比较慢，可以使用清华镜像源</p>
+<p><a href="https://mirrors.tuna.tsinghua.edu.cn/" rel="nofollow">https://mirrors.tuna.tsinghua.edu.cn/</a></p>
+<p>emm~</p>
+<p>这个部署其实对于大部分小白来说还是相对困难一些，但是这是<strong>最便宜</strong>、<strong>翻译质量最高</strong>、<strong>排版最规整</strong>、<strong>灵活度最高</strong>、<strong>可控性最多</strong>的方案</p>
+<p>就是技术比较麻烦是唯一缺点</p>
+<p>不过，各位如果是有搞科研的需求</p>
+<p>翻译质量和排版怎么能不追求？</p>
+<p>所以我今天还是给大家完完整整演示一遍安装过程</p>
+<p>当然我知道，如果有视频教程观感会更好一些，我也尽可能在未来考虑发布到视频号和b站，希望大家多多光顾</p>
+<p>我是三木，感谢你的陪伴与支持，我们下期再见。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/3cd8e475ba7a63755a818edd61ea9f6c5a8b85cc14e7749540786ed3871664df/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f4c756666792e6a7067"><img src="https://camo.githubusercontent.com/3cd8e475ba7a63755a818edd61ea9f6c5a8b85cc14e7749540786ed3871664df/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f4c756666792e6a7067" alt="Luffy.jpg" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/Luffy.jpg" style="max-width: 100%;"></a><br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/e49db4d2c082b399ad08d9ec9368b0dfcb25de90d7271380de29d17a8fd09f94/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f43686174475054253230496d61676525323032303236254535254239254234372545362539432538383425453625393725413525323031365f31325f31312e706e67"><img src="https://camo.githubusercontent.com/e49db4d2c082b399ad08d9ec9368b0dfcb25de90d7271380de29d17a8fd09f94/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f43686174475054253230496d61676525323032303236254535254239254234372545362539432538383425453625393725413525323031365f31325f31312e706e67" alt="ChatGPT Image 2026年7月4日 16_12_11.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/ChatGPT%20Image%202026%E5%B9%B47%E6%9C%884%E6%97%A5%2016_12_11.png" style="max-width: 100%;"></a></p>
+
+相信大家一定受够了沉浸式翻译昂贵的订阅价格
+<p>不仅仅是沉浸式翻译，下面这些方案相较沉浸式翻译的月订阅来说，虽然便宜一些，成本用量和使用也比较灵活，但还是有许多不足之处：</p>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>工具</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>知云文献翻译</strong></td>
+<td>无法保留排版，免费积分获取麻烦</td>
+</tr>
+<tr>
+<td><strong>doc2x</strong></td>
+<td>程繁琐、排版不行、积分同样昂贵</td>
+</tr>
+<tr>
+<td><strong>supper超能文献翻译</strong></td>
+<td>不支持自定义模型、积分同样要钱</td>
+</tr>
+<tr>
+<td><strong>真正拉开论文阅读效率差距的，不是翻译工具本身，而是“是否能完整保留信息结构”。</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<p>那么今天就为大家推荐一款免费开源、准确度更高的替代方案——PDFMathTranslate，它能完美保留原文排版，尤其适合学术论文和专业文献翻译，再也不用为每月几十块的订阅费肉疼了。</p>
+<h1>如何使用</h1>
+<h2>官网下载</h2>
+<p><a href="https://pdf2zh-next.com/zh/getting-started/getting-started.html" rel="nofollow">https://pdf2zh-next.com/zh/getting-started/getting-started.html</a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/f87ac64607d14c8c5ff23c16ced521a1e389821946e7219e9885737c37f7c78c/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f30366361636665343234646161373330633164323732366435653434333439365f4d44352e706e67"><img src="https://camo.githubusercontent.com/f87ac64607d14c8c5ff23c16ced521a1e389821946e7219e9885737c37f7c78c/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f30366361636665343234646161373330633164323732366435653434333439365f4d44352e706e67" alt="06cacfe424daa730c1d2726d5e443496_MD5" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/06cacfe424daa730c1d2726d5e443496_MD5.png" style="max-width: 100%;"></a></p>
+<p>根据自己的电脑系统选择合适的方式</p>
+<p>如果是Windows系统：</p>
+<p>前往GitHub源码安装包地址：</p>
+<p><a href="https://github.com/PDFMathTranslate-next/PDFMathTranslate-next/releases#release-v2.9.0">https://github.com/PDFMathTranslate-next/PDFMathTranslate-next/releases#release-v2.9.0</a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/76d564c069ef58838a52e5a99233a9c6cf439c89fb88a66657afe3d84f455431/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f65623662616366303865643364373461316163396432653933376434346365635f4d44352e706e67"><img src="https://camo.githubusercontent.com/76d564c069ef58838a52e5a99233a9c6cf439c89fb88a66657afe3d84f455431/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f65623662616366303865643364373461316163396432653933376434346365635f4d44352e706e67" alt="eb6bacf08ed3d74a1ac9d2e937d44cec_MD5" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/eb6bacf08ed3d74a1ac9d2e937d44cec_MD5.png" style="max-width: 100%;"></a></p>
+<p>如果GitHub访问不了的，可以到我的百度网盘链接下载：</p>
+<pre class="notranslate"><code class="notranslate">通过网盘分享的文件：pdf2zh-v2.9.0-BabelDOC-v0.6.3-with-assets-win64.zip
+链接: https://pan.baidu.com/s/1Lc1vn1wDIPiA502LAT-YSg?pwd=c3eu 提取码: c3eu
+</code></pre>
+<p>保存到一个干净的非C盘目录，然后最好不要有中文路径</p>
+<p>解压可能要花费一些时间</p>
+<p>解压好后打开exe可执行文件</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/f46618aad54bd1cef8af1508ec462cc4629b5eefb01c4e68a6eb9a74a784af24/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f30623431653338626532316430396130323566623263306237336262343432665f4d44352e706e67"><img src="https://camo.githubusercontent.com/f46618aad54bd1cef8af1508ec462cc4629b5eefb01c4e68a6eb9a74a784af24/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f30623431653338626532316430396130323566623263306237336262343432665f4d44352e706e67" alt="0b41e38be21d09a025fb2c0b73bb442f_MD5" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/0b41e38be21d09a025fb2c0b73bb442f_MD5.png" style="max-width: 100%;"></a></p>
+<p>等一段时间会自动打开webUI界面（浏览器窗口）</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/c07281020ba1e7e85f8725cf9a1a54c8e09cdfddabc74bca7033d8066ff4aeae/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f64303530353062366664346536626439373265343566376362653635313364365f4d44352e706e67"><img src="https://camo.githubusercontent.com/c07281020ba1e7e85f8725cf9a1a54c8e09cdfddabc74bca7033d8066ff4aeae/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f64303530353062366664346536626439373265343566376362653635313364365f4d44352e706e67" alt="d05050b6fd4e6bd972e45f7cbe6513d6_MD5" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/d05050b6fd4e6bd972e45f7cbe6513d6_MD5.png" style="max-width: 100%;"></a></p>
+<p>如果是Mac系统，使用uv进行安装</p>
+<p>uv 是一款用 Rust 编写的极速 Python 包和项目管理工具。</p>
+<p>有了它才能进行文档的高质量翻译</p>
+<p>前置要求：</p>
+<ul>
+<li>已安装 Python（版本需要在3.10-3.12，有条件可以使用conda进行版本管理）<br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/db15f4d36dc4786fd4ea6ede7d58e14383a7ad9ab8f5e33d3a899295db880514/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f61623037656666306534396462346337373535383966346461383864383563315f4d44352e706e67"><img src="https://camo.githubusercontent.com/db15f4d36dc4786fd4ea6ede7d58e14383a7ad9ab8f5e33d3a899295db880514/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f61623037656666306534396462346337373535383966346461383864383563315f4d44352e706e67" alt="ab07eff0e49db4c775589f4da88d85c1_MD5" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/ab07eff0e49db4c775589f4da88d85c1_MD5.png" style="max-width: 100%;"></a></li>
+<li>安装cmd命令行安装uv的Python管理包：</li>
+</ul>
+<div class="highlight highlight-source-shell"><pre class="notranslate">pip install uv
+uv tool install --python 3.12 pdf2zh-next</pre></div>
+<p>安装完成后，您可以通过 <strong>命令行</strong> 或 <strong>WebUI</strong> 开始文档翻译。</p>
+<p>详细问题可以看官网文档进行排查，或者让Codex/Codebuddy帮忙安装和解决</p>
+<p>如果是使用uv安装的，可能没有exe那样有图形窗口，这是你就可以让Codex帮忙解决这个问题</p>
+<p>比如我使用Codex让他帮我安装并配置bat一键启动脚本，以后点击start.bat文件，即可跳转到webUI进行文档解析，告别复杂的cmd命令行学习成本<br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/25fa14d1e5464848049092f17f535c7f1f055339481687076df5652dc22a28ee/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f34303431333764383266336131613530633330626465643066333766393733385f4d44352e706e67"><img src="https://camo.githubusercontent.com/25fa14d1e5464848049092f17f535c7f1f055339481687076df5652dc22a28ee/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f34303431333764383266336131613530633330626465643066333766393733385f4d44352e706e67" alt="404137d82f3a1a50c30bded0f37f9738_MD5" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/404137d82f3a1a50c30bded0f37f9738_MD5.png" style="max-width: 100%;"></a></p>
+<h2>配置翻译服务</h2>
+<p>这里新版本的PDFMathTranslate提供了便捷的翻译服务UI界面<br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/e4379c1611acaa1bd53b6eeeae61c9b1c2dcac317bcebf074484e3e13e5cdc65/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f36353338383864646336613164343431306133366262343630346566646531395f4d44352e706e67"><img src="https://camo.githubusercontent.com/e4379c1611acaa1bd53b6eeeae61c9b1c2dcac317bcebf074484e3e13e5cdc65/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f36353338383864646336613164343431306133366262343630346566646531395f4d44352e706e67" alt="653888ddc6a1d4410a36bb4604efde19_MD5" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/653888ddc6a1d4410a36bb4604efde19_MD5.png" style="max-width: 100%;"></a></p>
+<p>选择一个模型提供商，这里我以DeepSeek为例进行讲解：</p>
+<p><a href="https://platform.deepseek.com/usage" rel="nofollow">https://platform.deepseek.com/usage</a></p>
+<p>先到开放平台小额充值并创建API key：</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/7d845e0f564af2c9d1c551d63cdb7cf51350d2257c915a06a2067f3c02111ed4/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f34373036303366663839356366616365313165633164663830656536363031305f4d44352e706e67"><img src="https://camo.githubusercontent.com/7d845e0f564af2c9d1c551d63cdb7cf51350d2257c915a06a2067f3c02111ed4/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f34373036303366663839356366616365313165633164663830656536363031305f4d44352e706e67" alt="470603ff895cface11ec1df80ee66010_MD5" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/470603ff895cface11ec1df80ee66010_MD5.png" style="max-width: 100%;"></a></p>
+<p>然后把创建好的API key复制（注意保存到其他地方，下一次无法查看和复制了<g-emoji class="g-emoji" alias="warning">⚠️</g-emoji>)</p>
+<p>接着回到PDFMathTranslate配置页面</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/5b99a2392d11a4fedb9076ae4dac2b40123f7e7788bc887bfc34cdc271ecfccd/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f32363165336139656639643066336664356565383335666534343539333736365f4d44352e706e67"><img src="https://camo.githubusercontent.com/5b99a2392d11a4fedb9076ae4dac2b40123f7e7788bc887bfc34cdc271ecfccd/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f32363165336139656639643066336664356565383335666534343539333736365f4d44352e706e67" alt="261e3a9ef9d0f3fd5ee835fe44593766_MD5" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/261e3a9ef9d0f3fd5ee835fe44593766_MD5.png" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/2d361e72d74c9206a3b6f0fbf248b989a4d3c1fc3e8efb20c103d0f0f3ef0b46/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f65633266376135393734306535636161373362303634376131393265343638395f4d44352e706e67"><img src="https://camo.githubusercontent.com/2d361e72d74c9206a3b6f0fbf248b989a4d3c1fc3e8efb20c103d0f0f3ef0b46/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f65633266376135393734306535636161373362303634376131393265343638395f4d44352e706e67" alt="ec2f7a59740e5caa73b0647a192e4689_MD5" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/ec2f7a59740e5caa73b0647a192e4689_MD5.png" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/8efc63106730de0ed03dc93cc11eebaa88669b48a856078e24cb16ff07abcd64/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66643436313061343339396464386264323734653935373333383534353266625f4d44352e706e67"><img src="https://camo.githubusercontent.com/8efc63106730de0ed03dc93cc11eebaa88669b48a856078e24cb16ff07abcd64/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66643436313061343339396464386264323734653935373333383534353266625f4d44352e706e67" alt="fd4610a4399dd8bd274e9573385452fb_MD5" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/fd4610a4399dd8bd274e9573385452fb_MD5.png" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/32862cf154ef3306eb9420a2867a746e0668c6b855ddcb95535eeba3533ee1b2/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f63306635306637623662386434323136343161323566313731313866373835365f4d44352e706e67"><img src="https://camo.githubusercontent.com/32862cf154ef3306eb9420a2867a746e0668c6b855ddcb95535eeba3533ee1b2/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f63306635306637623662386434323136343161323566313731313866373835365f4d44352e706e67" alt="c0f50f7b6b8d421641a25f17118f7856_MD5" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/c0f50f7b6b8d421641a25f17118f7856_MD5.png" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/848f2f93f3b5d4b21375482494f72605a1757d0036cedfbd4bacf90a48e75080/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f62663266623433383731393666326230326461656238323965666136366335335f4d44352e706e67"><img src="https://camo.githubusercontent.com/848f2f93f3b5d4b21375482494f72605a1757d0036cedfbd4bacf90a48e75080/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f62663266623433383731393666326230326461656238323965666136366335335f4d44352e706e67" alt="bf2fb4387196f2b02daeb829efa66c53_MD5" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/bf2fb4387196f2b02daeb829efa66c53_MD5.png" style="max-width: 100%;"></a></p>
+<p>记得在底部点击「<strong>保存配置</strong>」按钮</p>
+<p>到这里接搞定一切工作了</p>
+<h2>上传翻译</h2>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/0355a6f5b777ff8c69e39203c213d2720717f5a398633bf51ffd28c5992ef446/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f30616235326666353439616235663836313835353630323536656238343032645f4d44352e706e67"><img src="https://camo.githubusercontent.com/0355a6f5b777ff8c69e39203c213d2720717f5a398633bf51ffd28c5992ef446/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f30616235326666353439616235663836313835353630323536656238343032645f4d44352e706e67" alt="0ab52ff549ab5f86185560256eb8402d_MD5" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/0ab52ff549ab5f86185560256eb8402d_MD5.png" style="max-width: 100%;"></a></p>
+<p>等待即可，大概3、4分钟就翻译好了👇</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/e2c844d0f46a08e314a6460dce1ea19c9d025ac9e9dcb82c2b4fe477d6b36c1a/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66366662343564373833323763396635626164313633663134323363303432335f4d44352e706e67"><img src="https://camo.githubusercontent.com/e2c844d0f46a08e314a6460dce1ea19c9d025ac9e9dcb82c2b4fe477d6b36c1a/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66366662343564373833323763396635626164313633663134323363303432335f4d44352e706e67" alt="f6fb45d78327c9f5bad163f1423c0423_MD5" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/f6fb45d78327c9f5bad163f1423c0423_MD5.png" style="max-width: 100%;"></a></p>
+<p>排版、公式、表格全部整整齐齐，翻译质量极高！</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/fa8d787b2f58834b2ee27c6b3b0961f51c2837c9ec019dcc169143a00a325933/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31352d30362d35362e706e67"><img src="https://camo.githubusercontent.com/fa8d787b2f58834b2ee27c6b3b0961f51c2837c9ec019dcc169143a00a325933/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31352d30362d35362e706e67" alt="PixPin_2026-07-04_15-06-56.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-07-04_15-06-56.png" style="max-width: 100%;"></a></p>
+<p>如果你有能力的话，可以接入第三方中转站openai兼容的模型，翻译质量更加高，成本也比DeepSeek便宜</p>
+<p>这是我用GPT-5.4模型翻译了7篇文献（一共76页）所花费的成本<br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/582cc2c3785d20a34a448bffee0cb1ccc5ee679d0ee415c9a5e8d1fbf1a50942/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f31313965326532363037663464386638363036346235353336633532643166635f4d44352e706e67"><img src="https://camo.githubusercontent.com/582cc2c3785d20a34a448bffee0cb1ccc5ee679d0ee415c9a5e8d1fbf1a50942/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f31313965326532363037663464386638363036346235353336633532643166635f4d44352e706e67" alt="119e2e2607f4d8f86064b5536c52d1fc_MD5" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/119e2e2607f4d8f86064b5536c52d1fc_MD5.png" style="max-width: 100%;"></a><br>
+这要是沉浸式翻译和super超能文献翻译，积分很快就消耗完了，还不能自己接入便宜模型</p>
+<h2>关闭翻译后台</h2>
+<p>翻译完之后</p>
+<p>需要关闭浏览器UI界面以及回到命令行窗口，按住ctrl+c两下，会自动停止后台运行脚本，防止占用系统内存资源</p>
+<h2>与zotero联动</h2>
+<p>这部分就更简单了，安装好zotero插件就完事了</p>
+<p>这里配置更加方便和简单，涉及到的相关知识都是贯通的，如果你PDFMathTranslate都能部署搞定</p>
+<p>恭喜你，你在zotero这里可以直接略过了</p>
+<p>插件下载地址：<br>
+<a href="https://github.com/guaguastandup/zotero-pdf2zh/releases">https://github.com/guaguastandup/zotero-pdf2zh/releases</a></p>
+<p>如果国内访问不了可以到zotero中文插件市场里的镜像源下载xpi文件<br>
+<a href="https://zotero-chinese.com/plugins/" rel="nofollow">https://zotero-chinese.com/plugins/</a></p>
+<p>或者我的百度网盘地址：</p>
+<pre class="notranslate"><code class="notranslate">通过网盘分享的文件：zotero-pdf-2-zh.xpi等2个文件
+链接: https://pan.baidu.com/s/1Dt8Jec1gT8TQjghchPl42g?pwd=wrwk 提取码: wrwk
+</code></pre>
+<p>当然为了照顾大家，我还是细讲一下：</p>
+<h3><strong>环境配置</strong></h3>
+<ul>
+<li><strong>Python</strong> ： 建议安装 3.12 版本</li>
+<li><strong>Zotero</strong> ：支持 [<a href="https://www.zotero.org/" rel="nofollow">Zotero 7</a>](<a href="https://www.zotero.org/" rel="nofollow">https://www.zotero.org/</a>) 和 [<a href="https://www.zotero.org/download/" rel="nofollow">Zotero 8</a>](<a href="https://www.zotero.org/download/" rel="nofollow">https://www.zotero.org/download/</a>)</li>
+</ul>
+<p><strong>后续步骤除手动操作外都在命令行中执行</strong></p>
+<p>打开命令行工具：</p>
+<ul>
+<li><strong>Windows</strong> ：按 <code class="notranslate">Win + R</code> → 输入 <code class="notranslate">cmd</code> → 回车（建议以 <strong>管理员身份运行</strong> ）</li>
+<li><strong>macOS</strong> ：按 <code class="notranslate">Cmd + 空格</code> → 输入"终端" → 回车</li>
+<li><strong>Linux</strong> ： <code class="notranslate">Ctrl + Alt + T</code></li>
+</ul>
+<p>选择一个环境管理工具。如果不确定选哪个，推荐 uv。</p>
+<p><strong>uv安装(推荐)</strong></p>
+<pre class="notranslate"><code class="notranslate"># macOS/Linux
+wget -qO- https://astral.sh/uv/install.sh | sh
+# Windows（在PowerShell中执行）
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+</code></pre>
+<p>安装后执行 <code class="notranslate">uv --version</code> ，能看到版本号即成功。</p>
+<p>如果提示找不到命令，需将 uv 路径添加到环境变量并重启终端：</p>
+<pre class="notranslate"><code class="notranslate"># MacOS/Linux
+export PATH="$HOME/.local/bin:$PATH"
+# Windows PowerShell
+$env:Path = "$env:USERPROFILE\.local\bin;$env:Path"
+</code></pre>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/8ca9320ce72b43b8f953676ff85ec25fde4d8827a07204da0430017c563def08/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31342d33352d30302e706e67"><img src="https://camo.githubusercontent.com/8ca9320ce72b43b8f953676ff85ec25fde4d8827a07204da0430017c563def08/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31342d33352d30302e706e67" alt="PixPin_2026-07-04_14-35-00.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-07-04_14-35-00.png" style="max-width: 100%;"></a></p>
+<p><strong>conda安装</strong></p>
+<p>参考 [<a href="https://www.anaconda.com/docs/getting-started/miniconda/install#windows-command-prompt" rel="nofollow">Miniconda 安装指南</a>](<a href="https://www.anaconda.com/docs/getting-started/miniconda/install#windows-command-prompt" rel="nofollow">https://www.anaconda.com/docs/getting-started/miniconda/install#windows-command-prompt</a>) 进行安装，安装后执行 <code class="notranslate">conda --version</code> 验证。</p>
+<blockquote>
+<p>[!warning] 注意<br>
+<strong>Windows用户注意</strong> ：请勿在C盘（系统盘）下创建项目文件夹，建议在D盘或其他非系统盘操作。例如：先执行 <code class="notranslate">D:</code> 切换到D盘，再执行后续命令。</p>
+</blockquote>
+<h3><strong>安装依赖脚本文件</strong>：</h3>
+<pre class="notranslate"><code class="notranslate"># 1. 创建并进入zotero-pdf2zh文件夹
+mkdir zotero-pdf2zh &amp;&amp; cd zotero-pdf2zh
+
+# 2. 下载并解压server文件夹
+直接访问: https://github.com/guaguastandup/zotero-pdf2zh/releases/ 下载
+保存到你创建好的文件夹位置
+
+# 3. 解压好后进入server文件夹
+cd server
+</code></pre>
+<p>解压好后的文件夹结果应该是类似下面的结构：</p>
+<pre class="notranslate"><code class="notranslate">zotero-pdf2zh/
+└── server/
+   ├── server.py
+   ├── ...
+   └── requirements.txt
+</code></pre>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/86ed699f0137894453e76e5c5df950430138b98c6f96338c4078d0f3ea09b6da/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31342d35312d32322e706e67"><img src="https://camo.githubusercontent.com/86ed699f0137894453e76e5c5df950430138b98c6f96338c4078d0f3ea09b6da/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31342d35312d32322e706e67" alt="PixPin_2026-07-04_14-51-22.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-07-04_14-51-22.png" style="max-width: 100%;"></a></p>
+<p>上面的是Mac系统使用，Windows系统选下面那个（保留一个即可）</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/5067b5b63b32bb8c2c1274af7dd8a401a51f4eba61f61f020217e1d9c9262c1c/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31342d35322d35302e706e67"><img src="https://camo.githubusercontent.com/5067b5b63b32bb8c2c1274af7dd8a401a51f4eba61f61f020217e1d9c9262c1c/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31342d35322d35302e706e67" alt="PixPin_2026-07-04_14-52-50.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-07-04_14-52-50.png" style="max-width: 100%;"></a></p>
+<p>如果您看到的是 <code class="notranslate">server/server/</code> 这样的嵌套结构（两层 server），说明解压出现了嵌套问题</p>
+<p>可以直接剪切内层的server文件夹，然后回到外层server进行粘贴，即可覆盖解决</p>
+<p>然后到这里请在顶部输入框输入<code class="notranslate">cmd</code>，然后<code class="notranslate">enter</code>回车，进入cmd命令行窗口</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/aff5b826ed78661600b31e7ec294b40661a040c7d5b32f18412ce9eb902697b2/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31352d31302d34392e706e67"><img src="https://camo.githubusercontent.com/aff5b826ed78661600b31e7ec294b40661a040c7d5b32f18412ce9eb902697b2/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31352d31302d34392e706e67" alt="PixPin_2026-07-04_15-10-49.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-07-04_15-10-49.png" style="max-width: 100%;"></a></p>
+<h3><strong>启动服务：</strong></h3>
+<p><strong>uv 用户（推荐）</strong></p>
+<pre class="notranslate"><code class="notranslate">uv run --python 3.12 --with-requirements requirements.txt server.py
+</code></pre>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/f8c822c90313dcfc17d8a42a8343c55f17e0356409b558c807bd91db65ff16c2/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31352d30382d34332e706e67"><img src="https://camo.githubusercontent.com/f8c822c90313dcfc17d8a42a8343c55f17e0356409b558c807bd91db65ff16c2/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31352d30382d34332e706e67" alt="PixPin_2026-07-04_15-08-43.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-07-04_15-08-43.png" style="max-width: 100%;"></a></p>
+<p><strong>conda 用户</strong></p>
+<pre class="notranslate"><code class="notranslate"># 1. 创建环境（仅首次需要）
+conda create -n zotero-pdf2zh-server python=3.12 -y
+# 2. 激活环境
+conda activate zotero-pdf2zh-server
+# 3. 安装依赖（仅首次需要）
+pip install -r requirements.txt
+# 4. 启动服务
+python server.py --env_tool=conda
+</code></pre>
+<blockquote>
+<p>[!warning] 注意<br>
+翻译功能依赖本脚本运行，使用翻译时 <strong>不要关闭此终端窗口</strong></p>
+</blockquote>
+<h3>常用参数</h3>
+<p>在启动命令后面追加参数即可，例如 <code class="notranslate">... server.py --port=9999</code> ：</p>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class="notranslate">--port</code></td>
+<td>服务端口号</td>
+<td><code class="notranslate">8890</code></td>
+</tr>
+<tr>
+<td><code class="notranslate">--check_update</code></td>
+<td>启动时检查更新</td>
+<td><code class="notranslate">True</code></td>
+</tr>
+<tr>
+<td><code class="notranslate">--update_source</code></td>
+<td>更新源（ <code class="notranslate">github</code> / <code class="notranslate">gitee</code> ）</td>
+<td><code class="notranslate">gitee</code></td>
+</tr>
+<tr>
+<td><code class="notranslate">--enable_mirror</code></td>
+<td>启用 pip 镜像加速</td>
+<td><code class="notranslate">True</code></td>
+</tr>
+<tr>
+<td><code class="notranslate">--mirror_source</code></td>
+<td>自定义镜像源 URL</td>
+<td><code class="notranslate">https://mirrors.ustc.edu.cn/pypi/simple</code></td>
+</tr>
+<tr>
+<td><code class="notranslate">--enable_winexe</code></td>
+<td>使用 Windows exe 模式（需配合 <code class="notranslate">--winexe_path</code> ）</td>
+<td><code class="notranslate">False</code></td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<h3>注意事项</h3>
+<ul>
+<li><strong>uv 用户</strong> ：安装后请不要移动或重命名 <code class="notranslate">server</code> 文件夹（会影响环境路径）。</li>
+<li><strong>conda 用户</strong> ：环境存储在 conda 的 envs 目录中，可以安全移动 <code class="notranslate">server</code> 文件夹。</li>
+</ul>
+<h3>下载并安装插件（地址见上文）</h3>
+<ol>
+<li>安装方式：在zotero中打开“工具-插件”，将xpi文件拖入，进行安装。（若拖入后功能未生效，请重启Zotero）</li>
+<li>如何更新：您可以在zotero中检查更新，或选择自动更新，来获取最新版本插件。</li>
+</ol>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/9aec5c7cd1505ce4e4a2e913577f2cfae30383a4e8ea74b3cc8e63809487d5d4/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31342d34302d34382e676966"><img src="https://camo.githubusercontent.com/9aec5c7cd1505ce4e4a2e913577f2cfae30383a4e8ea74b3cc8e63809487d5d4/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31342d34302d34382e676966" alt="PixPin_2026-07-04_14-40-48.gif" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-07-04_14-40-48.gif" style="max-width: 100%;"></a></p>
+<h3>Zotero端插件设置</h3>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/cd4909f561f8cd0fec8fe37125c4479e279e4233d5680aff0b73ed5af60790df/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31352d31322d30342e706e67"><img src="https://camo.githubusercontent.com/cd4909f561f8cd0fec8fe37125c4479e279e4233d5680aff0b73ed5af60790df/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31352d31322d30342e706e67" alt="PixPin_2026-07-04_15-12-04.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-07-04_15-12-04.png" style="max-width: 100%;"></a></p>
+<p>检查没问题就可以了，不过最好重启一下zotero</p>
+<p>后面就和之前一样的步骤，配置大模型、QPS等</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/557242ac19b22e1c7cabefa72248466071f134d48cd50a8332dcc6dd5f7612b6/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31352d31362d32382e706e67"><img src="https://camo.githubusercontent.com/557242ac19b22e1c7cabefa72248466071f134d48cd50a8332dcc6dd5f7612b6/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31352d31362d32382e706e67" alt="PixPin_2026-07-04_15-16-28.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-07-04_15-16-28.png" style="max-width: 100%;"></a></p>
+<p>接下来右键选择任意一篇文献进行翻译</p>
+<p>第一次会自动安装相关包，会耗费一些时间</p>
+<p>然后静静等待、速度有时和网络有关</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/853aee96e7e9b0d1ccc71aad2b0a55e28ec57497d93b2373803015bba258e492/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31352d32312d33302e706e67"><img src="https://camo.githubusercontent.com/853aee96e7e9b0d1ccc71aad2b0a55e28ec57497d93b2373803015bba258e492/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31352d32312d33302e706e67" alt="PixPin_2026-07-04_15-21-30.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-07-04_15-21-30.png" style="max-width: 100%;"></a></p>
+<p>之后就大功告成了！！！</p>
+<p>翻译后的文件地址在这里：</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/35f0dbb70f740c271eee5719e0244204f2db69870e16a6f64e3253d86a19acc1/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31352d33372d31382e706e67"><img src="https://camo.githubusercontent.com/35f0dbb70f740c271eee5719e0244204f2db69870e16a6f64e3253d86a19acc1/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31352d33372d31382e706e67" alt="PixPin_2026-07-04_15-37-18.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-07-04_15-37-18.png" style="max-width: 100%;"></a></p>
+<p>如果闲每次都要启动那个脚本，可以让AI帮我生成一个bat启动脚本，保存到桌面点击使用即可（前文已提到过）</p>
+<h3>效果展示</h3>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/fc66a07b0395a0e794dd46e04990d0787392cd3202e2043d4d87e392a8de547a/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31352d33322d34322e706e67"><img src="https://camo.githubusercontent.com/fc66a07b0395a0e794dd46e04990d0787392cd3202e2043d4d87e392a8de547a/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31352d33322d34322e706e67" alt="PixPin_2026-07-04_15-32-42.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-07-04_15-32-42.png" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/e28f18643591e204b322ba28c743766746a5e4fecb0443040fc359d64e318e69/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31352d33332d33302e706e67"><img src="https://camo.githubusercontent.com/e28f18643591e204b322ba28c743766746a5e4fecb0443040fc359d64e318e69/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30345f31352d33332d33302e706e67" alt="PixPin_2026-07-04_15-33-30.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-07-04_15-33-30.png" style="max-width: 100%;"></a></p>
+<h1>写在最后</h1>
+<p>其实吧，为了出这一期教程，我特定重新安装了一遍，然后我用的是Windows系统，Mac系统还没有体验过，所以如果是官方没有及时更新安装命令可能需要让AI来排查</p>
+<p>然后安装的依赖脚本国内网络也许比较慢，可以使用清华镜像源</p>
+<p><a href="https://mirrors.tuna.tsinghua.edu.cn/" rel="nofollow">https://mirrors.tuna.tsinghua.edu.cn/</a></p>
+<p>emm~</p>
+<p>这个部署其实对于大部分小白来说还是相对困难一些，但是这是<strong>最便宜</strong>、<strong>翻译质量最高</strong>、<strong>排版最规整</strong>、<strong>灵活度最高</strong>、<strong>可控性最多</strong>的方案</p>
+<p>就是技术比较麻烦是唯一缺点</p>
+<p>不过，各位如果是有搞科研的需求</p>
+<p>翻译质量和排版怎么能不追求？</p>
+<p>所以我今天还是给大家完完整整演示一遍安装过程</p>
+<p>当然我知道，如果有视频教程观感会更好一些，我也尽可能在未来考虑发布到视频号和b站，希望大家多多光顾</p>
+<p>我是三木，感谢你的陪伴与支持，我们下期再见。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/3cd8e475ba7a63755a818edd61ea9f6c5a8b85cc14e7749540786ed3871664df/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f4c756666792e6a7067"><img src="https://camo.githubusercontent.com/3cd8e475ba7a63755a818edd61ea9f6c5a8b85cc14e7749540786ed3871664df/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f4c756666792e6a7067" alt="Luffy.jpg" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/Luffy.jpg" style="max-width: 100%;"></a><br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/e49db4d2c082b399ad08d9ec9368b0dfcb25de90d7271380de29d17a8fd09f94/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f43686174475054253230496d61676525323032303236254535254239254234372545362539432538383425453625393725413525323031365f31325f31312e706e67"><img src="https://camo.githubusercontent.com/e49db4d2c082b399ad08d9ec9368b0dfcb25de90d7271380de29d17a8fd09f94/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f43686174475054253230496d61676525323032303236254535254239254234372545362539432538383425453625393725413525323031365f31325f31312e706e67" alt="ChatGPT Image 2026年7月4日 16_12_11.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/ChatGPT%20Image%202026%E5%B9%B47%E6%9C%884%E6%97%A5%2016_12_11.png" style="max-width: 100%;"></a></p></div>
+<div style="font-size:small;margin-top:8px;float:right;"></div>
+
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
+
+</div>
+    <div id="footer"><div id="footer1">Copyright © <span id="copyrightYear"></span> <a href="https://luffysolution-svg.github.io/luffy.github.io">三木的个人博客</a></div>
+<div id="footer2">
+    <span id="runday"></span><span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a></span>
+</div>
+
+<script>
+var now=new Date();
+document.getElementById("copyrightYear").innerHTML=now.getFullYear();
+
+if(""!=""){
+    var startSite=new Date("");
+    var diff=now.getTime()-startSite.getTime();
+    var diffDay=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("runday").innerHTML="网站运行 "+diffDay+" 天"+" • ";
+}
+</script></div>
+</body>
+<script>
+var IconList={'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'sync': 'M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z', 'copy': 'M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z', 'check': 'M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z'};
+var utterancesLoad=0;
+
+let themeSettings={
+    "dark": ["dark","moon","#00f0ff","dark-blue"],
+    "light": ["light","sun","#ff5000","github-light"],
+    "auto": ["auto","sync","","preferred-color-scheme"]
+};
+function changeTheme(mode, icon, color, utheme){
+    document.documentElement.setAttribute("data-color-mode",mode);
+    document.getElementById("themeSwitch").setAttribute("d",value=IconList[icon]);
+    document.getElementById("themeSwitch").parentNode.style.color=color;
+    if(utterancesLoad==1){utterancesTheme(utheme);}
+}
+function modeSwitch(){
+    let currentMode=document.documentElement.getAttribute('data-color-mode');
+    let newMode = currentMode === "light" ? "dark" : currentMode === "dark" ? "auto" : "light";
+    localStorage.setItem("meek_theme", newMode);
+    if(themeSettings[newMode]){
+        changeTheme(...themeSettings[newMode]);
+    }
+}
+function utterancesTheme(theme){
+    const message={type:'set-theme',theme: theme};
+    const iframe=document.getElementsByClassName('utterances-frame')[0];
+    iframe.contentWindow.postMessage(message,'https://utteranc.es');
+}
+if(themeSettings[theme]){changeTheme(...themeSettings[theme]);}
+console.log("\n %c Gmeek last https://github.com/Meekdai/Gmeek \n","padding:5px 0;background:#02d81d;color:#fff");
+</script>
+
+<script>
+document.getElementById("pathHome").setAttribute("d",IconList["home"]);
+document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
+
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.disabled=true;
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","luffysolution-svg/luffy.github.io");
+    script.setAttribute("issue-term","title");
+    
+    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
+    else if(localStorage.getItem("meek_theme")=="light") {script.setAttribute("theme","github-light");}
+    else{script.setAttribute("theme","preferred-color-scheme");}
+    
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
+}
+
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const createClipboardHTML = (codeContent, additionalClasses = '') => `
+        <pre class="notranslate"><code class="notranslate">${codeContent}</code></pre>
+        <div class="clipboard-container position-absolute right-0 top-0 ${additionalClasses}">
+            <clipboard-copy class="ClipboardButton btn m-2 p-0" role="button" style="display: inherit;">
+                <svg height="16" width="16" class="octicon octicon-copy m-2"><path d="${IconList["copy"]}"></path></svg>
+                <svg height="16" width="16" class="octicon octicon-check color-fg-success m-2 d-none"><path d="${IconList["check"]}"></path></svg>
+            </clipboard-copy>
+            <div class="copy-feedback">Copied!</div>
+        </div>
+    `;
+
+    const handleCodeElements = (selector = '') => {
+        document.querySelectorAll(selector).forEach(codeElement => {
+            const codeContent = codeElement.innerHTML;
+            const newStructure = document.createElement('div');
+            newStructure.className = 'snippet-clipboard-content position-relative overflow-auto';
+            newStructure.innerHTML = createClipboardHTML(codeContent);
+
+            const parentElement = codeElement.parentElement;
+            if (selector.includes('highlight')) {
+                parentElement.insertBefore(newStructure, codeElement.nextSibling);
+                parentElement.removeChild(codeElement);
+            } else {
+                parentElement.parentElement.replaceChild(newStructure, parentElement);
+            }
+        });
+    };
+
+    handleCodeElements('pre.notranslate > code.notranslate');
+    handleCodeElements('div.highlight > pre.notranslate');
+
+    let currentFeedback = null;
+    document.querySelectorAll('clipboard-copy').forEach(copyButton => {
+        copyButton.addEventListener('click', () => {
+            const codeContent = copyButton.closest('.snippet-clipboard-content').innerText;
+            const tempTextArea = document.createElement('textarea');
+            tempTextArea.value = codeContent;
+            document.body.appendChild(tempTextArea);
+            tempTextArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempTextArea);
+
+            const copyIcon = copyButton.querySelector('.octicon-copy');
+            const checkIcon = copyButton.querySelector('.octicon-check');
+            const copyFeedback = copyButton.nextElementSibling;
+
+            if (currentFeedback && currentFeedback !== copyFeedback) {currentFeedback.style.display = 'none';}
+            currentFeedback = copyFeedback;
+
+            copyIcon.classList.add('d-none');
+            checkIcon.classList.remove('d-none');
+            copyFeedback.style.display = 'block';
+            copyButton.style.borderColor = 'var(--color-success-fg)';
+
+            setTimeout(() => {
+                copyIcon.classList.remove('d-none');
+                checkIcon.classList.add('d-none');
+                copyFeedback.style.display = 'none';
+                copyButton.style.borderColor = '';
+            }, 2000);
+        });
+    });
+});
+
+</script>
+
+
+</html>
