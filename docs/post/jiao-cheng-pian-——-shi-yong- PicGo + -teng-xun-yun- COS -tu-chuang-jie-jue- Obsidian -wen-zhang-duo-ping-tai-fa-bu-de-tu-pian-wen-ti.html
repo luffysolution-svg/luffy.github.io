@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-dark-theme="dark" data-light-theme="light" lang="zh-CN">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href='https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/Primer/21.0.7/primer.css' rel='stylesheet' />
+    
+    <link rel="icon" href="https://github.githubassets.com/favicons/favicon.svg"><script>
+        let theme = localStorage.getItem("meek_theme") || "light";
+        document.documentElement.setAttribute("data-color-mode", theme);
+    </script>
+<meta name="description" content="## 一、为什么需要图床？
+
+我平时习惯在 Obsidian 里写文章，Obsidian 的本地写作体验很好，尤其适合用 Markdown 管理长文、笔记和素材。">
+<meta property="og:title" content="教程篇——使用 PicGo + 腾讯云 COS 图床解决 Obsidian 文章多平台发布的图片问题">
+<meta property="og:description" content="## 一、为什么需要图床？
+
+我平时习惯在 Obsidian 里写文章，Obsidian 的本地写作体验很好，尤其适合用 Markdown 管理长文、笔记和素材。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://luffysolution-svg.github.io/luffy.github.io/post/jiao-cheng-pian-%E2%80%94%E2%80%94-shi-yong-%20PicGo%20%2B%20-teng-xun-yun-%20COS%20-tu-chuang-jie-jue-%20Obsidian%20-wen-zhang-duo-ping-tai-fa-bu-de-tu-pian-wen-ti.html">
+<meta property="og:image" content="https://github.githubassets.com/favicons/favicon.svg">
+<title>教程篇——使用 PicGo + 腾讯云 COS 图床解决 Obsidian 文章多平台发布的图片问题</title>
+<link href="//unpkg.com/@wooorm/starry-night@2.1.1/style/both.css" rel="stylesheet" />
+
+
+</head>
+<style>
+body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;padding: 45px;font-size: 16px;font-family: sans-serif;line-height: 1.25;}
+#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
+#footer {margin-top:64px; text-align: center;font-size: small;}
+
+</style>
+
+<style>
+.postTitle{margin: auto 0;font-size:40px;font-weight:bold;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
+@media (max-width: 600px) {
+    body {padding: 8px;}
+    .postTitle{font-size:24px;}
+}
+.copy-feedback {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 50px;
+    color: var(--color-fg-on-emphasis);
+    background-color: var(--color-fg-muted);
+    border-radius: 3px;
+    padding: 5px 8px;
+    font-size: 12px;
+}
+</style>
+
+
+
+
+<body>
+    <div id="header">
+<h1 class="postTitle">教程篇——使用 PicGo + 腾讯云 COS 图床解决 Obsidian 文章多平台发布的图片问题</h1>
+<div class="title-right">
+    <a href="https://luffysolution-svg.github.io/luffy.github.io" id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+    <a href="https://github.com/luffysolution-svg/luffy.github.io/issues/1" target="_blank" class="btn btn-invisible circle" title="Issue">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathIssue" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+
+    <a class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题">
+        <svg class="octicon" width="16" height="16" >
+            <path id="themeSwitch" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+
+</div>
+</div>
+    <div id="content">
+<div class="markdown-body" id="postBody"><h2>一、为什么需要图床？</h2>
+<p>我平时习惯在 Obsidian 里写文章，Obsidian 的本地写作体验很好，尤其适合用 Markdown 管理长文、笔记和素材。</p>
+<p>但是，当我想把 Obsidian 里的文章发布到微信公众号、知乎、飞书、小红书等平台时，会遇到一个很常见的问题：</p>
+<blockquote>
+<p>Obsidian 里的图片大多是本地附件，直接复制文章到其他平台时，图片无法正常显示。</p>
+</blockquote>
+<p>比如 Obsidian 里的图片可能是这样的：</p>
+<div class="highlight highlight-text-md"><pre class="notranslate"><span class="pl-s">![</span><span class="pl-s">[</span>Pasted image 20260629111215.png<span class="pl-s">]]</span></pre></div>
+<p>或者：</p>
+<div class="highlight highlight-text-md"><pre class="notranslate"><span class="pl-s">![</span><span class="pl-s">]</span>(attachments/PixPin_2026-06-29 11-12-15.png)</pre></div>
+<p>这些图片路径只在本地电脑有效。复制到微信公众号、网页编辑器、Markdown 排版工具后，平台无法访问我电脑里的本地图片，所以图片就会丢失。</p>
+<p>因此，我需要一个方案：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">Obsidian 本地图片
+        ↓
+自动上传到图床
+        ↓
+替换成公网图片链接
+        ↓
+复制到各个平台都能正常显示
+</code></pre>
+<p>经过测试，我最终采用了：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">Obsidian + PicGo + 腾讯云 COS 图床
+</code></pre>
+<p>这个方案比较稳定，也适合长期使用。</p>
+<hr>
+<h2>二、整体方案思路</h2>
+<p>整体流程如下：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">在 Obsidian 中写文章
+        ↓
+插入或粘贴本地图片
+        ↓
+通过 PicGo 上传图片到腾讯云 COS
+        ↓
+Obsidian 中的本地图片链接替换为图床链接
+        ↓
+复制 Markdown 内容到公众号 / 知乎 / 飞书 / 排版工具
+        ↓
+图片可以正常显示
+</code></pre>
+<p>最终文章中的图片会变成类似这样的公网链接：</p>
+<div class="highlight highlight-text-md"><pre class="notranslate"><span class="pl-s">![</span><span class="pl-s">]</span><span class="pl-s">(</span><span class="pl-corl">https://your-bucket-125xxxxxxx.cos.ap-guangzhou.myqcloud.com/Obsidian/20260629111215.png</span><span class="pl-s">)</span></pre></div>
+<p>这样图片不再依赖本地路径，而是变成了可以被其他平台访问的网络图片。</p>
+<hr>
+<h2>三、准备工作</h2>
+<p>需要准备以下内容：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">1. 腾讯云账号
+2. 腾讯云 COS 对象存储
+3. PicGo 或 PicList
+4. Obsidian
+5. Obsidian 图片上传插件
+</code></pre>
+<p>这里不需要购买云服务器，也不需要轻量应用服务器。</p>
+<p>真正需要的是：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">腾讯云 COS 对象存储
+</code></pre>
+<p>COS 的作用就是存放图片，并提供公网访问链接。</p>
+<hr>
+<h2>四、购买腾讯云 COS</h2>
+<p>进入腾讯云控制台，搜索：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">对象存储 COS
+</code></pre>
+<p>对于个人图床，建议先使用按量计费，或者购买一个较小规格的标准存储容量包。</p>
+<p>推荐配置：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">产品：对象存储 COS
+存储类型：标准存储
+资源包：标准存储容量包
+规格：10GB 起步
+地域：中国大陆通用，或者选择广州 / 上海 / 南京 / 北京等地域
+</code></pre>
+<p>个人文章配图、截图、公众号素材等，10GB 起步通常已经够用。</p>
+<p>不建议一开始购买：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">云服务器
+轻量应用服务器
+CDN
+多 AZ 存储
+低频存储
+归档存储
+</code></pre>
+<p>这些对于个人图床来说不是必需项。</p>
+<hr>
+<h2>五、创建 COS 存储桶</h2>
+<p>进入：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">腾讯云控制台 → 对象存储 COS → 存储桶列表 → 创建存储桶
+</code></pre>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/fb24133f470dd16f07af422f6700ea458542aad66da1543d10158978445913fd/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30362d32395f31312d33302d32302e706e67"><img src="https://camo.githubusercontent.com/fb24133f470dd16f07af422f6700ea458542aad66da1543d10158978445913fd/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30362d32395f31312d33302d32302e706e67" alt="PixPin_2026-06-29_11-30-20.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-06-29_11-30-20.png" style="max-width: 100%;"></a></p>
+<p>建议配置如下：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">存储桶名称：自定义，例如 obsidian-image-bed
+地域：ap-guangzhou / ap-shanghai / ap-nanjing 等
+存储类型：标准存储
+数据冗余策略：单 AZ 存储
+访问权限：公有读私有写
+</code></pre>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/4d3d96b8cddf89c692bbbe164f04912189830725198470a4dd5e9ea939766dcf/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30362d32395f31312d33312d30362e706e67"><img src="https://camo.githubusercontent.com/4d3d96b8cddf89c692bbbe164f04912189830725198470a4dd5e9ea939766dcf/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30362d32395f31312d33312d30362e706e67" alt="PixPin_2026-06-29_11-31-06.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-06-29_11-31-06.png" style="max-width: 100%;"></a></p>
+<p>其中最重要的是访问权限。</p>
+<p>建议选择：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">公有读私有写
+</code></pre>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/f373caa43dca2fa684f2aa463ddbf03ca9773fc724581c3f4224905d7f092744/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30362d32395f31312d33332d33352e706e67"><img src="https://camo.githubusercontent.com/f373caa43dca2fa684f2aa463ddbf03ca9773fc724581c3f4224905d7f092744/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30362d32395f31312d33332d33352e706e67" alt="PixPin_2026-06-29_11-33-35.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-06-29_11-33-35.png" style="max-width: 100%;"></a></p>
+<p>含义是：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">公有读：别人可以通过图片链接访问图片
+私有写：只有我自己或者持有密钥的工具可以上传、修改、删除图片
+</code></pre>
+<p>不建议选择：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">私有读写
+</code></pre>
+<p>因为这样图片外链可能无法直接访问。</p>
+<p>也不建议选择：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">公有读写
+</code></pre>
+<p>因为安全风险较高。</p>
+<p>然后记得创建好文件夹并设置文件夹也是公可读不可写的权限</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/e9160e1cc6a80d820f188115a03c36059c81260de952d6992072fcbaafb7efe9/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30362d32395f31312d33342d34332e706e67"><img src="https://camo.githubusercontent.com/e9160e1cc6a80d820f188115a03c36059c81260de952d6992072fcbaafb7efe9/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30362d32395f31312d33342d34332e706e67" alt="PixPin_2026-06-29_11-34-43.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-06-29_11-34-43.png" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/76220fac35c12ea4cbac7eab1266b2f2d4c92ea4874767be27570889a3d7a4ba/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30362d32395f31312d33362d31392e706e67"><img src="https://camo.githubusercontent.com/76220fac35c12ea4cbac7eab1266b2f2d4c92ea4874767be27570889a3d7a4ba/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30362d32395f31312d33362d31392e706e67" alt="PixPin_2026-06-29_11-36-19.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-06-29_11-36-19.png" style="max-width: 100%;"></a></p>
+<hr>
+<h2>六、记录存储桶信息</h2>
+<p>创建完成后，需要记录几个关键信息。</p>
+<p>假设我的存储桶是：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">obsidian-image-bed-1251234567
+</code></pre>
+<p>那么：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">Bucket：obsidian-image-bed-1251234567
+APPID：1251234567
+Region：ap-guangzhou
+</code></pre>
+<p>其中：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">Bucket = 完整存储桶名称
+APPID = Bucket 后面的数字部分
+Region = 存储桶所在地域
+</code></pre>
+<p>例如：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">Bucket：obsidian-image-bed-1251234567
+APPID：1251234567
+Region：ap-guangzhou
+</code></pre>
+<p>注意：Bucket 一般要填写完整名称，也就是带 APPID 后缀的名称。</p>
+<hr>
+<h2>七、获取 SecretId 和 SecretKey</h2>
+<p>PicGo 上传图片到腾讯云 COS，需要使用腾讯云的 API 密钥。</p>
+<p>进入：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">腾讯云控制台 → 访问管理 CAM → 访问密钥 → API 密钥管理
+</code></pre>
+<p>创建或查看密钥，获取：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">SecretId
+SecretKey
+</code></pre>
+<p>注意事项：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">1. SecretKey 通常只在创建时完整显示，需要及时保存
+2. 不要把 SecretId 和 SecretKey 发给别人
+3. 不要把密钥截图发布到网上
+4. 长期使用建议创建子用户，并只授权 COS 相关权限
+</code></pre>
+<p>如果密钥已经泄露，建议立即删除旧密钥，重新生成一组。</p>
+<hr>
+<h2>八、配置 PicGo 腾讯云 COS</h2>
+<p>打开 PicGo，进入图床设置，选择：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">腾讯云 COS
+</code></pre>
+<p>然后填写：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">SecretId：腾讯云 API 密钥中的 SecretId
+SecretKey：腾讯云 API 密钥中的 SecretKey
+AppId：你的 APPID
+Bucket：完整存储桶名称
+Region：存储桶地域
+存储路径：Obsidian/
+自定义域名：先留空
+</code></pre>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/487711118a51e5ce8cf36950208982e9c3e2cfb367fd3bf029b7b6ec5a4e25d0/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30362d32395f31312d33312d34392e706e67"><img src="https://camo.githubusercontent.com/487711118a51e5ce8cf36950208982e9c3e2cfb367fd3bf029b7b6ec5a4e25d0/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30362d32395f31312d33312d34392e706e67" alt="PixPin_2026-06-29_11-31-49.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-06-29_11-31-49.png" style="max-width: 100%;"></a></p>
+<p>示例：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">SecretId：AKIDxxxxxxxxxxxxxxxx
+SecretKey：xxxxxxxxxxxxxxxx
+AppId：1251234567
+Bucket：obsidian-image-bed-1251234567
+Region：ap-guangzhou
+存储路径：Obsidian/
+自定义域名：留空
+</code></pre>
+<p>重点检查：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">Bucket 必须是完整 Bucket，例如 obsidian-image-bed-1251234567
+Region 必须和存储桶实际地域一致
+存储路径建议写 Obsidian/，不要写 /Obsidian/
+自定义域名先不要填
+</code></pre>
+<p>配置完成后，可以在 PicGo 里上传一张图片测试。</p>
+<p>如果上传成功，会生成类似这样的链接：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">https://obsidian-image-bed-1251234567.cos.ap-guangzhou.myqcloud.com/Obsidian/example.png
+</code></pre>
+<p>把链接复制到浏览器打开，如果能正常显示，说明腾讯云 COS 图床已经配置成功。</p>
+<hr>
+<h2>九、处理图片无法显示的问题</h2>
+<p>如果上传成功，但图片链接无法显示，可以按下面顺序排查。</p>
+<h3>1. 检查访问权限</h3>
+<p>进入：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">腾讯云 COS → 存储桶 → 权限管理
+</code></pre>
+<p>确认访问权限是：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">公有读私有写
+</code></pre>
+<p>如果是私有读写，外链图片可能无法打开。</p>
+<hr>
+<h3>2. 检查 Bucket 和 Region</h3>
+<p>PicGo 里的 Bucket 必须填写完整名称：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">obsidian-image-bed-1251234567
+</code></pre>
+<p>不要只填：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">obsidian-image-bed
+</code></pre>
+<p>Region 也必须和存储桶一致。</p>
+<p>例如存储桶在广州，就填写：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">ap-guangzhou
+</code></pre>
+<hr>
+<h3>3. 避免文件名带空格</h3>
+<p>图片文件名如果带空格，部分 Markdown 编辑器或平台可能解析失败。</p>
+<p>不建议：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">PixPin_2026-06-29 11-12-15.png
+</code></pre>
+<p>建议：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">PixPin_2026-06-29_11-12-15.png
+</code></pre>
+<p>或者直接使用时间戳命名：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">20260629111215.png
+</code></pre>
+<p>如果链接里已经有空格，可以把空格替换成：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">%20
+</code></pre>
+<p>例如：</p>
+<div class="highlight highlight-text-md"><pre class="notranslate"><span class="pl-s">![</span><span class="pl-s">]</span><span class="pl-s">(</span><span class="pl-corl">https://your-bucket.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-06-29%2011-12-15.png</span><span class="pl-s">)</span></pre></div>
+<hr>
+<h2>十、在 Obsidian 中自动上传图片</h2>
+<p>仅仅配置 PicGo 还不够。如果想让 Obsidian 里的本地图片自动上传到图床，并替换成网络链接，还需要 Obsidian 插件配合。</p>
+<p>推荐插件：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">Image auto upload Plugin
+</code></pre>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/c548c5288c701ea0a3cc3fbe78a3c62c549889da8c89e8e2ae1c15ff1c0bc0e7/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30362d32395f31312d33372d33332e706e67"><img src="https://camo.githubusercontent.com/c548c5288c701ea0a3cc3fbe78a3c62c549889da8c89e8e2ae1c15ff1c0bc0e7/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30362d32395f31312d33372d33332e706e67" alt="PixPin_2026-06-29_11-37-33.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-06-29_11-37-33.png" style="max-width: 100%;"></a></p>
+<p>它可以配合 PicGo 使用，实现：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">粘贴图片自动上传
+拖拽图片自动上传
+批量上传当前 Markdown 文件中的所有本地图片
+上传后自动替换成本地 Markdown 中的图床链接
+</code></pre>
+<p>安装方式：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">Obsidian → 设置 → 第三方插件 → 浏览 → 搜索 Image auto upload Plugin → 安装并启用
+</code></pre>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/c1b104f28f349a8e40e5c8ed78d5d4c4babcc6dc27db2a8cd0557621d9aeaa17/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30362d32395f31312d34302d30382e706e67"><img src="https://camo.githubusercontent.com/c1b104f28f349a8e40e5c8ed78d5d4c4babcc6dc27db2a8cd0557621d9aeaa17/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30362d32395f31312d34302d30382e706e67" alt="PixPin_2026-06-29_11-40-08.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-06-29_11-40-08.png" style="max-width: 100%;"></a></p>
+<p>PicGo下载地址：<br>
+<a href="https://github.com/Molunerfinn/PicGo/releases">https://github.com/Molunerfinn/PicGo/releases</a></p>
+<hr>
+<h2>十一、开启 PicGo Server</h2>
+<p>Image auto upload Plugin 通常通过 PicGo Server 调用 PicGo 上传图片。</p>
+<p>打开 PicGo，进入：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">PicGo → 设置 → 设置 Server
+</code></pre>
+<p>开启 Server。</p>
+<p>默认端口一般是：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">36677
+</code></pre>
+<p>Obsidian 插件中填写：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">http://127.0.0.1:36677/upload
+</code></pre>
+<p>注意：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">使用 Obsidian 上传图片时，PicGo 需要保持运行
+PicGo Server 需要保持开启
+端口需要和插件里填写的一致
+</code></pre>
+<hr>
+<h2>十二、批量上传并替换本地图片</h2>
+<p>如果一篇文章已经写好了，里面有很多本地图片，可以使用插件的批量上传功能。</p>
+<p>操作步骤：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">1. 打开需要处理的 Markdown 文件
+2. 按 Ctrl + P 打开命令面板
+3. 搜索 upload all images
+4. 执行命令
+5. 等待插件上传图片并替换链接
+</code></pre>
+<p>执行前，文章里的图片可能是：</p>
+<div class="highlight highlight-text-md"><pre class="notranslate"><span class="pl-s">![</span><span class="pl-s">[</span>Pasted image 20260629111215.png<span class="pl-s">]]</span></pre></div>
+<p>或者：</p>
+<div class="highlight highlight-text-md"><pre class="notranslate"><span class="pl-s">![</span><span class="pl-s">]</span><span class="pl-s">(</span><span class="pl-corl">attachments/PixPin_2026-06-29_11-12-15.png</span><span class="pl-s">)</span></pre></div>
+<p>执行后，会变成：</p>
+<div class="highlight highlight-text-md"><pre class="notranslate"><span class="pl-s">![</span><span class="pl-s">]</span><span class="pl-s">(</span><span class="pl-corl">https://obsidian-image-bed-1251234567.cos.ap-guangzhou.myqcloud.com/Obsidian/20260629111215.png</span><span class="pl-s">)</span></pre></div>
+<p>这样 Markdown 中引用的本地图片就全部替换成了图床链接。</p>
+<hr>
+<h2>十三、推荐的最终工作流</h2>
+<p>我的最终工作流是：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">1. 在 Obsidian 中正常写文章
+2. 粘贴截图或插入本地图片
+3. 使用 Image auto upload Plugin 自动上传图片
+4. 或者在写完后执行 upload all images
+5. 本地图片链接自动替换成腾讯云 COS 图床链接
+6. 检查图片是否能正常显示
+7. 复制文章到微信公众号、知乎、飞书、排版工具等平台
+8. 发布前再检查一遍图片显示情况
+</code></pre>
+<p>整体结构如下：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">Obsidian
+  ↓
+Image auto upload Plugin
+  ↓
+PicGo / PicList
+  ↓
+腾讯云 COS
+  ↓
+公网图片链接
+  ↓
+微信公众号 / 知乎 / 飞书 / 小红书 / Markdown 排版工具
+</code></pre>
+<hr>
+<h2>十四、发布到不同平台的注意事项</h2>
+<h3>1. 微信公众号</h3>
+<p>微信公众号不认识 Obsidian 本地图片路径，所以必须先把图片变成公网链接。</p>
+<p>使用图床后，复制文章到公众号草稿时，图片可以正常显示。</p>
+<p>如果仍然不显示，需要检查：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">图片链接是否能在浏览器打开
+COS 是否为公有读私有写
+图片链接中是否有空格
+是否开启了错误的防盗链规则
+</code></pre>
+<hr>
+<h3>2. 知乎</h3>
+<p>知乎对 Markdown 的支持和公众号不同，复制时可能会重新处理图片。</p>
+<p>建议先确保图片链接是标准 Markdown 格式：</p>
+<div class="highlight highlight-text-md"><pre class="notranslate"><span class="pl-s">![</span><span class="pl-s">]</span><span class="pl-s">(</span><span class="pl-corl">https://example.com/image.png</span><span class="pl-s">)</span></pre></div>
+<p>尽量不要使用 Obsidian 特有语法：</p>
+<div class="highlight highlight-text-md"><pre class="notranslate"><span class="pl-s">![</span><span class="pl-s">[</span>image.png<span class="pl-s">]]</span></pre></div>
+<p>也尽量不要使用：</p>
+<div class="highlight highlight-text-md"><pre class="notranslate"><span class="pl-s">![</span>image.png|260<span class="pl-s">]</span><span class="pl-s">(</span><span class="pl-corl">https://example.com/image.png</span><span class="pl-s">)</span></pre></div>
+<p>其中 <code class="notranslate">|260</code> 是 Obsidian 的宽度语法，不是标准 Markdown。</p>
+<hr>
+<h3>3. 飞书文档</h3>
+<p>飞书通常支持复制图片和文本，但如果图片是本地路径，也可能失效。</p>
+<p>使用 COS 图床链接后，兼容性更好。</p>
+<hr>
+<h3>4. Markdown 排版工具</h3>
+<p>例如 mdnice、doocs 等 Markdown 排版工具，本质上需要能访问图片的公网 URL。</p>
+<p>因此推荐使用标准写法：</p>
+<div class="highlight highlight-text-md"><pre class="notranslate"><span class="pl-s">![</span><span class="pl-s">]</span><span class="pl-s">(</span><span class="pl-corl">https://your-bucket.cos.ap-guangzhou.myqcloud.com/Obsidian/example.png</span><span class="pl-s">)</span></pre></div>
+<hr>
+<h2>十五、建议保留的配置模板</h2>
+<h3>腾讯云 COS 配置模板</h3>
+<pre lang="text" class="notranslate"><code class="notranslate">Bucket：你的完整 Bucket，例如 obsidian-image-bed-1251234567
+APPID：你的 APPID，例如 1251234567
+Region：你的地域，例如 ap-guangzhou
+访问权限：公有读私有写
+存储路径：Obsidian/
+</code></pre>
+<h3>PicGo 配置模板</h3>
+<pre lang="text" class="notranslate"><code class="notranslate">图床类型：腾讯云 COS
+SecretId：你的 SecretId
+SecretKey：你的 SecretKey
+AppId：你的 APPID
+Bucket：你的完整 Bucket
+Region：你的地域
+Path：Obsidian/
+Custom URL：留空
+</code></pre>
+<h3>Obsidian 插件配置模板</h3>
+<pre lang="text" class="notranslate"><code class="notranslate">插件：Image auto upload Plugin
+PicGo Server：http://127.0.0.1:36677/upload
+批量上传命令：upload all images
+</code></pre>
+<hr>
+<h2>十六、常见问题总结</h2>
+<h3>1. 上传成功，但图片无法显示</h3>
+<p>优先检查：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">1. COS 访问权限是否为公有读私有写
+2. 图片链接能否在浏览器直接打开
+3. Bucket 和 Region 是否填写正确
+4. 图片文件名是否包含空格
+5. 是否开启了防盗链
+</code></pre>
+<hr>
+<h3>2. Obsidian 中不显示图片</h3>
+<p>可以把链接改成标准 Markdown 格式测试：</p>
+<div class="highlight highlight-text-md"><pre class="notranslate"><span class="pl-s">![</span><span class="pl-s">]</span><span class="pl-s">(</span><span class="pl-corl">https://your-image-url.png</span><span class="pl-s">)</span></pre></div>
+<p>不要一开始使用 Obsidian 的宽度语法：</p>
+<div class="highlight highlight-text-md"><pre class="notranslate"><span class="pl-s">![</span>image.png|260<span class="pl-s">]</span><span class="pl-s">(</span><span class="pl-corl">https://your-image-url.png</span><span class="pl-s">)</span></pre></div>
+<p>先确认标准 Markdown 可以显示，再处理图片大小。</p>
+<hr>
+<h3>3. 批量上传失败</h3>
+<p>检查：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">1. PicGo 是否正在运行
+2. PicGo Server 是否开启
+3. 端口是否为 36677
+4. Obsidian 插件中的 Server 地址是否正确
+5. 腾讯云 COS 密钥是否正确
+6. Bucket / APPID / Region 是否正确
+</code></pre>
+<hr>
+<h3>4. 是否需要开启 CDN？</h3>
+<p>个人图床初期不建议开启 CDN。</p>
+<p>原因是：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">1. 配置更复杂
+2. 费用结构更复杂
+3. 容易引入缓存、防盗链、域名备案等问题
+</code></pre>
+<p>先直接使用 COS 默认域名即可。</p>
+<hr>
+<h3>5. 是否需要开启防盗链？</h3>
+<p>刚开始不建议开启。</p>
+<p>如果开启防盗链，白名单配置错误可能导致微信公众号、知乎、飞书或 Markdown 排版工具无法显示图片。</p>
+<p>建议先保持默认，等图床稳定使用后再考虑防盗链规则。</p>
+<hr>
+<h2>十七、最终效果</h2>
+<p>配置完成后，Obsidian 中的文章可以从这种本地图片引用：</p>
+<div class="highlight highlight-text-md"><pre class="notranslate"><span class="pl-s">![</span><span class="pl-s">[</span>Pasted image 20260629111215.png<span class="pl-s">]]</span></pre></div>
+<p>变成这种公网图片引用：</p>
+<div class="highlight highlight-text-md"><pre class="notranslate"><span class="pl-s">![</span><span class="pl-s">]</span><span class="pl-s">(</span><span class="pl-corl">https://obsidian-image-bed-1251234567.cos.ap-guangzhou.myqcloud.com/Obsidian/20260629111215.png</span><span class="pl-s">)</span></pre></div>
+<p>这样，无论是复制到微信公众号、知乎、飞书，还是复制到 mdnice、doocs 等 Markdown 排版工具，图片都不再依赖本地文件，而是通过腾讯云 COS 图床正常加载。</p>
+<p>这套方案解决的核心问题是：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">让 Obsidian 里的本地图片变成可跨平台访问的公网图片链接。
+</code></pre>
+<p>最终，我可以继续在 Obsidian 里保持原来的 Markdown 写作习惯，同时又能比较顺畅地把文章发布到多个平台。</p></div>
+<div style="font-size:small;margin-top:8px;float:right;"></div>
+
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
+
+</div>
+    <div id="footer"><div id="footer1">Copyright © <span id="copyrightYear"></span> <a href="https://luffysolution-svg.github.io/luffy.github.io">Blog Title</a></div>
+<div id="footer2">
+    <span id="runday"></span><span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a></span>
+</div>
+
+<script>
+var now=new Date();
+document.getElementById("copyrightYear").innerHTML=now.getFullYear();
+
+if(""!=""){
+    var startSite=new Date("");
+    var diff=now.getTime()-startSite.getTime();
+    var diffDay=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("runday").innerHTML="网站运行 "+diffDay+" 天"+" • ";
+}
+</script></div>
+</body>
+<script>
+var IconList={'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'sync': 'M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z', 'copy': 'M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z', 'check': 'M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z'};
+var utterancesLoad=0;
+
+let themeSettings={
+    "dark": ["dark","moon","#00f0ff","dark-blue"],
+    "light": ["light","sun","#ff5000","github-light"],
+    "auto": ["auto","sync","","preferred-color-scheme"]
+};
+function changeTheme(mode, icon, color, utheme){
+    document.documentElement.setAttribute("data-color-mode",mode);
+    document.getElementById("themeSwitch").setAttribute("d",value=IconList[icon]);
+    document.getElementById("themeSwitch").parentNode.style.color=color;
+    if(utterancesLoad==1){utterancesTheme(utheme);}
+}
+function modeSwitch(){
+    let currentMode=document.documentElement.getAttribute('data-color-mode');
+    let newMode = currentMode === "light" ? "dark" : currentMode === "dark" ? "auto" : "light";
+    localStorage.setItem("meek_theme", newMode);
+    if(themeSettings[newMode]){
+        changeTheme(...themeSettings[newMode]);
+    }
+}
+function utterancesTheme(theme){
+    const message={type:'set-theme',theme: theme};
+    const iframe=document.getElementsByClassName('utterances-frame')[0];
+    iframe.contentWindow.postMessage(message,'https://utteranc.es');
+}
+if(themeSettings[theme]){changeTheme(...themeSettings[theme]);}
+console.log("\n %c Gmeek last https://github.com/Meekdai/Gmeek \n","padding:5px 0;background:#02d81d;color:#fff");
+</script>
+
+<script>
+document.getElementById("pathHome").setAttribute("d",IconList["home"]);
+document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
+
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.disabled=true;
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","luffysolution-svg/luffy.github.io");
+    script.setAttribute("issue-term","title");
+    
+    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
+    else if(localStorage.getItem("meek_theme")=="light") {script.setAttribute("theme","github-light");}
+    else{script.setAttribute("theme","preferred-color-scheme");}
+    
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
+}
+
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const createClipboardHTML = (codeContent, additionalClasses = '') => `
+        <pre class="notranslate"><code class="notranslate">${codeContent}</code></pre>
+        <div class="clipboard-container position-absolute right-0 top-0 ${additionalClasses}">
+            <clipboard-copy class="ClipboardButton btn m-2 p-0" role="button" style="display: inherit;">
+                <svg height="16" width="16" class="octicon octicon-copy m-2"><path d="${IconList["copy"]}"></path></svg>
+                <svg height="16" width="16" class="octicon octicon-check color-fg-success m-2 d-none"><path d="${IconList["check"]}"></path></svg>
+            </clipboard-copy>
+            <div class="copy-feedback">Copied!</div>
+        </div>
+    `;
+
+    const handleCodeElements = (selector = '') => {
+        document.querySelectorAll(selector).forEach(codeElement => {
+            const codeContent = codeElement.innerHTML;
+            const newStructure = document.createElement('div');
+            newStructure.className = 'snippet-clipboard-content position-relative overflow-auto';
+            newStructure.innerHTML = createClipboardHTML(codeContent);
+
+            const parentElement = codeElement.parentElement;
+            if (selector.includes('highlight')) {
+                parentElement.insertBefore(newStructure, codeElement.nextSibling);
+                parentElement.removeChild(codeElement);
+            } else {
+                parentElement.parentElement.replaceChild(newStructure, parentElement);
+            }
+        });
+    };
+
+    handleCodeElements('pre.notranslate > code.notranslate');
+    handleCodeElements('div.highlight > pre.notranslate');
+
+    let currentFeedback = null;
+    document.querySelectorAll('clipboard-copy').forEach(copyButton => {
+        copyButton.addEventListener('click', () => {
+            const codeContent = copyButton.closest('.snippet-clipboard-content').innerText;
+            const tempTextArea = document.createElement('textarea');
+            tempTextArea.value = codeContent;
+            document.body.appendChild(tempTextArea);
+            tempTextArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempTextArea);
+
+            const copyIcon = copyButton.querySelector('.octicon-copy');
+            const checkIcon = copyButton.querySelector('.octicon-check');
+            const copyFeedback = copyButton.nextElementSibling;
+
+            if (currentFeedback && currentFeedback !== copyFeedback) {currentFeedback.style.display = 'none';}
+            currentFeedback = copyFeedback;
+
+            copyIcon.classList.add('d-none');
+            checkIcon.classList.remove('d-none');
+            copyFeedback.style.display = 'block';
+            copyButton.style.borderColor = 'var(--color-success-fg)';
+
+            setTimeout(() => {
+                copyIcon.classList.remove('d-none');
+                checkIcon.classList.add('d-none');
+                copyFeedback.style.display = 'none';
+                copyButton.style.borderColor = '';
+            }, 2000);
+        });
+    });
+});
+
+</script>
+
+
+</html>
