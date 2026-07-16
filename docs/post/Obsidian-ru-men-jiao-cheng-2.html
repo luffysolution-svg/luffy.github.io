@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-dark-theme="dark" data-light-theme="light" lang="zh-CN">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href='https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/Primer/21.0.7/primer.css' rel='stylesheet' />
+    
+    <link rel="icon" href="https://avatars.githubusercontent.com/u/228253165?v=4&size=64"><script>
+        let theme = localStorage.getItem("meek_theme") || "light";
+        document.documentElement.setAttribute("data-color-mode", theme);
+    </script>
+<meta name="description" content="<html>
+<body>
+<!--StartFragment--><!-- obsidian --><blockquote>
+<p><strong>进阶篇：文件夹、标签、模板、插件</strong></p>
+</blockquote>
+<hr>
+<p>上一篇教程我们学会了 Obsidian 的安装、创建笔记、双向链接和图谱视图。">
+<meta property="og:title" content="Obsidian入门教程2">
+<meta property="og:description" content="<html>
+<body>
+<!--StartFragment--><!-- obsidian --><blockquote>
+<p><strong>进阶篇：文件夹、标签、模板、插件</strong></p>
+</blockquote>
+<hr>
+<p>上一篇教程我们学会了 Obsidian 的安装、创建笔记、双向链接和图谱视图。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://luffysolution-svg.github.io/luffy.github.io/post/Obsidian-ru-men-jiao-cheng-2.html">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/228253165?v=4&size=64">
+<title>Obsidian入门教程2</title>
+<link href="//unpkg.com/@wooorm/starry-night@2.1.1/style/both.css" rel="stylesheet" />
+
+
+</head>
+<style>
+body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;padding: 45px;font-size: 16px;font-family: sans-serif;line-height: 1.25;}
+#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
+#footer {margin-top:64px; text-align: center;font-size: small;}
+
+</style>
+
+<style>
+.postTitle{margin: auto 0;font-size:40px;font-weight:bold;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
+@media (max-width: 600px) {
+    body {padding: 8px;}
+    .postTitle{font-size:24px;}
+}
+.copy-feedback {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 50px;
+    color: var(--color-fg-on-emphasis);
+    background-color: var(--color-fg-muted);
+    border-radius: 3px;
+    padding: 5px 8px;
+    font-size: 12px;
+}
+</style>
+
+
+
+
+<body>
+    <div id="header">
+<h1 class="postTitle">Obsidian入门教程2</h1>
+<div class="title-right">
+    <a href="https://luffysolution-svg.github.io/luffy.github.io" id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+    <a href="https://github.com/luffysolution-svg/luffy.github.io/issues/6" target="_blank" class="btn btn-invisible circle" title="Issue">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathIssue" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+
+    <a class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题">
+        <svg class="octicon" width="16" height="16" >
+            <path id="themeSwitch" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+
+</div>
+</div>
+    <div id="content">
+<div class="markdown-body" id="postBody">
+
+<blockquote>
+<p><strong>进阶篇：文件夹、标签、模板、插件</strong></p>
+</blockquote>
+<hr>
+<p>上一篇教程我们学会了 Obsidian 的安装、创建笔记、双向链接和图谱视图。如果你还没来得及看，可以先去补一下 👉 <a href="如何使用Obsidian搭建自己的知识库？系列教程①">如何使用Obsidian搭建自己的知识库？系列教程①</a></p>
+<p>今天这一篇，我们要解决几个非常实际的问题：</p>
+<ul>
+<li>笔记越来越多，怎么分类管理？文件夹还是标签？</li>
+<li>每次写笔记都要重复排版，好烦，有没有偷懒的办法？</li>
+<li>有没有快捷键可以让我写笔记快一点？</li>
+<li>大家都在说的 Obsidian 插件，到底该装哪些？</li>
+</ul>
+<p>别急，一个一个来 👇</p>
+<hr>
+<h2>一、文件夹组织——给知识建个"书架" 📂</h2>
+<p>大部分人一开始都会用文件夹来管理笔记，比如这样：</p>
+<pre class="notranslate"><code class="notranslate">我的知识库/
+├── 学习笔记/
+│   ├── Python.md
+│   ├── 数据分析.md
+│   └── 机器学习.md
+├── 工作相关/
+│   ├── 项目A.md
+│   └── 周报.md
+└── 生活记录/
+    └── 读书笔记.md
+</code></pre>
+<p>看起来很清晰对吧？<strong>文件夹的优势</strong>就是直观、一目了然。</p>
+<p>但是问题来了——<strong>一篇笔记只能放在一个文件夹里</strong>。</p>
+<p>假设你写了一篇笔记叫《用Python做数据分析》，它既属于"Python"，也属于"数据分析"。那它该放哪个文件夹？放哪边都不太对。</p>
+<p>这时候，<strong>标签</strong>就派上用场了。</p>
+<hr>
+<h2>二、标签系统——给笔记"贴标签" 🏷️</h2>
+<p>Obsidian 的标签很简单，在笔记里写 <code class="notranslate">#标签名</code> 就行：</p>
+<pre class="notranslate"><code class="notranslate"># 用Python做数据分析
+<p>#Python #数据分析 #可视化</p>
+</code><p><code class="notranslate">今天我们用 Pandas 处理了一份销售数据……<br>
+</code></p></pre><p></p>
+<p>一个笔记可以加<strong>多个标签</strong>，比如这篇笔记可以同时拥有 <code class="notranslate">#Python</code>、<code class="notranslate">#数据分析</code>、<code class="notranslate">#可视化</code> 三个标签。</p>
+<p>然后点击左侧顶部栏的<strong>搜索面板</strong>（一个类似放大镜的图标），然后选择tag标签🏷，就能看到所有标签和对应的笔记数量：</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/71eb8034fa03e0aabe0a0c483edb825e0ce7668a770c32d23fbf66a911607b29/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f63373436373430353939656633343666313064663330363666626561386536635f4d44352e706e67"><img src="https://camo.githubusercontent.com/71eb8034fa03e0aabe0a0c483edb825e0ce7668a770c32d23fbf66a911607b29/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f63373436373430353939656633343666313064663330363666626561386536635f4d44352e706e67" alt="c746740599ef346f10df3066fbea8e6c_MD5" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/c746740599ef346f10df3066fbea8e6c_MD5.png" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/f278630933cb0c6b53281c41bde051dc17169efc6ff6ecd8a5a5dbf380f66765/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f37373661323864313731613064376236313966383335626433366333383737625f4d44352e706e67"><img src="https://camo.githubusercontent.com/f278630933cb0c6b53281c41bde051dc17169efc6ff6ecd8a5a5dbf380f66765/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f37373661323864313731613064376236313966383335626433366333383737625f4d44352e706e67" alt="776a28d171a0d7b619f835bd36c3877b_MD5" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/776a28d171a0d7b619f835bd36c3877b_MD5.png" style="max-width: 100%;"></a></p>
+<p>点击任意标签，就会列出所有带这个标签的笔记。</p>
+<p>如果你在设置里面开关闭了这个选项，你就可以直接进行预览文件<br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/a4b16561aa78e3bbbfa4208dff4691b4b1e1afbd7c520744e396ce82a39190b3/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f32383564663435333966326664636238336639333864636230353164363066335f4d44352e706e67"><img src="https://camo.githubusercontent.com/a4b16561aa78e3bbbfa4208dff4691b4b1e1afbd7c520744e396ce82a39190b3/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f32383564663435333966326664636238336639333864636230353164363066335f4d44352e706e67" alt="285df4539f2fdcb83f938dcb051d60f3_MD5" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/285df4539f2fdcb83f938dcb051d60f3_MD5.png" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/e456921b4e653af337adcdeb4a67ffa1a3c3df2849eda8e066507bd2e28ae0e3/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f64613266613132636365346432393937376263323338383166666261636262625f4d44352e706e67"><img src="https://camo.githubusercontent.com/e456921b4e653af337adcdeb4a67ffa1a3c3df2849eda8e066507bd2e28ae0e3/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f64613266613132636365346432393937376263323338383166666261636262625f4d44352e706e67" alt="da2fa12cce4d29977bc23881ffbacbbb_MD5" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/da2fa12cce4d29977bc23881ffbacbbb_MD5.png" style="max-width: 100%;"></a></p>
+<p>这样，以后就可以快速对照来打开需要的文件</p>
+<p><strong>标签的好处：</strong></p>
+<ul>
+<li>✅ 一篇笔记可以有多个标签，灵活分类</li>
+<li>✅ 支持嵌套标签，比如 <code class="notranslate">#编程/Python</code>、<code class="notranslate">#编程/JavaScript</code></li>
+<li>✅ 适合按"主题"或"属性"来归类</li>
+</ul>
+<hr>
+<h2>三、文件夹 vs 标签，到底怎么用？</h2>
+<p>这是很多新手都会纠结的问题。我的建议很简单：</p>
+<blockquote>
+<p><strong>文件夹管"项目"，标签管"主题"</strong></p>
+</blockquote>
+<p>在知识库的组织方式上，文件夹与标签各有适用场景：</p>
+<p><strong>适合文件夹的情况</strong>：</p>
+<ol>
+<li>按项目（如项目A、项目B）</li>
+<li>按用途（如日记、读书笔记）分类时</li>
+</ol>
+<p><strong>适合使用标签的情况</strong>：</p>
+<ol>
+<li>按主题（如Python、数据分析）</li>
+<li>按状态（如待整理、已完成）</li>
+<li>按优先级（如重要、普通）</li>
+</ol>
+<p><strong>我的个人实践：</strong></p>
+<pre class="notranslate"><code class="notranslate">我的知识库/
+├── 00-收件箱/        ← 临时笔记，先扔这里
+├── 10-学习笔记/      ← 长期知识积累
+├── 20-项目笔记/      ← 按项目划分
+├── 30-日记与周报/    ← 时间相关
+├── 40-读书笔记/      ← 阅读记录
+└── 90-归档/          ← 已完成项目
+</code></pre>
+<p>然后在笔记里打标签：<code class="notranslate">#Python</code>、<code class="notranslate">#数据分析</code>、<code class="notranslate">#待整理</code>、<code class="notranslate">#重要</code>……</p>
+<ul>
+<li><strong>文件夹</strong>保证了大方向不乱</li>
+<li><strong>标签</strong>提供了跨文件夹的灵活检索</li>
+</ul>
+<blockquote>
+<p>💡 <strong>黄金法则：</strong> 文件夹层级不超过 3 层，标签数量不设限但要有规律命名。</p>
+</blockquote>
+<hr>
+<h2>四、模板功能——高效偷懒的神器 ⚡</h2>
+<p>你肯定遇到过这种情况：</p>
+<ul>
+<li>每天写日记，但每次都要手动敲日期</li>
+<li>每周写周报，格式总是调来调去</li>
+<li>做读书笔记，每次都要写书名、作者、日期</li>
+</ul>
+<p>这时候<strong>模板（Templates）</strong> 就能帮你一键搞定！</p>
+<h3>4.1 开启模板功能</h3>
+<ol>
+<li>打开 <strong>设置 ⚙️ → 核心插件</strong></li>
+<li>找到 <strong>模板</strong>，打开开关</li>
+<li>设置模板文件夹路径，比如 <code class="notranslate">模板/</code></li>
+</ol>
+<h3>4.2 创建你的第一个模板</h3>
+<p>在 <code class="notranslate">模板/</code> 文件夹下新建一个笔记，取名为 <code class="notranslate">日记模板.md</code>：</p>
+<pre class="notranslate"><code class="notranslate"># {{date}}
+## 📌 今日重点
+- 
+## 📝 工作记录
+- 
+## 💭 思考与感悟
+- 
+## 📖 今日阅读/学习
+- 
+</code></pre>
+<p>其中 <code class="notranslate">{{date}}</code> 是 Obsidian 的模板变量，插入时会自动替换为当前日期。</p>
+<h3>4.3 使用模板</h3>
+<p>你也可以设置快捷键或者安装 <strong>Templater</strong> 插件(安装步骤见下文)，在任意笔记中，按 <code class="notranslate">Ctrl + P</code> 打开命令面板，然后来获得更强大的模板功能。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/a5e883706b3b946f4462add67ad6139d0ea7b495cc8fe3ee6aab30e1dbe12f59/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f36343062393163383939633637666465373636323530633762313464383439615f4d44352e706e67"><img src="https://camo.githubusercontent.com/a5e883706b3b946f4462add67ad6139d0ea7b495cc8fe3ee6aab30e1dbe12f59/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f36343062393163383939633637666465373636323530633762313464383439615f4d44352e706e67" alt="640b91c899c67fde766250c7b14d849a_MD5" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/640b91c899c67fde766250c7b14d849a_MD5.png" style="max-width: 100%;"></a></p>
+<h3>4.4 几个实用模板示例</h3>
+<p><strong>读书笔记模板 📚</strong></p>
+<pre class="notranslate"><code class="notranslate"># 书名：{{title}}
+<ul>
+<li><strong>作者</strong>：</li>
+<li><strong>阅读日期</strong>：{{date}}</li>
+<li><strong>评分</strong>：</li>
+</ul>
+<h2>核心观点</h2>
+<ul>
+<li></li>
+</ul>
+<h2>印象深刻的话</h2>
+<blockquote>
+</blockquote>
+<h2>我的启发</h2>
+<ul>
+<li></li>
+</ul>
+</code><p><code class="notranslate"></code></p></pre><p></p>
+<p><strong>周报模板 📊</strong></p>
+<pre class="notranslate"><code class="notranslate"># 周报：{{date:YYYY-WW}}
+<h2>✅ 本周完成</h2>
+<ul>
+<li></li>
+</ul>
+<h2>🔜 下周计划</h2>
+<ul>
+<li></li>
+</ul>
+<h2>🚧 遇到的问题</h2>
+<ul>
+<li></li>
+</ul>
+</code><p><code class="notranslate"></code></p></pre><p></p>
+<hr>
+<h2>五、常用快捷键——写笔记快如闪电 ⌨️</h2>
+<p>把下面这几个记住，效率直接翻倍：</p>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>快捷键（Win）</th>
+<th>快捷键（Mac）</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ctrl + N</td>
+<td>Cmd + N</td>
+<td>新建笔记</td>
+</tr>
+<tr>
+<td>Ctrl + S</td>
+<td>Cmd + S</td>
+<td>保存笔记</td>
+</tr>
+<tr>
+<td>Ctrl + P</td>
+<td>Cmd + P</td>
+<td>命令面板（万能入口）</td>
+</tr>
+<tr>
+<td>Ctrl + O</td>
+<td>Cmd + O</td>
+<td>快速打开笔记</td>
+</tr>
+<tr>
+<td>Ctrl + E</td>
+<td>Cmd + E</td>
+<td>切换编辑/预览模式</td>
+</tr>
+<tr>
+<td>Ctrl + B</td>
+<td>Cmd + B</td>
+<td>加粗</td>
+</tr>
+<tr>
+<td>Ctrl + I</td>
+<td>Cmd + I</td>
+<td>斜体</td>
+</tr>
+<tr>
+<td>Ctrl + K</td>
+<td>Cmd + K</td>
+<td>插入链接</td>
+</tr>
+<tr>
+<td>Ctrl + D</td>
+<td>Cmd + D</td>
+<td>删除当前行</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + F</td>
+<td>Cmd + Shift + F</td>
+<td>全文搜索</td>
+</tr>
+<tr>
+<td>Ctrl + ,</td>
+<td>Cmd + ,</td>
+<td>打开设置</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<hr>
+<h2>最后的叮嘱 💬</h2>
+<p>第二篇教程到这里就结束了。你只需要记住三条黄金原则：</p>
+<ol>
+<li><strong>文件夹管项目，标签管主题</strong> —— 不纠结一篇笔记放哪，用标签串联一切。</li>
+<li><strong>模板是偷懒神器</strong> —— 花10分钟做好模板，未来省下100小时。</li>
+<li><strong>插件按需安装，少即是多</strong> —— 先把你最痛的问题解决掉，别被“必装”清单绑架。</li>
+</ol>
+<p>下一篇文章我们将进入 <strong>高阶玩法</strong>：  </p>
+<ul>
+<li>如何用 Obsidian真正用于科研工作（文献获取、文献管理）</li>
+<li>如何用 Obsidian获取知乎、小红书、微信公众号好文、教程、笔记</li>
+<li>如何将Obsidian的markdown文件无损导出PDF、docx、HTML等</li>
+</ul>
+<p>如果你觉得这篇内容对你有帮助，不妨点个赞、收藏，或者分享给身边同样在学习 Obsidian 的朋友～我们下期再见 👋</p>
+<hr>
+
+&gt; **进阶篇：文件夹、标签、模板、插件**
+<hr>
+<p>上一篇教程我们学会了 Obsidian 的安装、创建笔记、双向链接和图谱视图。如果你还没来得及看，可以先去补一下 👉 [[<a href="https://github.com/luffysolution-svg/luffy.github.io/issues/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Obsidian%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%9F%A5%E8%AF%86%E5%BA%93%EF%BC%9F%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B%E2%91%A0">如何使用Obsidian搭建自己的知识库？系列教程①</a>]]</p>
+<p>今天这一篇，我们要解决几个非常实际的问题：</p>
+<ul>
+<li>笔记越来越多，怎么分类管理？文件夹还是标签？</li>
+<li>每次写笔记都要重复排版，好烦，有没有偷懒的办法？</li>
+<li>有没有快捷键可以让我写笔记快一点？</li>
+<li>大家都在说的 Obsidian 插件，到底该装哪些？</li>
+</ul>
+<p>别急，一个一个来 👇</p>
+<hr>
+<h2>一、文件夹组织——给知识建个"书架" 📂</h2>
+<p>大部分人一开始都会用文件夹来管理笔记，比如这样：</p>
+<pre class="notranslate"><code class="notranslate">我的知识库/
+├── 学习笔记/
+│   ├── Python.md
+│   ├── 数据分析.md
+│   └── 机器学习.md
+├── 工作相关/
+│   ├── 项目A.md
+│   └── 周报.md
+└── 生活记录/
+    └── 读书笔记.md
+</code></pre>
+<p>看起来很清晰对吧？<strong>文件夹的优势</strong>就是直观、一目了然。</p>
+<p>但是问题来了——<strong>一篇笔记只能放在一个文件夹里</strong>。</p>
+<p>假设你写了一篇笔记叫《用Python做数据分析》，它既属于"Python"，也属于"数据分析"。那它该放哪个文件夹？放哪边都不太对。</p>
+<p>这时候，<strong>标签</strong>就派上用场了。</p>
+<hr>
+<h2>二、标签系统——给笔记"贴标签" 🏷️</h2>
+<p>Obsidian 的标签很简单，在笔记里写 <code class="notranslate">#标签名</code> 就行：</p>
+<div class="highlight highlight-text-md"><pre class="notranslate"><span class="pl-mh"># <span class="pl-en">用Python做数据分析</span></span>
+
+#Python #数据分析 #可视化
+
+今天我们用 Pandas 处理了一份销售数据……</pre></div>
+<p>一个笔记可以加<strong>多个标签</strong>，比如这篇笔记可以同时拥有 <code class="notranslate">#Python</code>、<code class="notranslate">#数据分析</code>、<code class="notranslate">#可视化</code> 三个标签。</p>
+<p>然后点击左侧顶部栏的<strong>搜索面板</strong>（一个类似放大镜的图标），然后选择tag标签🏷，就能看到所有标签和对应的笔记数量：</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/71eb8034fa03e0aabe0a0c483edb825e0ce7668a770c32d23fbf66a911607b29/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f63373436373430353939656633343666313064663330363666626561386536635f4d44352e706e67"><img src="https://camo.githubusercontent.com/71eb8034fa03e0aabe0a0c483edb825e0ce7668a770c32d23fbf66a911607b29/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f63373436373430353939656633343666313064663330363666626561386536635f4d44352e706e67" alt="c746740599ef346f10df3066fbea8e6c_MD5" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/c746740599ef346f10df3066fbea8e6c_MD5.png" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/f278630933cb0c6b53281c41bde051dc17169efc6ff6ecd8a5a5dbf380f66765/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f37373661323864313731613064376236313966383335626433366333383737625f4d44352e706e67"><img src="https://camo.githubusercontent.com/f278630933cb0c6b53281c41bde051dc17169efc6ff6ecd8a5a5dbf380f66765/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f37373661323864313731613064376236313966383335626433366333383737625f4d44352e706e67" alt="776a28d171a0d7b619f835bd36c3877b_MD5" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/776a28d171a0d7b619f835bd36c3877b_MD5.png" style="max-width: 100%;"></a></p>
+<p>点击任意标签，就会列出所有带这个标签的笔记。</p>
+<p>如果你在设置里面开关闭了这个选项，你就可以直接进行预览文件<br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/a4b16561aa78e3bbbfa4208dff4691b4b1e1afbd7c520744e396ce82a39190b3/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f32383564663435333966326664636238336639333864636230353164363066335f4d44352e706e67"><img src="https://camo.githubusercontent.com/a4b16561aa78e3bbbfa4208dff4691b4b1e1afbd7c520744e396ce82a39190b3/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f32383564663435333966326664636238336639333864636230353164363066335f4d44352e706e67" alt="285df4539f2fdcb83f938dcb051d60f3_MD5" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/285df4539f2fdcb83f938dcb051d60f3_MD5.png" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/e456921b4e653af337adcdeb4a67ffa1a3c3df2849eda8e066507bd2e28ae0e3/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f64613266613132636365346432393937376263323338383166666261636262625f4d44352e706e67"><img src="https://camo.githubusercontent.com/e456921b4e653af337adcdeb4a67ffa1a3c3df2849eda8e066507bd2e28ae0e3/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f64613266613132636365346432393937376263323338383166666261636262625f4d44352e706e67" alt="da2fa12cce4d29977bc23881ffbacbbb_MD5" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/da2fa12cce4d29977bc23881ffbacbbb_MD5.png" style="max-width: 100%;"></a></p>
+<p>这样，以后就可以快速对照来打开需要的文件</p>
+<p><strong>标签的好处：</strong></p>
+<ul>
+<li>✅ 一篇笔记可以有多个标签，灵活分类</li>
+<li>✅ 支持嵌套标签，比如 <code class="notranslate">#编程/Python</code>、<code class="notranslate">#编程/JavaScript</code></li>
+<li>✅ 适合按"主题"或"属性"来归类</li>
+</ul>
+<hr>
+<h2>三、文件夹 vs 标签，到底怎么用？</h2>
+<p>这是很多新手都会纠结的问题。我的建议很简单：</p>
+<blockquote>
+<p><strong>文件夹管"项目"，标签管"主题"</strong></p>
+</blockquote>
+<p>在知识库的组织方式上，文件夹与标签各有适用场景：</p>
+<p><strong>适合文件夹的情况</strong>：</p>
+<ol>
+<li>按项目（如项目A、项目B）</li>
+<li>按用途（如日记、读书笔记）分类时</li>
+</ol>
+<p><strong>适合使用标签的情况</strong>：</p>
+<ol>
+<li>按主题（如Python、数据分析）</li>
+<li>按状态（如待整理、已完成）</li>
+<li>按优先级（如重要、普通）</li>
+</ol>
+<p><strong>我的个人实践：</strong></p>
+<pre class="notranslate"><code class="notranslate">我的知识库/
+├── 00-收件箱/        ← 临时笔记，先扔这里
+├── 10-学习笔记/      ← 长期知识积累
+├── 20-项目笔记/      ← 按项目划分
+├── 30-日记与周报/    ← 时间相关
+├── 40-读书笔记/      ← 阅读记录
+└── 90-归档/          ← 已完成项目
+</code></pre>
+<p>然后在笔记里打标签：<code class="notranslate">#Python</code>、<code class="notranslate">#数据分析</code>、<code class="notranslate">#待整理</code>、<code class="notranslate">#重要</code>……</p>
+<ul>
+<li><strong>文件夹</strong>保证了大方向不乱</li>
+<li><strong>标签</strong>提供了跨文件夹的灵活检索</li>
+</ul>
+<blockquote>
+<p>💡 <strong>黄金法则：</strong> 文件夹层级不超过 3 层，标签数量不设限但要有规律命名。</p>
+</blockquote>
+<hr>
+<h2>四、模板功能——高效偷懒的神器 ⚡</h2>
+<p>你肯定遇到过这种情况：</p>
+<ul>
+<li>每天写日记，但每次都要手动敲日期</li>
+<li>每周写周报，格式总是调来调去</li>
+<li>做读书笔记，每次都要写书名、作者、日期</li>
+</ul>
+<p>这时候<strong>模板（Templates）</strong> 就能帮你一键搞定！</p>
+<h3>4.1 开启模板功能</h3>
+<ol>
+<li>打开 <strong>设置 ⚙️ → 核心插件</strong></li>
+<li>找到 <strong>模板</strong>，打开开关</li>
+<li>设置模板文件夹路径，比如 <code class="notranslate">模板/</code></li>
+</ol>
+<h3>4.2 创建你的第一个模板</h3>
+<p>在 <code class="notranslate">模板/</code> 文件夹下新建一个笔记，取名为 <code class="notranslate">日记模板.md</code>：</p>
+<div class="highlight highlight-text-md"><pre class="notranslate"><span class="pl-mh"># <span class="pl-en">{{date}}</span></span>
+<span class="pl-mh">## <span class="pl-en">📌 今日重点</span></span>
+<span class="pl-mh">- </span>
+<span class="pl-mh">## <span class="pl-en">📝 工作记录</span></span>
+<span class="pl-mh">- </span>
+<span class="pl-mh">## <span class="pl-en">💭 思考与感悟</span></span>
+<span class="pl-mh">- </span>
+<span class="pl-mh">## <span class="pl-en">📖 今日阅读/学习</span></span>
+<span class="pl-mh">- </span></pre></div>
+<p>其中 <code class="notranslate">{{date}}</code> 是 Obsidian 的模板变量，插入时会自动替换为当前日期。</p>
+<h3>4.3 使用模板</h3>
+<p>你也可以设置快捷键或者安装 <strong>Templater</strong> 插件(安装步骤见下文)，在任意笔记中，按 <code class="notranslate">Ctrl + P</code> 打开命令面板，然后来获得更强大的模板功能。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/a5e883706b3b946f4462add67ad6139d0ea7b495cc8fe3ee6aab30e1dbe12f59/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f36343062393163383939633637666465373636323530633762313464383439615f4d44352e706e67"><img src="https://camo.githubusercontent.com/a5e883706b3b946f4462add67ad6139d0ea7b495cc8fe3ee6aab30e1dbe12f59/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f36343062393163383939633637666465373636323530633762313464383439615f4d44352e706e67" alt="640b91c899c67fde766250c7b14d849a_MD5" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/640b91c899c67fde766250c7b14d849a_MD5.png" style="max-width: 100%;"></a></p>
+<h3>4.4 几个实用模板示例</h3>
+<p><strong>读书笔记模板 📚</strong></p>
+<div class="highlight highlight-text-md"><pre class="notranslate"><span class="pl-mh"># <span class="pl-en">书名：{{title}}</span></span>
+
+<span class="pl-v">-</span> <span class="pl-s">**</span>作者<span class="pl-s">**</span>：
+<span class="pl-v">-</span> <span class="pl-s">**</span>阅读日期<span class="pl-s">**</span>：{{date}}
+<span class="pl-v">-</span> <span class="pl-s">**</span>评分<span class="pl-s">**</span>：
+
+<span class="pl-mh">## <span class="pl-en">核心观点</span></span>
+<span class="pl-mh">- </span>
+<span class="pl-mh">## <span class="pl-en">印象深刻的话</span></span>
+<span class="pl-ent"><span class="pl-ent">&gt; </span></span>
+<span class="pl-ent"></span><span class="pl-mh">## <span class="pl-en">我的启发</span></span>
+<span class="pl-mh">- </span></pre></div>
+<p><strong>周报模板 📊</strong></p>
+<div class="highlight highlight-text-md"><pre class="notranslate"><span class="pl-mh"># <span class="pl-en">周报：{{date<span class="pl-s">:</span><span class="pl-en">YYYY-WW</span>}}</span></span>
+
+<span class="pl-mh">## <span class="pl-en">✅ 本周完成</span></span>
+<span class="pl-mh">- </span>
+<span class="pl-mh">## <span class="pl-en">🔜 下周计划</span></span>
+<span class="pl-mh">- </span>
+<span class="pl-mh">## <span class="pl-en">🚧 遇到的问题</span></span>
+<span class="pl-mh">- </span></pre></div>
+<hr>
+<h2>五、常用快捷键——写笔记快如闪电 ⌨️</h2>
+<p>把下面这几个记住，效率直接翻倍：</p>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>快捷键（Win）</th>
+<th>快捷键（Mac）</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class="notranslate">Ctrl + N</code></td>
+<td><code class="notranslate">Cmd + N</code></td>
+<td>新建笔记</td>
+</tr>
+<tr>
+<td><code class="notranslate">Ctrl + S</code></td>
+<td><code class="notranslate">Cmd + S</code></td>
+<td>保存笔记</td>
+</tr>
+<tr>
+<td><code class="notranslate">Ctrl + P</code></td>
+<td><code class="notranslate">Cmd + P</code></td>
+<td>命令面板（万能入口）</td>
+</tr>
+<tr>
+<td><code class="notranslate">Ctrl + O</code></td>
+<td><code class="notranslate">Cmd + O</code></td>
+<td>快速打开笔记</td>
+</tr>
+<tr>
+<td><code class="notranslate">Ctrl + E</code></td>
+<td><code class="notranslate">Cmd + E</code></td>
+<td>切换编辑/预览模式</td>
+</tr>
+<tr>
+<td><code class="notranslate">Ctrl + B</code></td>
+<td><code class="notranslate">Cmd + B</code></td>
+<td><strong>加粗</strong></td>
+</tr>
+<tr>
+<td><code class="notranslate">Ctrl + I</code></td>
+<td><code class="notranslate">Cmd + I</code></td>
+<td><em>斜体</em></td>
+</tr>
+<tr>
+<td><code class="notranslate">Ctrl + K</code></td>
+<td><code class="notranslate">Cmd + K</code></td>
+<td>插入链接</td>
+</tr>
+<tr>
+<td><code class="notranslate">Ctrl + D</code></td>
+<td><code class="notranslate">Cmd + D</code></td>
+<td>删除当前行</td>
+</tr>
+<tr>
+<td><code class="notranslate">Ctrl + Shift + F</code></td>
+<td><code class="notranslate">Cmd + Shift + F</code></td>
+<td>全文搜索</td>
+</tr>
+<tr>
+<td><code class="notranslate">Ctrl + ,</code></td>
+<td><code class="notranslate">Cmd + ,</code></td>
+<td>打开设置</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<p>有时候，我们需要自定义快捷键来方便我们快速编辑</p>
+<p><strong>我最常用的自定义快捷键（可供参考）：</strong></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/551cb6443267a15973eb1fae07b3bd8d82798f68e0911a1647847169edb03683/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f39333336613462376633346565356634393035306331633738313237333336385f4d44352e706e67"><img src="https://camo.githubusercontent.com/551cb6443267a15973eb1fae07b3bd8d82798f68e0911a1647847169edb03683/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f39333336613462376633346565356634393035306331633738313237333336385f4d44352e706e67" alt="9336a4b7f34ee5f49050c1c781273368_MD5" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/9336a4b7f34ee5f49050c1c781273368_MD5.png" style="max-width: 100%;"></a></p>
+<hr>
+<h2>六、社区插件入门——让Obsidian更强大 🔌</h2>
+<p>Obsidian 真正厉害的地方在于它的<strong>插件生态</strong>。目前社区有 2000+ 个插件，几乎能解决你遇到的所有问题。</p>
+<h3>6.1 如何安装插件</h3>
+<ol>
+<li>打开 <strong>设置 ⚙️ → 第三方插件 → 社区插件</strong></li>
+<li>点击 <strong>浏览</strong>，搜索你要的插件</li>
+<li>点击 <strong>安装</strong>，然后 <strong>启用</strong></li>
+</ol>
+<blockquote>
+<p><g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> <strong>安全提醒：</strong> 尽量安装下载量高、更新频繁的插件。社区插件的代码是开源的，但建议不要安装来源不明的插件。</p>
+</blockquote>
+<h3>6.2 插件误区<g-emoji class="g-emoji" alias="warning">⚠️</g-emoji></h3>
+<p>网上有许多教程，一上来就告诉你dataview、excalidraw、task等xx插件必装</p>
+<p>我告诉你，根本没有必要，有些插件根本没有对应的刚需</p>
+<p>Obsidian是个人知识库管理的一个工具，最重要的是找到适合自己、<strong>能满足自己实际需求的插件才是所谓的“必装插件”</strong></p>
+<p>目前个人做得比较成熟和优秀的插件分为下面几类：</p>
+<p><strong>结构化元数据层</strong>：Properties、Bases、Dataview、Metadata Menu；<br>
+<strong>自动化层</strong>：Templates、Templater、QuickAdd、Commander；<br>
+<strong>编辑增强层</strong>：Linter、Advanced Tables、Admonition；<br>
+<strong>可视化层</strong>：Canvas、Excalidraw、Advanced Canvas、Mermaid/PlantUML；<br>
+<strong>研究工作流层</strong>：Zotero Integration、Citations、ZotLit、Better BibTeX；<br>
+<strong>发布导出层</strong>：Publish、Pandoc、Webpage HTML Export、Better Export PDF。</p>
+<p>不过，正如我所说的，你没必要都安装</p>
+<p>下面我给你两个所有Obsidian新手真正需要安装的插件：</p>
+<h4>6.2.1 必装插件</h4>
+<p><strong>Custom Attachment Location</strong></p>
+<ul>
+<li><strong>功能简介</strong>：自定义附件（如图片、文件）的存储位置，支持按笔记所在文件夹或指定路径存放附件，避免默认将所有附件都堆在根目录或 <code class="notranslate">attachment</code> 文件夹下。</li>
+<li><strong>安装方式</strong>：设置 → 第三方插件 → 社区插件 → 搜索 “Custom Attachment Location” → 安装并启用</li>
+<li><strong>主要使用场景</strong>：
+<ol>
+<li>希望将笔记中的图片等附件与本笔记放在同一文件夹内，便于整理和迁移。</li>
+<li>为不同项目或主题笔记设置不同的附件路径。</li>
+</ol>
+</li>
+<li><strong>推荐理由</strong>：解决附件散乱问题，让知识库更整洁；尤其适合大量插入图片或文件的用户。</li>
+</ul>
+<p><strong>Editing Toolbar</strong></p>
+<ul>
+<li><strong>功能简介</strong>：在笔记编辑区域顶部添加一个可视化的格式工具栏，提供加粗、斜体、标题、列表、引用、代码块等常用 Markdown 格式按钮，无需记忆快捷键或命令。</li>
+<li><strong>安装方式</strong>：设置 → 第三方插件 → 社区插件 → 搜索 “Editing Toolbar” → 安装并启用</li>
+<li><strong>主要使用场景</strong>：
+<ol>
+<li>新手不熟悉 Markdown 语法或快捷键，需要直观的点击操作。</li>
+<li>日常快速插入列表、表格、链接等常用格式。</li>
+</ol>
+</li>
+<li><strong>推荐理由</strong>：降低入门门槛，提高编辑效率；适合习惯“所见即所得”操作的用户。</li>
+</ul>
+<p>没错，就这两个，其他的都是取决于你的需要</p>
+<h4>6.2.2 画图专用插件</h4>
+<p>如果你有画图或白板笔记的需求，下面这两个插件也同样值得安装：</p>
+<p><strong>Excalidraw</strong></p>
+<ul>
+<li><strong>功能简介</strong>：在笔记中嵌入手绘风格的白板画板，支持流程图、思维导图、示意图等，可插入图片、添加文字、自由绘图，所有内容都保存在 Markdown 笔记中。</li>
+<li><strong>安装方式</strong>：设置 → 第三方插件 → 社区插件 → 搜索 “Excalidraw” → 安装并启用</li>
+<li><strong>主要使用场景</strong>：
+<ol>
+<li>需要快速画流程图、架构图或概念草图。</li>
+<li>在读书笔记或学习笔记中绘制示意图，增强理解。</li>
+<li>团队协作时共享可视化思路。</li>
+</ol>
+</li>
+<li><strong>推荐理由</strong>：轻量、直观、完全本地化，绘图内容与笔记深度绑定，无需切换应用。</li>
+</ul>
+<p><strong>Better Canvas</strong></p>
+<ul>
+<li><strong>功能简介</strong>：增强 Obsidian 原生 Canvas（白板）功能，增加更多节点样式、连接线类型、自动布局、导出为图片等，让白板更专业。</li>
+<li><strong>安装方式</strong>：设置 → 第三方插件 → 社区插件 → 搜索 “Better Canvas” → 安装并启用</li>
+<li><strong>主要使用场景</strong>：
+<ol>
+<li>使用 Canvas 进行项目规划、知识地图梳理。</li>
+<li>需要更丰富的节点颜色、图标和连线样式。</li>
+<li>希望将白板导出为高清图片分享或打印。</li>
+</ol>
+</li>
+<li><strong>推荐理由</strong>：在原生 Canvas 基础上大幅提升功能，满足进阶可视化需求，且与 Obsidian 生态无缝融合。</li>
+</ul>
+<p>excalidraw的话，它更适合快速绘制流程图</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/9fed64a823f235518f78099ed06c0a96946dac09c81b1ffc69d657e4b9a7cd4b/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66636634386264363239386334353466653938613930346536373431613437655f4d44352e706e67"><img src="https://camo.githubusercontent.com/9fed64a823f235518f78099ed06c0a96946dac09c81b1ffc69d657e4b9a7cd4b/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66636634386264363239386334353466653938613930346536373431613437655f4d44352e706e67" alt="fcf48bd6298c454fe98a904e6741a47e_MD5" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/fcf48bd6298c454fe98a904e6741a47e_MD5.png" style="max-width: 100%;"></a></p>
+<p>在这里，可以在画布自由导入PDF、markdown、笔记卡片、latex公式，SVG图像等，适合拿来演讲演示，当然功能远远不止这些</p>
+<p>顶部工具栏是图案，按住空格，然后鼠标左键可以进行画布的拖拽和移动，按住ctrl可以选择目标，日常用好这些就够了</p>
+<p>其他的功能比如AI接入这些看情况可选</p>
+<p>至于绘图的入口也很方便，在文件夹这边空白地方右键即可，弹出对话框就能看到选项，当然左侧工具栏会有显示。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/72156719256eb81111152f3c03ad71aa4185421480eab7774cd1b942b1770844/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f33663932333833356665383836656133613936626564383336636238353864345f4d44352e706e67"><img src="https://camo.githubusercontent.com/72156719256eb81111152f3c03ad71aa4185421480eab7774cd1b942b1770844/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f33663932333833356665383836656133613936626564383336636238353864345f4d44352e706e67" alt="3f923835fe886ea3a96bed836cb858d4_MD5" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/3f923835fe886ea3a96bed836cb858d4_MD5.png" style="max-width: 100%;"></a></p>
+<p>至于canvas（也叫画布、白板），是Obsidian自带的，可以用于自由绘制和连接笔记，但功能相对基础，如果你需要更丰富的绘图能力或手写支持，建议配合专业插件使用。也就是我上面介绍的那个插件，在这里你可以导入excalidraw文件，让图示更方便和更加直接</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/5f1ffb3b765d650503ddf3b83875a06de7e71762a1bc30d6a3bd5c42c889b3a6/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f65373732663765356336663330383738336135396236323835623236613538635f4d44352e706e67"><img src="https://camo.githubusercontent.com/5f1ffb3b765d650503ddf3b83875a06de7e71762a1bc30d6a3bd5c42c889b3a6/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f65373732663765356336663330383738336135396236323835623236613538635f4d44352e706e67" alt="e772f7e5c6f308783a59b6285b26a58c_MD5" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/e772f7e5c6f308783a59b6285b26a58c_MD5.png" style="max-width: 100%;"></a></p>
+<h4>6.2.3 Obsidian同步必装插件</h4>
+<p>如果你有同步的需求，我会推荐下面几个同步用的插件，根据情况选择一个适合的即可，目前同步方案主流的是Fast Note Sync、Remotely Save、Nutstore Sync、Git、官方同步，可以从价格、配置难易、同步速度和稳定性根据自身情况进行选择</p>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>方案</th>
+<th>价格</th>
+<th>配置难度</th>
+<th>同步速度</th>
+<th>稳定性</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Official Sync (官方同步)</strong></td>
+<td>月付/年付（约 $5/月起）</td>
+<td>极低（一键开启）</td>
+<td>极快（端到端加密）</td>
+<td>极高</td>
+<td>注重隐私、愿意付费、追求最好体验的用户</td>
+</tr>
+<tr>
+<td><strong>Remotely Save</strong></td>
+<td>免费 + 自备云存储（如 OneDrive、Dropbox、S3）</td>
+<td>中等（需配置云盘 API）</td>
+<td>较快（取决于云盘）</td>
+<td>较高</td>
+<td>希望免费、熟悉云盘配置，能接受偶尔冲突</td>
+</tr>
+<tr>
+<td><strong>Fast Note Sync</strong></td>
+<td>免费 + 自备 WebDAV 服务</td>
+<td>中等（需 WebDAV 地址）</td>
+<td>较快</td>
+<td>较高</td>
+<td>有自建 NAS 或支持 WebDAV 的云盘（如坚果云）</td>
+</tr>
+<tr>
+<td><strong>Nutstore Sync</strong></td>
+<td>坚果云付费版（约 ¥30/月） + 插件</td>
+<td>低（安装插件登录即可）</td>
+<td>快</td>
+<td>高</td>
+<td>国内用户，使用坚果云同步</td>
+</tr>
+<tr>
+<td><strong>Git (如 obsidian-git)</strong></td>
+<td>免费 + 自备 GitHub/Gitee 仓库</td>
+<td>较高（需 Git 基础）</td>
+<td>中等（取决于 git push/pull）</td>
+<td>高</td>
+<td>开发者、习惯版本管理、需要历史记录的用户</td>
+</tr>
+<tr>
+<td><strong>OneDrive/Google Drive 直接同步</strong></td>
+<td>免费（有容量限制）</td>
+<td>低（仅需安装桌面同步客户端）</td>
+<td>快（但可能因文件锁定导致冲突）</td>
+<td>较低</td>
+<td>仅用于备份或单设备临时同步，不推荐多设备同时编辑</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<blockquote>
+<p><strong>我的建议</strong>：如果不差钱，直接上官方同步，省心安全；如果想免费且有一点点折腾能力，Windows用户用Remotely Save 搭配 OneDrive最优解；Mac用户使用iCloud；国内用户用坚果云 + Nutstore Sync 插件体验也不错。</p>
+</blockquote>
+<p>Obsidian同步插件使用教程在各自的主页里的配置指南会描述得比较详细，这里我不多赘述，有需要的可以私信问我咨询</p>
+<h4>6.2.4 Obsidian+AI工作流必装插件</h4>
+<p>如果你希望在 Obsidian 中直接使用 AI 来辅助写作、整理笔记或与知识库对话，下面两个插件值得一试：</p>
+<p><strong>Claudian</strong></p>
+<ul>
+<li><strong>功能简介</strong>：将 Claude AI 深度集成到 Obsidian，可在笔记内与 AI 对话、提问、总结、翻译、润色、生成内容等，支持引用当前笔记或整个知识库作为对话上下文。</li>
+<li><strong>主要使用场景</strong>：
+<ol>
+<li>写作时让 AI 帮忙润色、扩写或翻译。</li>
+<li>阅读长文时快速总结要点。</li>
+<li>用自然语言向知识库提问，获取基于笔记内容的回答。</li>
+</ol>
+</li>
+<li><strong>理由</strong>：无缝嵌入 Obsidian 工作流，无需切换应用；对话内容可保存为笔记，构建可追溯的 AI 辅助记录。</li>
+</ul>
+<p><strong>YOLO</strong></p>
+<ul>
+<li><strong>功能简介</strong>：新一代 AI 助手插件，提供深度集成 Obsidian 的智能对话体验。支持文件读写、知识库搜索、模板生成、技能扩展等，能直接操作和管理你的 Obsidian 笔记，而不仅仅是对话。</li>
+<li><strong>主要使用场景</strong>：
+<ol>
+<li>让 AI 帮你整理、归类、重命名笔记。</li>
+<li>批量生成或更新笔记模板。</li>
+<li>在知识库中进行智能搜索和内容分析。</li>
+<li>通过技能系统定制 AI 行为，更贴合个人工作流。</li>
+</ol>
+</li>
+<li><strong>理由</strong>：不仅是对话工具，更能直接「操作」你的 Obsidian；强大的技能系统让 AI 成为真正的知识库助手。</li>
+</ul>
+<p>由于这个配置比较繁琐，不是开箱即用的插件，对于前期Obsidian基础教学部分，先不做大篇幅展开，后续几期在科研工作流的教程环节会再次提及</p>
+<hr>
+<h2>📋 本教程核心要点总结表</h2>
+<p>为了让你一眼回顾整篇教程的精华，我把所有关键概念整理成了下表，方便你对照使用。</p>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>模块</th>
+<th>总结</th>
+<th>适配场景</th>
+<th>误区</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>文件夹</strong></td>
+<td>按项目/用途建“书架”，保证大方向不乱</td>
+<td>项目笔记、日记、归档</td>
+<td>层级过深，导致查找慢</td>
+</tr>
+<tr>
+<td><strong>标签</strong></td>
+<td>一篇笔记可拥有多个主题标签，灵活跨文件夹检索</td>
+<td>按主题、状态、优先级归类</td>
+<td>标签命名无规律、数量过多导致冗余</td>
+</tr>
+<tr>
+<td><strong>模板</strong></td>
+<td>一键插入预设格式，彻底告别重复排版</td>
+<td>日记、周报、读书笔记</td>
+<td>模板设计过于复杂，反而不灵活</td>
+</tr>
+<tr>
+<td><strong>快捷键</strong></td>
+<td>记住 Ctrl+N/P/O/E 等，操作速度翻倍</td>
+<td>日常编辑、快速切换、搜索</td>
+<td>想一次性记住所有快捷键</td>
+</tr>
+<tr>
+<td><strong>插件</strong></td>
+<td>先装 <strong>Custom Attachment Location</strong> 和 <strong>Editing Toolbar</strong>，有刚需再扩展</td>
+<td>附件管理、新手编辑辅助</td>
+<td>安装过多插件，冲突导致卡顿</td>
+</tr>
+<tr>
+<td><strong>同步</strong></td>
+<td>根据设备数量、预算、技术能力选择最适合的方案</td>
+<td>多设备协同、备份</td>
+<td>图便宜用免费云盘直同步，导致笔记损坏或冲突</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<hr>
+<h2>最后的叮嘱 💬</h2>
+<p>第二篇教程到这里就结束了。你只需要记住三条黄金原则：</p>
+<ol>
+<li><strong>文件夹管项目，标签管主题</strong> —— 不纠结一篇笔记放哪，用标签串联一切。</li>
+<li><strong>模板是偷懒神器</strong> —— 花10分钟做好模板，未来省下100小时。</li>
+<li><strong>插件按需安装，少即是多</strong> —— 先把你最痛的问题解决掉，别被“必装”清单绑架。</li>
+</ol>
+<p>下一篇文章我们将进入 <strong>高阶玩法</strong>：</p>
+<ul>
+<li>如何用 Obsidian真正用于科研工作（文献获取、文献管理）</li>
+<li>如何用 Obsidian获取知乎、小红书、微信公众号好文、教程、笔记</li>
+<li>如何将Obsidian的markdown文件无损导出PDF、docx、HTML等</li>
+</ul>
+<p>如果你觉得这篇内容对你有帮助，不妨点个赞、收藏，或者分享给身边同样在学习 Obsidian 的朋友～我们下期再见 👋</p>
+<hr></div>
+<div style="font-size:small;margin-top:8px;float:right;"></div>
+
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
+
+</div>
+    <div id="footer"><div id="footer1">Copyright © <span id="copyrightYear"></span> <a href="https://luffysolution-svg.github.io/luffy.github.io">三木的个人博客</a></div>
+<div id="footer2">
+    <span id="runday"></span><span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a></span>
+</div>
+
+<script>
+var now=new Date();
+document.getElementById("copyrightYear").innerHTML=now.getFullYear();
+
+if(""!=""){
+    var startSite=new Date("");
+    var diff=now.getTime()-startSite.getTime();
+    var diffDay=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("runday").innerHTML="网站运行 "+diffDay+" 天"+" • ";
+}
+</script></div>
+</body>
+<script>
+var IconList={'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'sync': 'M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z', 'copy': 'M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z', 'check': 'M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z'};
+var utterancesLoad=0;
+
+let themeSettings={
+    "dark": ["dark","moon","#00f0ff","dark-blue"],
+    "light": ["light","sun","#ff5000","github-light"],
+    "auto": ["auto","sync","","preferred-color-scheme"]
+};
+function changeTheme(mode, icon, color, utheme){
+    document.documentElement.setAttribute("data-color-mode",mode);
+    document.getElementById("themeSwitch").setAttribute("d",value=IconList[icon]);
+    document.getElementById("themeSwitch").parentNode.style.color=color;
+    if(utterancesLoad==1){utterancesTheme(utheme);}
+}
+function modeSwitch(){
+    let currentMode=document.documentElement.getAttribute('data-color-mode');
+    let newMode = currentMode === "light" ? "dark" : currentMode === "dark" ? "auto" : "light";
+    localStorage.setItem("meek_theme", newMode);
+    if(themeSettings[newMode]){
+        changeTheme(...themeSettings[newMode]);
+    }
+}
+function utterancesTheme(theme){
+    const message={type:'set-theme',theme: theme};
+    const iframe=document.getElementsByClassName('utterances-frame')[0];
+    iframe.contentWindow.postMessage(message,'https://utteranc.es');
+}
+if(themeSettings[theme]){changeTheme(...themeSettings[theme]);}
+console.log("\n %c Gmeek last https://github.com/Meekdai/Gmeek \n","padding:5px 0;background:#02d81d;color:#fff");
+</script>
+
+<script>
+document.getElementById("pathHome").setAttribute("d",IconList["home"]);
+document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
+
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.disabled=true;
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","luffysolution-svg/luffy.github.io");
+    script.setAttribute("issue-term","title");
+    
+    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
+    else if(localStorage.getItem("meek_theme")=="light") {script.setAttribute("theme","github-light");}
+    else{script.setAttribute("theme","preferred-color-scheme");}
+    
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
+}
+
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const createClipboardHTML = (codeContent, additionalClasses = '') => `
+        <pre class="notranslate"><code class="notranslate">${codeContent}</code></pre>
+        <div class="clipboard-container position-absolute right-0 top-0 ${additionalClasses}">
+            <clipboard-copy class="ClipboardButton btn m-2 p-0" role="button" style="display: inherit;">
+                <svg height="16" width="16" class="octicon octicon-copy m-2"><path d="${IconList["copy"]}"></path></svg>
+                <svg height="16" width="16" class="octicon octicon-check color-fg-success m-2 d-none"><path d="${IconList["check"]}"></path></svg>
+            </clipboard-copy>
+            <div class="copy-feedback">Copied!</div>
+        </div>
+    `;
+
+    const handleCodeElements = (selector = '') => {
+        document.querySelectorAll(selector).forEach(codeElement => {
+            const codeContent = codeElement.innerHTML;
+            const newStructure = document.createElement('div');
+            newStructure.className = 'snippet-clipboard-content position-relative overflow-auto';
+            newStructure.innerHTML = createClipboardHTML(codeContent);
+
+            const parentElement = codeElement.parentElement;
+            if (selector.includes('highlight')) {
+                parentElement.insertBefore(newStructure, codeElement.nextSibling);
+                parentElement.removeChild(codeElement);
+            } else {
+                parentElement.parentElement.replaceChild(newStructure, parentElement);
+            }
+        });
+    };
+
+    handleCodeElements('pre.notranslate > code.notranslate');
+    handleCodeElements('div.highlight > pre.notranslate');
+
+    let currentFeedback = null;
+    document.querySelectorAll('clipboard-copy').forEach(copyButton => {
+        copyButton.addEventListener('click', () => {
+            const codeContent = copyButton.closest('.snippet-clipboard-content').innerText;
+            const tempTextArea = document.createElement('textarea');
+            tempTextArea.value = codeContent;
+            document.body.appendChild(tempTextArea);
+            tempTextArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempTextArea);
+
+            const copyIcon = copyButton.querySelector('.octicon-copy');
+            const checkIcon = copyButton.querySelector('.octicon-check');
+            const copyFeedback = copyButton.nextElementSibling;
+
+            if (currentFeedback && currentFeedback !== copyFeedback) {currentFeedback.style.display = 'none';}
+            currentFeedback = copyFeedback;
+
+            copyIcon.classList.add('d-none');
+            checkIcon.classList.remove('d-none');
+            copyFeedback.style.display = 'block';
+            copyButton.style.borderColor = 'var(--color-success-fg)';
+
+            setTimeout(() => {
+                copyIcon.classList.remove('d-none');
+                checkIcon.classList.add('d-none');
+                copyFeedback.style.display = 'none';
+                copyButton.style.borderColor = '';
+            }, 2000);
+        });
+    });
+});
+
+</script>
+
+
+</html>
