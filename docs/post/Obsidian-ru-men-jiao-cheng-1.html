@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-dark-theme="dark" data-light-theme="light" lang="zh-CN">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href='https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/Primer/21.0.7/primer.css' rel='stylesheet' />
+    
+    <link rel="icon" href="https://avatars.githubusercontent.com/u/228253165?v=4&size=64"><script>
+        let theme = localStorage.getItem("meek_theme") || "light";
+        document.documentElement.setAttribute("data-color-mode", theme);
+    </script>
+<meta name="description" content="<html>
+<body>
+<!--StartFragment--><!-- obsidian --><blockquote>
+<p><strong>入门篇：为什么是Obsidian？</strong></p>
+</blockquote>
+<hr>
+<p>大家好呀 👋</p>
+<p>不知道你有没有这样的经历：</p>
+<ul>
+<li>看到一篇好文章，保存到微信收藏夹，b站收藏夹、小红书收藏里，然后就嫌麻烦再也没打开过</li>
+<li>学习了一个新知识，过几天就忘了，想要复习却不记得埋藏在哪里</li>
+<li>笔记记了一大堆，但散落在zotero、wps里，找都找不到</li>
+<li>学了很多东西，但知识都是孤立的，串不起来</li>
+</ul>
+<p>如果有的话，那你可能跟我一样——需要一个<strong>真正的知识库</strong>，而不仅仅是'记笔记'。">
+<meta property="og:title" content="Obsidian入门教程1">
+<meta property="og:description" content="<html>
+<body>
+<!--StartFragment--><!-- obsidian --><blockquote>
+<p><strong>入门篇：为什么是Obsidian？</strong></p>
+</blockquote>
+<hr>
+<p>大家好呀 👋</p>
+<p>不知道你有没有这样的经历：</p>
+<ul>
+<li>看到一篇好文章，保存到微信收藏夹，b站收藏夹、小红书收藏里，然后就嫌麻烦再也没打开过</li>
+<li>学习了一个新知识，过几天就忘了，想要复习却不记得埋藏在哪里</li>
+<li>笔记记了一大堆，但散落在zotero、wps里，找都找不到</li>
+<li>学了很多东西，但知识都是孤立的，串不起来</li>
+</ul>
+<p>如果有的话，那你可能跟我一样——需要一个<strong>真正的知识库</strong>，而不仅仅是'记笔记'。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://luffysolution-svg.github.io/luffy.github.io/post/Obsidian-ru-men-jiao-cheng-1.html">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/228253165?v=4&size=64">
+<title>Obsidian入门教程1</title>
+<link href="//unpkg.com/@wooorm/starry-night@2.1.1/style/both.css" rel="stylesheet" />
+
+
+</head>
+<style>
+body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;padding: 45px;font-size: 16px;font-family: sans-serif;line-height: 1.25;}
+#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
+#footer {margin-top:64px; text-align: center;font-size: small;}
+
+</style>
+
+<style>
+.postTitle{margin: auto 0;font-size:40px;font-weight:bold;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
+@media (max-width: 600px) {
+    body {padding: 8px;}
+    .postTitle{font-size:24px;}
+}
+.copy-feedback {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 50px;
+    color: var(--color-fg-on-emphasis);
+    background-color: var(--color-fg-muted);
+    border-radius: 3px;
+    padding: 5px 8px;
+    font-size: 12px;
+}
+</style>
+
+
+
+
+<body>
+    <div id="header">
+<h1 class="postTitle">Obsidian入门教程1</h1>
+<div class="title-right">
+    <a href="https://luffysolution-svg.github.io/luffy.github.io" id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+    <a href="https://github.com/luffysolution-svg/luffy.github.io/issues/5" target="_blank" class="btn btn-invisible circle" title="Issue">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathIssue" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+
+    <a class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题">
+        <svg class="octicon" width="16" height="16" >
+            <path id="themeSwitch" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+
+</div>
+</div>
+    <div id="content">
+<div class="markdown-body" id="postBody">
+
+<blockquote>
+<p><strong>入门篇：为什么是Obsidian？</strong></p>
+</blockquote>
+<hr>
+<p>大家好呀 👋</p>
+<p>不知道你有没有这样的经历：</p>
+<ul>
+<li>看到一篇好文章，保存到微信收藏夹，b站收藏夹、小红书收藏里，然后就嫌麻烦再也没打开过</li>
+<li>学习了一个新知识，过几天就忘了，想要复习却不记得埋藏在哪里</li>
+<li>笔记记了一大堆，但散落在zotero、wps里，找都找不到</li>
+<li>学了很多东西，但知识都是孤立的，串不起来</li>
+</ul>
+<p>如果有的话，那你可能跟我一样——需要一个<strong>真正的知识库</strong>，而不仅仅是"记笔记"。</p>
+<p>今天这篇教程，我想带你认识一个我用了很久的工具——<strong>Obsidian</strong>，并带你从零开始搭建属于你自己的知识库。</p>
+<hr>
+<h2>一、什么是Obsidian？</h2>
+<p>Obsidian 是一款<strong>本地优先</strong>的笔记软件，听起来很普通对吧？但它有几个非常特别的地方：</p>
+<ol>
+<li><strong>你的数据永远是你自己的</strong> —— 所有笔记都是纯文本 Markdown 文件，存在你的电脑本地，就算软件倒闭了，你的笔记一个都不会丢</li>
+<li><strong>双向链接</strong> —— 这是 Obsidian 最核心的魅力，笔记之间可以互相链接</li>
+<li><strong>图谱视图</strong> —— 你的笔记连接起来后，会形成一个网络图，一眼就能看到你的知识结构</li>
+<li><strong>插件系统</strong> —— 功能不够？社区有上千个插件，几乎可以满足你所有需求<br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/5926c1b6bc9985b25a4d3edb0a579bfaf21d55b32c9bfd1afdfcaee57e4a2152/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f30303637343464656333653938343433623865633430373339333561646464345f4d44352e706e67"><img src="https://camo.githubusercontent.com/5926c1b6bc9985b25a4d3edb0a579bfaf21d55b32c9bfd1afdfcaee57e4a2152/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f30303637343464656333653938343433623865633430373339333561646464345f4d44352e706e67" alt="006744dec3e98443b8ec4073935addd4_MD5" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/006744dec3e98443b8ec4073935addd4_MD5.png" style="max-width: 100%;"></a></li>
+</ol>
+<p><strong>Obsidian 不是一个"记笔记"的工具，而是一个帮你"思考"和"连接"的工具。</strong></p>
+<hr>
+<h2>二、下载与安装</h2>
+<p>第一步很简单，去官网下载即可：</p>
+<p>👉 <a href="https://obsidian.md" rel="nofollow">https://obsidian.md</a></p>
+<p>支持 Windows / macOS / Linux / iOS / Android，全平台覆盖。</p>
+<p>下载安装后打开，你会看到这个界面：</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/9bc198d78d8188e8cb33925a54f60ac3bdd279587bcbafa6cb34a17c883aaf19/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f38663539653135333236393264306632383232623538393164623462656536325f4d44352e706e67"><img src="https://camo.githubusercontent.com/9bc198d78d8188e8cb33925a54f60ac3bdd279587bcbafa6cb34a17c883aaf19/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f38663539653135333236393264306632383232623538393164623462656536325f4d44352e706e67" alt="8f59e1532692d0f2822b5891db4bee62_MD5" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/8f59e1532692d0f2822b5891db4bee62_MD5.png" style="max-width: 100%;"></a></p>
+<hr>
+<h2>三、创建你的第一个仓库（Vault）</h2>
+<p>Obsidian 里，一个"仓库"（Vault）就是一个文件夹，里面装着你的所有笔记。</p>
+<p>点击 <strong>"创建新仓库"</strong>，给它起个名字，比如：</p>
+<pre class="notranslate"><code class="notranslate">我的知识库
+</code></pre>
+<p>然后选择一个存放位置，比如桌面或者你的文档文件夹。</p>
+<blockquote>
+<p>📁 打开这个文件夹你会发现——里面什么都没有！就是一个普通的文件夹。因为 Obsidian 的笔记就是普通的 <code class="notranslate">.md</code> 文件，你可以用任何文本编辑器打开它们。</p>
+</blockquote>
+<hr>
+<h2>四、认识Obsidian界面</h2>
+<p>创建好仓库后，你会看到 Obsidian 的界面分为几个区域：</p>
+<ul>
+<li><strong>左侧栏</strong>：文件浏览器、搜索、切换等功能</li>
+<li><strong>中间</strong>：你写笔记的地方，也是整个软件的核心</li>
+<li><strong>右侧栏</strong>：查看反向链接、图谱等辅助功能</li>
+</ul>
+<blockquote>
+<p>💡 刚上手不需要记太多，你只需要记住：<strong>中间写笔记，左边找文件</strong>，就够了。</p>
+</blockquote>
+<hr>
+<h2>五、创建你的第一篇笔记</h2>
+<p>按下 <code class="notranslate">Ctrl + N</code>（Mac 是 <code class="notranslate">Cmd + N</code>），创建一个新笔记。</p>
+<p>输入以下内容试试：</p>
+<pre class="notranslate"><code class="notranslate"># 我的第一篇笔记
+<p>你好，Obsidian！这是我的第一个知识库笔记。</p>
+<p>今天学到了：</p>
+</code><ul><code class="notranslate">
+<li>Obsidian 是本地优先的笔记软件</li>
+<li>笔记文件是 Markdown 格式</li>
+</code><li><code class="notranslate">一个 Vault 就是一个文件夹<br>
+</code></li></ul></pre>
+
+<hr>
+<h2>六、Markdown——知识库的基石</h2>
+<p>Obsidian 使用 Markdown 语法，非常简单，几分钟就能学会。</p>
+<p>常用的语法：</p>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>效果</th>
+<th>语法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>粗体</td>
+<td><strong>粗体</strong></td>
+</tr>
+<tr>
+<td>斜体</td>
+<td><em>斜体</em></td>
+</tr>
+<tr>
+<td>标题</td>
+<td># 一级 ## 二级 ### 三级</td>
+</tr>
+<tr>
+<td>列表</td>
+<td>- 项目 或 1. 项目</td>
+</tr>
+<tr>
+<td>链接</td>
+<td><a href="%E9%93%BE%E6%8E%A5">文字</a></td>
+</tr>
+<tr>
+<td>代码</td>
+<td><code class="notranslate">代码</code></td>
+</tr>
+<tr>
+<td>引用</td>
+<td>&gt; 引用内容</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<p><strong>最重要的是</strong>：Obsidian 培养的是一种<strong>链接式思维</strong>——你不再孤立地记录知识，而是主动去建立联系。这本身就是一种非常高效的学习方式 🧠</p>
+<p>以上就是Obsidian入门的第一篇内容。通过本文，你已经学会了如何安装、创建仓库、写第一篇笔记，并体验了双向链接的魅力。下一期教程中，我们将深入讲解如何自定义常用快捷键、建立标签、文件夹和模板来构建你的知识库结构，让知识管理更高效。现在就可以动手尝试，创建你的第一篇带链接的笔记吧！</p>
+<p>这个系列我会持续更新，之后会重点讲解如何与zotero进行联动、如何从期刊文献直接保存到Obsidian进行文献管理和论文读写、如何将AI大模型进行结合、如何让自己的笔记共享和多平台同步、如何使用Obsidian撰写论文初稿、如何使用Obsidian订阅视频（YouTube、b站）、期刊文献（science、Elsevier等的RSS）、如何使用Obsidian建立个人知识库（RAG、wiki）、如何在Obsidian里面每天同步高质量信息源、杜绝信息茧房.....</p>
+<p>那么，敬请期待~</p>
+
+&gt; **入门篇：为什么是Obsidian？**
+<hr>
+<p>大家好呀 👋</p>
+<p>不知道你有没有这样的经历：</p>
+<ul>
+<li>看到一篇好文章，保存到微信收藏夹，b站收藏夹、小红书收藏里，然后就嫌麻烦再也没打开过</li>
+<li>学习了一个新知识，过几天就忘了，想要复习却不记得埋藏在哪里</li>
+<li>笔记记了一大堆，但散落在zotero、wps里，找都找不到</li>
+<li>学了很多东西，但知识都是孤立的，串不起来</li>
+</ul>
+<p>如果有的话，那你可能跟我一样——需要一个<strong>真正的知识库</strong>，而不仅仅是"记笔记"。</p>
+<p>今天这篇教程，我想带你认识一个我用了很久的工具——<strong>Obsidian</strong>，并带你从零开始搭建属于你自己的知识库。</p>
+<hr>
+<h2>一、什么是Obsidian？</h2>
+<p>Obsidian 是一款<strong>本地优先</strong>的笔记软件，听起来很普通对吧？但它有几个非常特别的地方：</p>
+<ol>
+<li><strong>你的数据永远是你自己的</strong> —— 所有笔记都是纯文本 Markdown 文件，存在你的电脑本地，就算软件倒闭了，你的笔记一个都不会丢</li>
+<li><strong>双向链接</strong> —— 这是 Obsidian 最核心的魅力，笔记之间可以互相链接</li>
+<li><strong>图谱视图</strong> —— 你的笔记连接起来后，会形成一个网络图，一眼就能看到你的知识结构</li>
+<li><strong>插件系统</strong> —— 功能不够？社区有上千个插件，几乎可以满足你所有需求<br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/5926c1b6bc9985b25a4d3edb0a579bfaf21d55b32c9bfd1afdfcaee57e4a2152/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f30303637343464656333653938343433623865633430373339333561646464345f4d44352e706e67"><img src="https://camo.githubusercontent.com/5926c1b6bc9985b25a4d3edb0a579bfaf21d55b32c9bfd1afdfcaee57e4a2152/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f30303637343464656333653938343433623865633430373339333561646464345f4d44352e706e67" alt="006744dec3e98443b8ec4073935addd4_MD5" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/006744dec3e98443b8ec4073935addd4_MD5.png" style="max-width: 100%;"></a></li>
+</ol>
+<p><strong>Obsidian 不是一个"记笔记"的工具，而是一个帮你"思考"和"连接"的工具。</strong></p>
+<hr>
+<h2>二、下载与安装</h2>
+<p>第一步很简单，去官网下载即可：</p>
+<p>👉 <a href="https://obsidian.md" rel="nofollow">https://obsidian.md/</a></p>
+<p>支持 Windows / macOS / Linux / iOS / Android，全平台覆盖。</p>
+<p>下载安装后打开，你会看到这个界面：</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/9bc198d78d8188e8cb33925a54f60ac3bdd279587bcbafa6cb34a17c883aaf19/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f38663539653135333236393264306632383232623538393164623462656536325f4d44352e706e67"><img src="https://camo.githubusercontent.com/9bc198d78d8188e8cb33925a54f60ac3bdd279587bcbafa6cb34a17c883aaf19/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f38663539653135333236393264306632383232623538393164623462656536325f4d44352e706e67" alt="8f59e1532692d0f2822b5891db4bee62_MD5" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/8f59e1532692d0f2822b5891db4bee62_MD5.png" style="max-width: 100%;"></a></p>
+<hr>
+<h2>三、创建你的第一个仓库（Vault）</h2>
+<p>Obsidian 里，一个"仓库"（Vault）就是一个文件夹，里面装着你的所有笔记。</p>
+<p>点击 <strong>"创建新仓库"</strong>，给它起个名字，比如：</p>
+<pre class="notranslate"><code class="notranslate">我的知识库
+</code></pre>
+<p>然后选择一个存放位置，比如桌面或者你的文档文件夹。</p>
+<blockquote>
+<p>📁 打开这个文件夹你会发现——里面什么都没有！就是一个普通的文件夹。因为 Obsidian 的笔记就是普通的 <code class="notranslate">.md</code> 文件，你可以用任何文本编辑器打开它们。</p>
+</blockquote>
+<hr>
+<h2>四、认识Obsidian界面</h2>
+<p>创建好仓库后，你会看到 Obsidian 的界面分为几个区域：</p>
+<ul>
+<li><strong>左侧栏</strong>：文件浏览器、搜索、切换等功能</li>
+<li><strong>中间</strong>：你写笔记的地方，也是整个软件的核心</li>
+<li><strong>右侧栏</strong>：查看反向链接、图谱等辅助功能</li>
+</ul>
+<blockquote>
+<p>💡 刚上手不需要记太多，你只需要记住：<strong>中间写笔记，左边找文件</strong>，就够了。</p>
+</blockquote>
+<hr>
+<h2>五、创建你的第一篇笔记</h2>
+<p>按下 <code class="notranslate">Ctrl + N</code>（Mac 是 <code class="notranslate">Cmd + N</code>），创建一个新笔记。</p>
+<p>输入以下内容试试：</p>
+<div class="highlight highlight-text-md"><pre class="notranslate"><span class="pl-mh"># <span class="pl-en">我的第一篇笔记</span></span>
+
+你好，Obsidian！这是我的第一个知识库笔记。
+
+今天学到了：
+<span class="pl-v">-</span> Obsidian 是本地优先的笔记软件
+<span class="pl-v">-</span> 笔记文件是 Markdown 格式
+<span class="pl-v">-</span> 一个 Vault 就是一个文件夹</pre></div>
+<hr>
+<h2>六、Markdown——知识库的基石</h2>
+<p>Obsidian 使用 Markdown 语法，非常简单，几分钟就能学会。</p>
+<p>常用的语法：</p>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>效果</th>
+<th>语法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>粗体</strong></td>
+<td><code class="notranslate">**粗体**</code></td>
+</tr>
+<tr>
+<td><em>斜体</em></td>
+<td><code class="notranslate">*斜体*</code></td>
+</tr>
+<tr>
+<td>标题</td>
+<td><code class="notranslate"># 一级</code> <code class="notranslate">## 二级</code> <code class="notranslate">### 三级</code></td>
+</tr>
+<tr>
+<td>列表</td>
+<td><code class="notranslate">- 项目</code> 或 <code class="notranslate">1. 项目</code></td>
+</tr>
+<tr>
+<td>[<a href="https://obsidian.md/" rel="nofollow">链接</a>](<a href="https://obsidian.md" rel="nofollow">https://obsidian.md</a>)</td>
+<td><code class="notranslate">[文字](链接)</code></td>
+</tr>
+<tr>
+<td><code class="notranslate">代码</code></td>
+<td><code class="notranslate">`代码`</code></td>
+</tr>
+<tr>
+<td>引用</td>
+<td><code class="notranslate">&gt; 引用内容</code></td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<blockquote>
+<p>💡 不用担心记不住，用多了自然就熟练了。而且 Obsidian 的编辑体验非常丝滑，所见即所得。</p>
+</blockquote>
+<hr>
+<h2>七、Obsidian 的灵魂：双向链接 ✨</h2>
+<p>这是 Obsidian 区别于其他笔记软件最核心的功能。</p>
+<p>创建链接很简单，只需要用两对方括号：</p>
+<div class="highlight highlight-text-md"><pre class="notranslate">今天学习了 <span class="pl-s">[[</span>双向链接<span class="pl-s">]]</span> 的用法。</pre></div>
+<p>这样，<code class="notranslate">双向链接</code> 就变成了一个链接，点击它就会跳转到（或创建）同名的笔记。</p>
+<p><strong>为什么这很重要？</strong></p>
+<p>想象一下，你在学一个知识：</p>
+<ul>
+<li>你在"Python"笔记里，提到了"数据分析"</li>
+<li>你在"数据分析"笔记里，提到了"可视化"</li>
+<li>你在"可视化"笔记里，提到了"Matplotlib"</li>
+</ul>
+<p>如果没有链接，这三篇笔记是孤立的。有了链接，它们就变成了一个<strong>知识网络</strong>。你可以轻松地从 Python 一路导航到 Matplotlib，就像在维基百科里跳转一样。</p>
+<p><strong>反向链接</strong>更是神器——在任何一篇笔记的底部，Obsidian 会自动显示"有哪些笔记提到了这篇笔记"。</p>
+<p>举个例子：如果你在 10 篇不同的笔记里提到了"项目管理"，那么打开"项目管理"笔记时，底部会列出所有引用它的笔记。这就帮你发现了那些你都没意识到的<strong>知识关联</strong>。</p>
+<hr>
+<h2>八、看一眼你的知识图谱 🕸️</h2>
+<p>创建了几篇带链接的笔记后，点击左侧的 <strong>图谱视图</strong> 图标（一个圆点+连线），你会看到：</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/b9070f997b35162092589acd8b5a858dba7eb1dde8febf829ab11a6119260c50/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f39396336353361626166623833633936346162346636336365653439613934305f4d44352e706e67"><img src="https://camo.githubusercontent.com/b9070f997b35162092589acd8b5a858dba7eb1dde8febf829ab11a6119260c50/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f39396336353361626166623833633936346162346636336365653439613934305f4d44352e706e67" alt="99c653abafb83c964ab4f63cee49a940_MD5" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/99c653abafb83c964ab4f63cee49a940_MD5.png" style="max-width: 100%;"></a></p>
+<p>每一个圆点是一篇笔记，每一条线是一个链接。这就是你的<strong>知识网络</strong></p>
+<p>刚开始可能只有几个点，但随着笔记越来越多，这个图会变得越来越丰富。</p>
+<hr>
+<h2>九、选择一个喜欢的主题进行设置</h2>
+<p>Obsidian 默认使用的是浅色主题，但如果你喜欢夜间写笔记，或者想要更美观的界面，可以换个主题。</p>
+<p>点击左下角的 <strong>齿轮图标 ⚙️ → 外观</strong>，你会看到：</p>
+<ul>
+<li><strong>主题</strong>：内置了浅色和深色两种主题，可以随时切换</li>
+<li><strong>社区主题</strong>：点击"管理"可以浏览社区主题，有上千款供你选择</li>
+<li><strong>字体</strong>：可以自定义界面字体和编辑区字体</li>
+</ul>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/1ab13fe25a47e8235e562bbb59a491203b0b7fa66cfc022f95d05dc670a1fbee/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f64373337333034396634666232616139653437646566626634656263633439345f4d44352e706e67"><img src="https://camo.githubusercontent.com/1ab13fe25a47e8235e562bbb59a491203b0b7fa66cfc022f95d05dc670a1fbee/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f64373337333034396634666232616139653437646566626634656263633439345f4d44352e706e67" alt="d7373049f4fb2aa9e47defbf4ebcc494_MD5" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/d7373049f4fb2aa9e47defbf4ebcc494_MD5.png" style="max-width: 100%;"></a></p>
+<p>推荐几个热门的社区主题（安装后即可在主题列表切换）：</p>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>主题名称</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Minimal</strong></td>
+<td>简约干净，性能极佳，生态最丰富</td>
+</tr>
+<tr>
+<td><strong>Blue Topaz</strong></td>
+<td>颜值超高，适合中文用户</td>
+</tr>
+<tr>
+<td><strong>Things</strong></td>
+<td>灵感来自 Things 应用，清爽精致</td>
+</tr>
+<tr>
+<td><strong>AnuPpuccin</strong></td>
+<td>色彩柔和，高度可定制</td>
+</tr>
+<tr>
+<td>这是我个人常用的主题，觉得比较好看舒服，推荐一下</td>
+<td></td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/404c027ba41fd9e1b76be09f258f92f3f539b9c3e1d1e5bf2b058bc2e21ff0f2/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30335f31382d35332d35322e706e67"><img src="https://camo.githubusercontent.com/404c027ba41fd9e1b76be09f258f92f3f539b9c3e1d1e5bf2b058bc2e21ff0f2/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d30335f31382d35332d35322e706e67" alt="PixPin_2026-07-03_18-53-52.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-07-03_18-53-52.png" style="max-width: 100%;"></a></p>
+<blockquote>
+<p>💡 主题换了之后，整个界面的气质完全不同。建议选一个看着舒服的，不用频繁更换——内容才是核心。</p>
+</blockquote>
+<hr>
+<h2>十、为什么要用Obsidian搭建知识库？</h2>
+<p>可能你会问：我用 Notion、印象笔记、飞书不也行吗？</p>
+<p>当然可以。但 Obsidian 有几个独特的优势：</p>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>对比项</th>
+<th>Obsidian</th>
+<th>其他笔记软件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>数据所有权</td>
+<td>✅ 本地文件，你说了算</td>
+<td>❌ 数据在云端</td>
+</tr>
+<tr>
+<td>离线使用</td>
+<td>✅ 完全离线</td>
+<td><g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> 部分支持</td>
+</tr>
+<tr>
+<td>笔记链接</td>
+<td>✅ 双向链接+图谱</td>
+<td><g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> 有限支持</td>
+</tr>
+<tr>
+<td>可扩展性</td>
+<td>✅ 上千社区插件</td>
+<td><g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> 有限</td>
+</tr>
+<tr>
+<td>速度</td>
+<td>✅ 秒开</td>
+<td>❌ 越用越卡</td>
+</tr>
+<tr>
+<td>免费</td>
+<td>✅ 完全免费</td>
+<td><g-emoji class="g-emoji" alias="warning">⚠️</g-emoji> 大多有付费墙</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<p><strong>最重要的是</strong>：Obsidian 培养的是一种<strong>链接式思维</strong>——你不再孤立地记录知识，而是主动去建立联系。这本身就是一种非常高效的学习方式 🧠</p>
+<p>以上就是Obsidian入门的第一篇内容。通过本文，你已经学会了如何安装、创建仓库、写第一篇笔记，并体验了双向链接的魅力。下一期教程中，我们将深入讲解如何自定义常用快捷键、建立标签、文件夹和模板来构建你的知识库结构，让知识管理更高效。现在就可以动手尝试，创建你的第一篇带链接的笔记吧！</p>
+<p>这个系列我会持续更新，之后会重点讲解如何与zotero进行联动、如何从期刊文献直接保存到Obsidian进行文献管理和论文读写、如何将AI大模型进行结合、如何让自己的笔记共享和多平台同步、如何使用Obsidian撰写论文初稿、如何使用Obsidian订阅视频（YouTube、b站）、期刊文献（science、Elsevier等的RSS）、如何使用Obsidian建立个人知识库（RAG、wiki）、如何在Obsidian里面每天同步高质量信息源、杜绝信息茧房.....</p>
+<p>那么，敬请期待~</p></div>
+<div style="font-size:small;margin-top:8px;float:right;"></div>
+
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
+
+</div>
+    <div id="footer"><div id="footer1">Copyright © <span id="copyrightYear"></span> <a href="https://luffysolution-svg.github.io/luffy.github.io">三木的个人博客</a></div>
+<div id="footer2">
+    <span id="runday"></span><span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a></span>
+</div>
+
+<script>
+var now=new Date();
+document.getElementById("copyrightYear").innerHTML=now.getFullYear();
+
+if(""!=""){
+    var startSite=new Date("");
+    var diff=now.getTime()-startSite.getTime();
+    var diffDay=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("runday").innerHTML="网站运行 "+diffDay+" 天"+" • ";
+}
+</script></div>
+</body>
+<script>
+var IconList={'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'sync': 'M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z', 'copy': 'M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z', 'check': 'M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z'};
+var utterancesLoad=0;
+
+let themeSettings={
+    "dark": ["dark","moon","#00f0ff","dark-blue"],
+    "light": ["light","sun","#ff5000","github-light"],
+    "auto": ["auto","sync","","preferred-color-scheme"]
+};
+function changeTheme(mode, icon, color, utheme){
+    document.documentElement.setAttribute("data-color-mode",mode);
+    document.getElementById("themeSwitch").setAttribute("d",value=IconList[icon]);
+    document.getElementById("themeSwitch").parentNode.style.color=color;
+    if(utterancesLoad==1){utterancesTheme(utheme);}
+}
+function modeSwitch(){
+    let currentMode=document.documentElement.getAttribute('data-color-mode');
+    let newMode = currentMode === "light" ? "dark" : currentMode === "dark" ? "auto" : "light";
+    localStorage.setItem("meek_theme", newMode);
+    if(themeSettings[newMode]){
+        changeTheme(...themeSettings[newMode]);
+    }
+}
+function utterancesTheme(theme){
+    const message={type:'set-theme',theme: theme};
+    const iframe=document.getElementsByClassName('utterances-frame')[0];
+    iframe.contentWindow.postMessage(message,'https://utteranc.es');
+}
+if(themeSettings[theme]){changeTheme(...themeSettings[theme]);}
+console.log("\n %c Gmeek last https://github.com/Meekdai/Gmeek \n","padding:5px 0;background:#02d81d;color:#fff");
+</script>
+
+<script>
+document.getElementById("pathHome").setAttribute("d",IconList["home"]);
+document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
+
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.disabled=true;
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","luffysolution-svg/luffy.github.io");
+    script.setAttribute("issue-term","title");
+    
+    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
+    else if(localStorage.getItem("meek_theme")=="light") {script.setAttribute("theme","github-light");}
+    else{script.setAttribute("theme","preferred-color-scheme");}
+    
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
+}
+
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const createClipboardHTML = (codeContent, additionalClasses = '') => `
+        <pre class="notranslate"><code class="notranslate">${codeContent}</code></pre>
+        <div class="clipboard-container position-absolute right-0 top-0 ${additionalClasses}">
+            <clipboard-copy class="ClipboardButton btn m-2 p-0" role="button" style="display: inherit;">
+                <svg height="16" width="16" class="octicon octicon-copy m-2"><path d="${IconList["copy"]}"></path></svg>
+                <svg height="16" width="16" class="octicon octicon-check color-fg-success m-2 d-none"><path d="${IconList["check"]}"></path></svg>
+            </clipboard-copy>
+            <div class="copy-feedback">Copied!</div>
+        </div>
+    `;
+
+    const handleCodeElements = (selector = '') => {
+        document.querySelectorAll(selector).forEach(codeElement => {
+            const codeContent = codeElement.innerHTML;
+            const newStructure = document.createElement('div');
+            newStructure.className = 'snippet-clipboard-content position-relative overflow-auto';
+            newStructure.innerHTML = createClipboardHTML(codeContent);
+
+            const parentElement = codeElement.parentElement;
+            if (selector.includes('highlight')) {
+                parentElement.insertBefore(newStructure, codeElement.nextSibling);
+                parentElement.removeChild(codeElement);
+            } else {
+                parentElement.parentElement.replaceChild(newStructure, parentElement);
+            }
+        });
+    };
+
+    handleCodeElements('pre.notranslate > code.notranslate');
+    handleCodeElements('div.highlight > pre.notranslate');
+
+    let currentFeedback = null;
+    document.querySelectorAll('clipboard-copy').forEach(copyButton => {
+        copyButton.addEventListener('click', () => {
+            const codeContent = copyButton.closest('.snippet-clipboard-content').innerText;
+            const tempTextArea = document.createElement('textarea');
+            tempTextArea.value = codeContent;
+            document.body.appendChild(tempTextArea);
+            tempTextArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempTextArea);
+
+            const copyIcon = copyButton.querySelector('.octicon-copy');
+            const checkIcon = copyButton.querySelector('.octicon-check');
+            const copyFeedback = copyButton.nextElementSibling;
+
+            if (currentFeedback && currentFeedback !== copyFeedback) {currentFeedback.style.display = 'none';}
+            currentFeedback = copyFeedback;
+
+            copyIcon.classList.add('d-none');
+            checkIcon.classList.remove('d-none');
+            copyFeedback.style.display = 'block';
+            copyButton.style.borderColor = 'var(--color-success-fg)';
+
+            setTimeout(() => {
+                copyIcon.classList.remove('d-none');
+                checkIcon.classList.add('d-none');
+                copyFeedback.style.display = 'none';
+                copyButton.style.borderColor = '';
+            }, 2000);
+        });
+    });
+});
+
+</script>
+
+
+</html>
