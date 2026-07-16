@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-dark-theme="dark" data-light-theme="light" lang="zh-CN">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href='https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/Primer/21.0.7/primer.css' rel='stylesheet' />
+    
+    <link rel="icon" href="https://avatars.githubusercontent.com/u/228253165?v=4&size=64"><script>
+        let theme = localStorage.getItem("meek_theme") || "light";
+        document.documentElement.setAttribute("data-color-mode", theme);
+    </script>
+<meta name="description" content="![PixPin_2026-06-28_22-00-34](https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-06-28_22-00-34.png)**Fast Note Sync Plugin** 是一款Obsidian插件,在所有同步方案中最省钱，秒同步、笔记可转公网链接查看、还能作为Codex插件嵌入笔记
+
+我相信不少Obsidian党们,还没有听说过他。">
+<meta property="og:title" content="Obsidian里的fast-note-sync配置指南">
+<meta property="og:description" content="![PixPin_2026-06-28_22-00-34](https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-06-28_22-00-34.png)**Fast Note Sync Plugin** 是一款Obsidian插件,在所有同步方案中最省钱，秒同步、笔记可转公网链接查看、还能作为Codex插件嵌入笔记
+
+我相信不少Obsidian党们,还没有听说过他。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://luffysolution-svg.github.io/luffy.github.io/post/Obsidian-li-de-fast-note-sync-pei-zhi-zhi-nan.html">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/228253165?v=4&size=64">
+<title>Obsidian里的fast-note-sync配置指南</title>
+
+
+
+</head>
+<style>
+body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;padding: 45px;font-size: 16px;font-family: sans-serif;line-height: 1.25;}
+#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
+#footer {margin-top:64px; text-align: center;font-size: small;}
+
+</style>
+
+<style>
+.postTitle{margin: auto 0;font-size:40px;font-weight:bold;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
+@media (max-width: 600px) {
+    body {padding: 8px;}
+    .postTitle{font-size:24px;}
+}
+.copy-feedback {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 50px;
+    color: var(--color-fg-on-emphasis);
+    background-color: var(--color-fg-muted);
+    border-radius: 3px;
+    padding: 5px 8px;
+    font-size: 12px;
+}
+</style>
+
+
+
+
+<body>
+    <div id="header">
+<h1 class="postTitle">Obsidian里的fast-note-sync配置指南</h1>
+<div class="title-right">
+    <a href="https://luffysolution-svg.github.io/luffy.github.io" id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+    <a href="https://github.com/luffysolution-svg/luffy.github.io/issues/3" target="_blank" class="btn btn-invisible circle" title="Issue">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathIssue" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+
+    <a class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题">
+        <svg class="octicon" width="16" height="16" >
+            <path id="themeSwitch" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+
+</div>
+</div>
+    <div id="content">
+<div class="markdown-body" id="postBody"><p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/d5b1c1a38c7d62d32b2b7a56e99396d9b48f3928b9bc969dfcf4c12496bd3f20/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30362d32385f32322d30302d33342e706e67"><img src="https://camo.githubusercontent.com/d5b1c1a38c7d62d32b2b7a56e99396d9b48f3928b9bc969dfcf4c12496bd3f20/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30362d32385f32322d30302d33342e706e67" alt="PixPin_2026-06-28_22-00-34" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-06-28_22-00-34.png" style="max-width: 100%;"></a><strong>Fast Note Sync Plugin</strong> 是一款Obsidian插件,在所有同步方案中最省钱，秒同步、笔记可转公网链接查看、还能作为Codex插件嵌入笔记</p>
+<p>我相信不少Obsidian党们,还没有听说过他。</p>
+<p>目前Obsidian同步常见方案有几类</p>
+<p>但是都有各自的痛点：</p>
+<ul>
+<li>Obsidian Sync：省心，但需要持续订阅。</li>
+<li>坚果云、WebDAV、网盘同步：便宜，但容易遇到冲突、附件和配置同步问题。</li>
+<li>Git 同步：适合技术用户，普通用户门槛偏高。</li>
+<li>自建同步服务：一次配置，长期使用成本低。</li>
+</ul>
+<p>Obsidian官方的同步功能费昂贵这没话说</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/4eb1e3777934584641ac13e24519b3400939803585958edd9daf485b2f8e196f/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66696c652d323032362d30362d32382d32312d35332d32372d3735352e706e67"><img src="https://camo.githubusercontent.com/4eb1e3777934584641ac13e24519b3400939803585958edd9daf485b2f8e196f/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66696c652d323032362d30362d32382d32312d35332d32372d3735352e706e67" alt="file-2026-06-28-21-53-27-755" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/file-2026-06-28-21-53-27-755.png" style="max-width: 100%;"></a></p>
+<p>remotely save插件+OneDrive的方案虽然好用,但是也需要订阅服务,也要花不少钱</p>
+<p>icloud同步的配置方案最简单,但是也是需要每个月收费</p>
+<p>坚果云可以配合remotely save插件或者自己的Obsidian插件使用</p>
+<p>但是免费方案空间少的可怜emmm</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/433652281bfeaa85cc2d3ca4dc1f7850a4a81fdcddcabf86a8a70e5643007dd7/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66696c652d323032362d30362d32382d32312d35332d32372d3735332e706e67"><img src="https://camo.githubusercontent.com/433652281bfeaa85cc2d3ca4dc1f7850a4a81fdcddcabf86a8a70e5643007dd7/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66696c652d323032362d30362d32382d32312d35332d32372d3735332e706e67" alt="file-2026-06-28-21-53-27-753" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/file-2026-06-28-21-53-27-753.png" style="max-width: 100%;"></a></p>
+<p>恰好!</p>
+<p>我今天刷b站看到Obsidian同步教程视频的底部评论区有这么一个新颖方案</p>
+<p><strong>Fast Note Sync Plugin</strong></p>
+<p>我翻了翻Obsidian插件市场,发现还真有!</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/e74dcb3121a3ccaf18e4456dae91129b60e7a1f0230ed071f517df78fb881f3b/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66696c652d323032362d30362d32382d32312d35332d32372d3736392e706e67"><img src="https://camo.githubusercontent.com/e74dcb3121a3ccaf18e4456dae91129b60e7a1f0230ed071f517df78fb881f3b/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66696c652d323032362d30362d32382d32312d35332d32372d3736392e706e67" alt="file-2026-06-28-21-53-27-769" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/file-2026-06-28-21-53-27-769.png" style="max-width: 100%;"></a></p>
+<p>这是一个给Obsidian 做私有同步的服务端项目。服务端用Go + WebSocket，Web管理界面用React；需要配合Obsidian第三方插件Fast Note Sync PLugin使用。</p>
+<p>项目地址：</p>
+<p><a href="https://github.com/haierkeys/fast-note-sync-service">https://github.com/haierkeys/fast-note-sync-service</a></p>
+<p>他的核心功能是：</p>
+<ol>
+<li>
+<p>多端同步 Obsidian笔记，支持Vault 自动创建、笔记 CRUD、秒级在线设备变更分发。</p>
+</li>
+<li>
+<p>可同步附件，比如图片、PDF等非 Markdown文件，并支持大文件分块上传/下载。</p>
+</li>
+<li>
+<p>Web管理后台：创建用户生成插件配置、管理Vault和笔记内容。</p>
+</li>
+<li>
+<p>可以让脚本、自动化工具、AI手读写笔记文档</p>
+</li>
+<li>
+<p>可以通过MCP把你的笔记库接到 Cursor、Claude Code、Cherry Studio 等 AI客户端，让AI通过服务端读写笔记。</p>
+</li>
+<li>
+<p>还有历史版本管理、回收站、分享、短链、备份、Git 自动提交、多存储后端等功能</p>
+</li>
+</ol>
+<h3>部署方式</h3>
+<p>目前支持Docker部署和脚本一键部署</p>
+<pre class="notranslate"><code class="notranslate">bash &lt;(curl -fsSL https://raw.githubusercontent.com/haierkeys/fast-note-sync-service/master/scripts/quest_install.sh)
+</code></pre>
+<h3>同步实现方式</h3>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/99b681339a69cd1bfcfef562b0197f8e9b3a54a1b4baf525b7c89fff1b9300ef/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66696c652d323032362d30362d32382d32312d35332d32372d3832332e706e67"><img src="https://camo.githubusercontent.com/99b681339a69cd1bfcfef562b0197f8e9b3a54a1b4baf525b7c89fff1b9300ef/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66696c652d323032362d30362d32382d32312d35332d32372d3832332e706e67" alt="file-2026-06-28-21-53-27-823" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/file-2026-06-28-21-53-27-823.png" style="max-width: 100%;"></a></p>
+<h3>注意事项</h3>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/fcdaf9cd8c27e72dff0d6e0bdd1684f1036f082eb8527c1bfa8b4b4dd583f7d6/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66696c652d323032362d30362d32382d32312d35332d32372d3832312e706e67"><img src="https://camo.githubusercontent.com/fcdaf9cd8c27e72dff0d6e0bdd1684f1036f082eb8527c1bfa8b4b4dd583f7d6/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66696c652d323032362d30362d32382d32312d35332d32372d3832312e706e67" alt="file-2026-06-28-21-53-27-821" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/file-2026-06-28-21-53-27-821.png" style="max-width: 100%;"></a></p>
+<h3>具体部署实操</h3>
+<p>由于我用的是Windows11系统，然后我是个人使用，我第一次接触，我也不会，于是让Codex帮我部署</p>
+<p>然后他告诉我：</p>
+<p>正常自用：建议要域名 + HTTPS 证书</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/c616489302f5375dc065d35f05ed6c5742b1659f06eed8f81a85502c1dd5a048/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66696c652d323032362d30362d32382d32312d35332d32372d3831382e706e67"><img src="https://camo.githubusercontent.com/c616489302f5375dc065d35f05ed6c5742b1659f06eed8f81a85502c1dd5a048/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66696c652d323032362d30362d32382d32312d35332d32372d3831382e706e67" alt="file-2026-06-28-21-53-27-818" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/file-2026-06-28-21-53-27-818.png" style="max-width: 100%;"></a></p>
+<p>如果不想买/备案域名：可以用 Cloudflare Tunnel/内网穿透</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/7cd6a59af4b7195606f354dd33bf8b98dcaa6d633074c7b3543a7bb126f36c6f/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66696c652d323032362d30362d32382d32312d35332d32372d3831352e706e67"><img src="https://camo.githubusercontent.com/7cd6a59af4b7195606f354dd33bf8b98dcaa6d633074c7b3543a7bb126f36c6f/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66696c652d323032362d30362d32382d32312d35332d32372d3831352e706e67" alt="file-2026-06-28-21-53-27-815" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/file-2026-06-28-21-53-27-815.png" style="max-width: 100%;"></a></p>
+<p>然后我问他还需要注意什么？他说需要及时保存相关配置信息：</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/984cd36569af94cf3e457b1487ee53cde1eef453faaae35af5ca18cef8144cfb/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66696c652d323032362d30362d32382d32312d35332d32372d3831312e706e67"><img src="https://camo.githubusercontent.com/984cd36569af94cf3e457b1487ee53cde1eef453faaae35af5ca18cef8144cfb/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66696c652d323032362d30362d32382d32312d35332d32372d3831312e706e67" alt="file-2026-06-28-21-53-27-811" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/file-2026-06-28-21-53-27-811.png" style="max-width: 100%;"></a></p>
+<p>哎，刚好我有cloudflare账号，那就浅浅试试吧</p>
+<p>然后剩下的涉及到我的知识盲区，内网穿透，网关这些我不到哇</p>
+<p>所以还是让Codex老爹帮我解决</p>
+<p>注意这里给他开启所有权限，才可以进行</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/bb96e1b1955374e04a8ca86ba3040be52d230793d68509a8b88c3c38de51fcf4/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66696c652d323032362d30362d32382d32312d35332d32372d3830382e706e67"><img src="https://camo.githubusercontent.com/bb96e1b1955374e04a8ca86ba3040be52d230793d68509a8b88c3c38de51fcf4/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66696c652d323032362d30362d32382d32312d35332d32372d3830382e706e67" alt="file-2026-06-28-21-53-27-808" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/file-2026-06-28-21-53-27-808.png" style="max-width: 100%;"></a></p>
+<p>然后大概过了7、8分钟他完成了</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/f227922f59c24fd750edea096a4fecfa4a727c0e49b18b2b1cbba044f33d9bb9/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66696c652d323032362d30362d32382d32312d35332d32372d3830372e706e67"><img src="https://camo.githubusercontent.com/f227922f59c24fd750edea096a4fecfa4a727c0e49b18b2b1cbba044f33d9bb9/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66696c652d323032362d30362d32382d32312d35332d32372d3830372e706e67" alt="file-2026-06-28-21-53-27-807" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/file-2026-06-28-21-53-27-807.png" style="max-width: 100%;"></a></p>
+<p>紧接着根据Codex的步骤操作，我在浏览器访问那个地址</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/365a025f0d52b76baebb2ff96fe163bd5e223634795361ab333e72cf95895054/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66696c652d323032362d30362d32382d32312d35332d32372d3830332e706e67"><img src="https://camo.githubusercontent.com/365a025f0d52b76baebb2ff96fe163bd5e223634795361ab333e72cf95895054/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66696c652d323032362d30362d32382d32312d35332d32372d3830332e706e67" alt="file-2026-06-28-21-53-27-803" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/file-2026-06-28-21-53-27-803.png" style="max-width: 100%;"></a></p>
+<p>到这一步进行配置</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/a11caa696be696c1be1ddb49fa41c57a72b157c16b71f9aa3b4aa27dbc0c80cb/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66696c652d323032362d30362d32382d32312d35332d32372d3830312e706e67"><img src="https://camo.githubusercontent.com/a11caa696be696c1be1ddb49fa41c57a72b157c16b71f9aa3b4aa27dbc0c80cb/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66696c652d323032362d30362d32382d32312d35332d32372d3830312e706e67" alt="file-2026-06-28-21-53-27-801" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/file-2026-06-28-21-53-27-801.png" style="max-width: 100%;"></a></p>
+<p>之后就是生成授权命令后点击一键跳转到Obsidian进行配置</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/2a4bb136c498c174fc9d9d6db6fd223d5cecf548901edc19ec5762b83eecf1ed/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66696c652d323032362d30362d32382d32312d35332d32372d3739382e706e67"><img src="https://camo.githubusercontent.com/2a4bb136c498c174fc9d9d6db6fd223d5cecf548901edc19ec5762b83eecf1ed/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66696c652d323032362d30362d32382d32312d35332d32372d3739382e706e67" alt="file-2026-06-28-21-53-27-798" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/file-2026-06-28-21-53-27-798.png" style="max-width: 100%;"></a></p>
+<p>不过最好还是复制保存这些配置信息防止忘记了</p>
+<p>然后这里同步是真的话，2s内同步完我所有的文件，这要是坚果云，不得要花个10来分钟</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/1c1cd032fb1e701c7348d0d6ce7e04a39f0ce6436c713dfb2ffad481d3124cec/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66696c652d323032362d30362d32382d32312d35332d32372d3739342e706e67"><img src="https://camo.githubusercontent.com/1c1cd032fb1e701c7348d0d6ce7e04a39f0ce6436c713dfb2ffad481d3124cec/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66696c652d323032362d30362d32382d32312d35332d32372d3739342e706e67" alt="file-2026-06-28-21-53-27-794" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/file-2026-06-28-21-53-27-794.png" style="max-width: 100%;"></a></p>
+<p>他的页面审美是真好看，操作也非常的丝滑</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/e6fb7847635cf939205fac983db03d4b2ca87acbcec2db9f7bb4cb669a2c6059/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66696c652d323032362d30362d32382d32312d35332d32372d3738342e676966"><img src="https://camo.githubusercontent.com/e6fb7847635cf939205fac983db03d4b2ca87acbcec2db9f7bb4cb669a2c6059/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66696c652d323032362d30362d32382d32312d35332d32372d3738342e676966" alt="file-2026-06-28-21-53-27-784" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/file-2026-06-28-21-53-27-784.gif" style="max-width: 100%;"></a></p>
+<p>然后这个插件更新很活跃，在电报上可以向大佬求助</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/b3fadfe15de5812509de54b8c459d8b794d1c3eb9b3b65cf4dac5f24dcb3d644/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66696c652d323032362d30362d32382d32312d35332d32372d3738372e706e67"><img src="https://camo.githubusercontent.com/b3fadfe15de5812509de54b8c459d8b794d1c3eb9b3b65cf4dac5f24dcb3d644/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66696c652d323032362d30362d32382d32312d35332d32372d3738372e706e67" alt="file-2026-06-28-21-53-27-787" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/file-2026-06-28-21-53-27-787.png" style="max-width: 100%;"></a></p>
+<p>最后这一步弄完之后</p>
+<p>剩下的步骤就是到cloudflare里面完成</p>
+<p>首先打开：</p>
+<p><a href="https://one.dash.cloudflare.com" rel="nofollow">https://one.dash.cloudflare.com/</a></p>
+<p>然后进入：</p>
+<p>Networks / Networking → Tunnels</p>
+<p>登录Cloudflare dashboard-&gt;Networking &gt;Tunnels，创建 tunnel。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/d415b7d2b1257dc7fec01efc183f002d577977f257e20e004573ddf47bfe5268/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66696c652d323032362d30362d32382d32312d35332d32372d3737372e706e67"><img src="https://camo.githubusercontent.com/d415b7d2b1257dc7fec01efc183f002d577977f257e20e004573ddf47bfe5268/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66696c652d323032362d30362d32382d32312d35332d32372d3737372e706e67" alt="file-2026-06-28-21-53-27-777" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/file-2026-06-28-21-53-27-777.png" style="max-width: 100%;"></a></p>
+<p>官方文档指南：</p>
+<p>[<a href="https://github.com/developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/get-started/create-remote-tunnel/">https:/developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/get-started/create-remote-tunnel/</a>](https:/developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/get-started/create-remote-tunnel/)</p>
+<p>接着点击：<code class="notranslate">Create a tunnel</code>，然后选择：<code class="notranslate">Cloudflared</code>，名字建议填：<code class="notranslate">fast-note-sync</code>，然后到Connector安装页面时，选择Windows，Cloudflare会给你一条类似命令：<code class="notranslate">cloudflared.exe service install eyJhIjoi...</code>你只需要复制后面那段很长的：<code class="notranslate">eyJhIjoi...</code> 即可，这就是Tunnel token。</p>
+<blockquote>
+<p>remote-managed tunel 只需要token 就能运行，因此这个token要当密码保管。</p>
+</blockquote>
+<p>然后把这个token发给Codex让他帮你进行配置</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/01875cb978f80e42cd1bfb792e2b10e1f296295e1ca85ee8415d383d3f978bf2/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66696c652d323032362d30362d32382d32312d35332d32372d3737352e706e67"><img src="https://camo.githubusercontent.com/01875cb978f80e42cd1bfb792e2b10e1f296295e1ca85ee8415d383d3f978bf2/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66696c652d323032362d30362d32382d32312d35332d32372d3737352e706e67" alt="file-2026-06-28-21-53-27-775" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/file-2026-06-28-21-53-27-775.png" style="max-width: 100%;"></a></p>
+<p>参考文档：</p>
+<p><a href="https://developers.cloudflare.com/tunnel/advanced/tunnel-tokens/" rel="nofollow">https://developers.cloudflare.com/tunnel/advanced/tunnel-tokens/</a></p>
+<p>最后是添加 Public Hostname:Subdomain:</p>
+<ol>
+<li>noteDomain：你的域名.</li>
+<li>comType: HTTP</li>
+<li>URL: localhost:9000</li>
+</ol>
+<p>最终外部地址会是：</p>
+<p><a href="https://note.xn--6qqv7i2xdt95b.com/" rel="nofollow">https://note.你的域名.com</a></p>
+<p>拿到这两个东西后发给AI让他帮你进行配置即可：</p>
+<ol>
+<li>Tunnel token: eyJhIjoi..</li>
+<li>公网地址：https：//note.你的域名.com</li>
+</ol>
+<p>它会帮你自动改：</p>
+<p><code class="notranslate">C:\Users\Administrator\Documents\fast-note-sync-service\config\config.yaml</code></p>
+<p>改这些项：server:</p>
+<ol>
+<li>ext-api-url："<a href="https://note.xn--6qqv7i2xdt95b.com%22security/" rel="nofollow">https://note.你的域名.com"security</a>:</li>
+<li>webgui-login-token-bind-ip: false</li>
+<li>cloudflare:enabled: true</li>
+<li>token："你的tunneltoken"然后重启并验证公网访问。</li>
+</ol>
+<p>顺带一提,需要自备域名</p>
+<p>买完域名后，需要把 DNS 服务器改成 Cloudflare 给你的 nameserver。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/855a3d3962571bb7bc4a414a69ffee3ee3e80c781f28b631b6c57233d2454cc6/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66696c652d323032362d30362d32382d32312d35332d32372d3735322e706e67"><img src="https://camo.githubusercontent.com/855a3d3962571bb7bc4a414a69ffee3ee3e80c781f28b631b6c57233d2454cc6/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66696c652d323032362d30362d32382d32312d35332d32372d3735322e706e67" alt="file-2026-06-28-21-53-27-752" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/file-2026-06-28-21-53-27-752.png" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/050c1a248faa8cf44ec4748090d1bc52c87d81d97b4ab200396dcdead3b9c423/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66696c652d323032362d30362d32382d32312d35332d32372d3735302e706e67"><img src="https://camo.githubusercontent.com/050c1a248faa8cf44ec4748090d1bc52c87d81d97b4ab200396dcdead3b9c423/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66696c652d323032362d30362d32382d32312d35332d32372d3735302e706e67" alt="file-2026-06-28-21-53-27-750" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/file-2026-06-28-21-53-27-750.png" style="max-width: 100%;"></a></p>
+<p>另外,Cloudflare Zero Trust Free需要绑卡的,你可以跟Codex说一下,他会帮你改配置文件,不走这个路径</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/dc46d9ba43aea3fa0c29a23bdcbefa95e2a8c06a1d682a95aaecd5377ebd292b/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66696c652d323032362d30362d32382d32312d35332d32372d3735382e706e67"><img src="https://camo.githubusercontent.com/dc46d9ba43aea3fa0c29a23bdcbefa95e2a8c06a1d682a95aaecd5377ebd292b/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66696c652d323032362d30362d32382d32312d35332d32372d3735382e706e67" alt="file-2026-06-28-21-53-27-758" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/file-2026-06-28-21-53-27-758.png" style="max-width: 100%;"></a></p>
+<p>这里我迂回了好久,帮大家踩个坑</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/f837a7a2492b5ed24959be1e3c42a197316ebd310774efa67e6057bc6d7eaf9b/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66696c652d323032362d30362d32382d32312d35332d32372d3735362e706e67"><img src="https://camo.githubusercontent.com/f837a7a2492b5ed24959be1e3c42a197316ebd310774efa67e6057bc6d7eaf9b/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66696c652d323032362d30362d32382d32312d35332d32372d3735362e706e67" alt="file-2026-06-28-21-53-27-756" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/file-2026-06-28-21-53-27-756.png" style="max-width: 100%;"></a></p>
+<p>你就告诉Codex下面这段话:</p>
+<ul>
+<li>不在 Zero Trust 里配置 Public Hostname。</li>
+<li>在本机 <code class="notranslate">cloudflared</code> 启动时加 <code class="notranslate">--url http://localhost:9000</code>。</li>
+<li>在 Cloudflare 普通 DNS Records 里手动添加 CNAME 到 <code class="notranslate">TunnelUUID.cfargotunnel.com</code>。</li>
+</ul>
+<p>这一步完成之后剩下的就是注册,然后登录,再回来让Codex关闭注册系统</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/0f5609d6b16006f757d07c2e77dd8fc2cb4de3191edbbcd3f15ab7c24981bceb/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66696c652d323032362d30362d32382d32312d35332d32372d3737332e706e67"><img src="https://camo.githubusercontent.com/0f5609d6b16006f757d07c2e77dd8fc2cb4de3191edbbcd3f15ab7c24981bceb/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66696c652d323032362d30362d32382d32312d35332d32372d3737332e706e67" alt="file-2026-06-28-21-53-27-773" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/file-2026-06-28-21-53-27-773.png" style="max-width: 100%;"></a></p>
+<p>搞定之后就大功告成了哈哈哈!</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/2a344233906c6577ccbfe9ef6c60c7baac08dacff69c6a9c107ccabf5e0ec631/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66696c652d323032362d30362d32382d32312d35332d32372d3737302e706e67"><img src="https://camo.githubusercontent.com/2a344233906c6577ccbfe9ef6c60c7baac08dacff69c6a9c107ccabf5e0ec631/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66696c652d323032362d30362d32382d32312d35332d32372d3737302e706e67" alt="file-2026-06-28-21-53-27-770" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/file-2026-06-28-21-53-27-770.png" style="max-width: 100%;"></a></p>
+<p>爽哉爽哉!</p>
+<p>不过这里我购买了腾讯云比较便宜的域名来使用</p>
+<p>一年14元,续费33每年,不过至少比坚果云和one drive  iCloud等平台便宜很多了</p>
+<p>而且同步效果简直夯爆了!</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/407867eb858dd0cbf471810634b3f9d3469946539161fc270ed819cfab8678a1/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66696c652d323032362d30362d32382d32312d35332d32372d3739312e676966"><img src="https://camo.githubusercontent.com/407867eb858dd0cbf471810634b3f9d3469946539161fc270ed819cfab8678a1/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66696c652d323032362d30362d32382d32312d35332d32372d3739312e676966" alt="file-2026-06-28-21-53-27-791" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/file-2026-06-28-21-53-27-791.gif" style="max-width: 100%;"></a></p>
+<p>不过我听说还有更便宜的方案,好像是直接cloudfire购买域名还更方便,续费也便宜</p>
+<p>不过碍于我没有国际visa或者招商visa黑金卡等等支付渠道</p>
+<p>暂时不管那么多了,能用就行</p>
+<p>桌面端效果如下:</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/347a7d53bd270fa402715ef8faf9975f46953321f6058018c8ef7170a7d4f55a/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66696c652d323032362d30362d32382d32312d35332d32372d3734352e706e67"><img src="https://camo.githubusercontent.com/347a7d53bd270fa402715ef8faf9975f46953321f6058018c8ef7170a7d4f55a/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66696c652d323032362d30362d32382d32312d35332d32372d3734352e706e67" alt="file-2026-06-28-21-53-27-745" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/file-2026-06-28-21-53-27-745.png" style="max-width: 100%;"></a></p>
+<p>手机端效果如下:</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/72f282790e3ee819fb04215581bdb45e4e3c354c30cbe55734589e39e4a32330/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66696c652d323032362d30362d32382d32312d35332d32372d3734382e6a7067"><img src="https://camo.githubusercontent.com/72f282790e3ee819fb04215581bdb45e4e3c354c30cbe55734589e39e4a32330/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66696c652d323032362d30362d32382d32312d35332d32372d3734382e6a7067" alt="file-2026-06-28-21-53-27-748" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/file-2026-06-28-21-53-27-748.jpg" style="max-width: 100%;"></a></p>
+<p>同步只用了1s左右hhh</p>
+<p>而且啊,笔记还能导出分享,又解决了Obsidian官网付费才有的功能</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/52c38723364f5113f2b4ae269f0332eac99e8ac4dd3e2694c572ea2e10b25a1c/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66696c652d323032362d30362d32382d32312d35332d32372d3734332e676966"><img src="https://camo.githubusercontent.com/52c38723364f5113f2b4ae269f0332eac99e8ac4dd3e2694c572ea2e10b25a1c/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f66696c652d323032362d30362d32382d32312d35332d32372d3734332e676966" alt="file-2026-06-28-21-53-27-743" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/file-2026-06-28-21-53-27-743.gif" style="max-width: 100%;"></a></p>
+<p><strong>Fast Note Sync Plugin</strong></p>
+<p>我真要给你个夯中夯的评分,简直夯爆了,说这是目前最好用的同步方案也不为过</p>
+<p>那么,以上就是本期的Obsidian同步方案教程</p>
+<p>既然都看到这里了,如果觉得对你有所帮助,不妨随手点个赞、转发支持一下吧，如果想要第一时间收到推送，也可以给我个星标🌟~ 谢谢你看我的文章，我们，下次再见。</p></div>
+<div style="font-size:small;margin-top:8px;float:right;"></div>
+
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
+
+</div>
+    <div id="footer"><div id="footer1">Copyright © <span id="copyrightYear"></span> <a href="https://luffysolution-svg.github.io/luffy.github.io">三木的个人博客</a></div>
+<div id="footer2">
+    <span id="runday"></span><span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a></span>
+</div>
+
+<script>
+var now=new Date();
+document.getElementById("copyrightYear").innerHTML=now.getFullYear();
+
+if(""!=""){
+    var startSite=new Date("");
+    var diff=now.getTime()-startSite.getTime();
+    var diffDay=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("runday").innerHTML="网站运行 "+diffDay+" 天"+" • ";
+}
+</script></div>
+</body>
+<script>
+var IconList={'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'sync': 'M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z', 'copy': 'M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z', 'check': 'M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z'};
+var utterancesLoad=0;
+
+let themeSettings={
+    "dark": ["dark","moon","#00f0ff","dark-blue"],
+    "light": ["light","sun","#ff5000","github-light"],
+    "auto": ["auto","sync","","preferred-color-scheme"]
+};
+function changeTheme(mode, icon, color, utheme){
+    document.documentElement.setAttribute("data-color-mode",mode);
+    document.getElementById("themeSwitch").setAttribute("d",value=IconList[icon]);
+    document.getElementById("themeSwitch").parentNode.style.color=color;
+    if(utterancesLoad==1){utterancesTheme(utheme);}
+}
+function modeSwitch(){
+    let currentMode=document.documentElement.getAttribute('data-color-mode');
+    let newMode = currentMode === "light" ? "dark" : currentMode === "dark" ? "auto" : "light";
+    localStorage.setItem("meek_theme", newMode);
+    if(themeSettings[newMode]){
+        changeTheme(...themeSettings[newMode]);
+    }
+}
+function utterancesTheme(theme){
+    const message={type:'set-theme',theme: theme};
+    const iframe=document.getElementsByClassName('utterances-frame')[0];
+    iframe.contentWindow.postMessage(message,'https://utteranc.es');
+}
+if(themeSettings[theme]){changeTheme(...themeSettings[theme]);}
+console.log("\n %c Gmeek last https://github.com/Meekdai/Gmeek \n","padding:5px 0;background:#02d81d;color:#fff");
+</script>
+
+<script>
+document.getElementById("pathHome").setAttribute("d",IconList["home"]);
+document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
+
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.disabled=true;
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","luffysolution-svg/luffy.github.io");
+    script.setAttribute("issue-term","title");
+    
+    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
+    else if(localStorage.getItem("meek_theme")=="light") {script.setAttribute("theme","github-light");}
+    else{script.setAttribute("theme","preferred-color-scheme");}
+    
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
+}
+
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const createClipboardHTML = (codeContent, additionalClasses = '') => `
+        <pre class="notranslate"><code class="notranslate">${codeContent}</code></pre>
+        <div class="clipboard-container position-absolute right-0 top-0 ${additionalClasses}">
+            <clipboard-copy class="ClipboardButton btn m-2 p-0" role="button" style="display: inherit;">
+                <svg height="16" width="16" class="octicon octicon-copy m-2"><path d="${IconList["copy"]}"></path></svg>
+                <svg height="16" width="16" class="octicon octicon-check color-fg-success m-2 d-none"><path d="${IconList["check"]}"></path></svg>
+            </clipboard-copy>
+            <div class="copy-feedback">Copied!</div>
+        </div>
+    `;
+
+    const handleCodeElements = (selector = '') => {
+        document.querySelectorAll(selector).forEach(codeElement => {
+            const codeContent = codeElement.innerHTML;
+            const newStructure = document.createElement('div');
+            newStructure.className = 'snippet-clipboard-content position-relative overflow-auto';
+            newStructure.innerHTML = createClipboardHTML(codeContent);
+
+            const parentElement = codeElement.parentElement;
+            if (selector.includes('highlight')) {
+                parentElement.insertBefore(newStructure, codeElement.nextSibling);
+                parentElement.removeChild(codeElement);
+            } else {
+                parentElement.parentElement.replaceChild(newStructure, parentElement);
+            }
+        });
+    };
+
+    handleCodeElements('pre.notranslate > code.notranslate');
+    handleCodeElements('div.highlight > pre.notranslate');
+
+    let currentFeedback = null;
+    document.querySelectorAll('clipboard-copy').forEach(copyButton => {
+        copyButton.addEventListener('click', () => {
+            const codeContent = copyButton.closest('.snippet-clipboard-content').innerText;
+            const tempTextArea = document.createElement('textarea');
+            tempTextArea.value = codeContent;
+            document.body.appendChild(tempTextArea);
+            tempTextArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempTextArea);
+
+            const copyIcon = copyButton.querySelector('.octicon-copy');
+            const checkIcon = copyButton.querySelector('.octicon-check');
+            const copyFeedback = copyButton.nextElementSibling;
+
+            if (currentFeedback && currentFeedback !== copyFeedback) {currentFeedback.style.display = 'none';}
+            currentFeedback = copyFeedback;
+
+            copyIcon.classList.add('d-none');
+            checkIcon.classList.remove('d-none');
+            copyFeedback.style.display = 'block';
+            copyButton.style.borderColor = 'var(--color-success-fg)';
+
+            setTimeout(() => {
+                copyIcon.classList.remove('d-none');
+                checkIcon.classList.add('d-none');
+                copyFeedback.style.display = 'none';
+                copyButton.style.borderColor = '';
+            }, 2000);
+        });
+    });
+});
+
+</script>
+
+
+</html>
