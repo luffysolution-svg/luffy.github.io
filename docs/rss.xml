@@ -1,5 +1,28 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>三木的个人博客</title><link>https://luffysolution-svg.github.io/luffy.github.io</link><description>我是三木，也叫Luffy，是一门喜欢分享各类实用工具教程和科研技巧、AI工具使用的博主</description><copyright>三木的个人博客</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/228253165?v=4&amp;size=64</url><title>avatar</title><link>https://luffysolution-svg.github.io/luffy.github.io</link></image><lastBuildDate>Fri, 17 Jul 2026 17:13:41 +0000</lastBuildDate><managingEditor>三木的个人博客</managingEditor><ttl>60</ttl><webMaster>三木的个人博客</webMaster><item><title>/moments/moment-1784218074382</title><link>https://luffysolution-svg.github.io/luffy.github.io/post/-moments-moment-1784218074382.html</link><description># 说说 | LuffySolution | 次元笔记
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>三木的个人博客</title><link>https://luffysolution-svg.github.io/luffy.github.io</link><description>我是三木，也叫Luffy，是一门喜欢分享各类实用工具教程和科研技巧、AI工具使用的博主</description><copyright>三木的个人博客</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/228253165?v=4&amp;size=64</url><title>avatar</title><link>https://luffysolution-svg.github.io/luffy.github.io</link></image><lastBuildDate>Thu, 23 Jul 2026 07:04:29 +0000</lastBuildDate><managingEditor>三木的个人博客</managingEditor><ttl>60</ttl><webMaster>三木的个人博客</webMaster><item><title>Latex使用详解教学（含VScode环境配置和模板资源），期刊文献写作和数学建模专用</title><link>https://luffysolution-svg.github.io/luffy.github.io/post/Latex-shi-yong-xiang-jie-jiao-xue-%EF%BC%88-han-VScode-huan-jing-pei-zhi-he-mo-ban-zi-yuan-%EF%BC%89%EF%BC%8C-qi-kan-wen-xian-xie-zuo-he-shu-xue-jian-mo-zhuan-yong.html</link><description>&lt;html&gt;
+&lt;body&gt;
+&lt;!--StartFragment--&gt;&lt;!-- obsidian --&gt;&lt;h1 data-heading='一、需要配置的内容'&gt;一、需要配置的内容&lt;/h1&gt;
+&lt;p&gt;需要安装三部分：&lt;/p&gt;
+
+组件 | 作用
+-- | --
+TeX Live | 提供 XeLaTeX、PDFLaTeX、LuaLaTeX、latexmk、BibTeX、Biber 和宏包
+VS Code | 编辑器
+LaTeX Workshop | 在 VS Code 中调用 TeX Live、预览 PDF、代码补全和 SyncTeX
+
+&lt;!--EndFragment--&gt;
+&lt;/body&gt;
+&lt;/html&gt;# 一、需要配置的内容
+
+需要安装三部分：
+
+| 组件             | 作用                                                    |
+| -------------- | ----------------------------------------------------- |
+| TeX Live       | 提供 XeLaTeX、PDFLaTeX、LuaLaTeX、latexmk、BibTeX、Biber 和宏包 |
+| VS Code        | 编辑器                                                   |
+| LaTeX Workshop | 在 VS Code 中调用 TeX Live、预览 PDF、代码补全和 SyncTeX           |
+
+注意：**LaTeX Workshop 本身不是编译器**。</description><guid isPermaLink="true">https://luffysolution-svg.github.io/luffy.github.io/post/Latex-shi-yong-xiang-jie-jiao-xue-%EF%BC%88-han-VScode-huan-jing-pei-zhi-he-mo-ban-zi-yuan-%EF%BC%89%EF%BC%8C-qi-kan-wen-xian-xie-zuo-he-shu-xue-jian-mo-zhuan-yong.html</guid><pubDate>Thu, 23 Jul 2026 07:04:05 +0000</pubDate></item><item><title>/moments/moment-1784218074382</title><link>https://luffysolution-svg.github.io/luffy.github.io/post/-moments-moment-1784218074382.html</link><description># 说说 | LuffySolution | 次元笔记
 
 生活动态与瞬间记录
 

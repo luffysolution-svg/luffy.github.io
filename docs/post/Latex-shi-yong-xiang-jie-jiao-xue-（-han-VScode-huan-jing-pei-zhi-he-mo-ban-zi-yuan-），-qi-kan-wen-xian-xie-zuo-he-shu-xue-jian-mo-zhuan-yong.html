@@ -1,0 +1,1502 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-dark-theme="dark" data-light-theme="light" lang="zh-CN">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href='https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/Primer/21.0.7/primer.css' rel='stylesheet' />
+    
+    <link rel="icon" href="https://avatars.githubusercontent.com/u/228253165?v=4&size=64"><script>
+        let theme = localStorage.getItem("meek_theme") || "light";
+        document.documentElement.setAttribute("data-color-mode", theme);
+    </script>
+<meta name="description" content="<html>
+<body>
+<!--StartFragment--><!-- obsidian --><h1 data-heading='一、需要配置的内容'>一、需要配置的内容</h1>
+<p>需要安装三部分：</p>
+
+组件 | 作用
+-- | --
+TeX Live | 提供 XeLaTeX、PDFLaTeX、LuaLaTeX、latexmk、BibTeX、Biber 和宏包
+VS Code | 编辑器
+LaTeX Workshop | 在 VS Code 中调用 TeX Live、预览 PDF、代码补全和 SyncTeX
+
+<!--EndFragment-->
+</body>
+</html># 一、需要配置的内容
+
+需要安装三部分：
+
+| 组件             | 作用                                                    |
+| -------------- | ----------------------------------------------------- |
+| TeX Live       | 提供 XeLaTeX、PDFLaTeX、LuaLaTeX、latexmk、BibTeX、Biber 和宏包 |
+| VS Code        | 编辑器                                                   |
+| LaTeX Workshop | 在 VS Code 中调用 TeX Live、预览 PDF、代码补全和 SyncTeX           |
+
+注意：**LaTeX Workshop 本身不是编译器**。">
+<meta property="og:title" content="Latex使用详解教学（含VScode环境配置和模板资源），期刊文献写作和数学建模专用">
+<meta property="og:description" content="<html>
+<body>
+<!--StartFragment--><!-- obsidian --><h1 data-heading='一、需要配置的内容'>一、需要配置的内容</h1>
+<p>需要安装三部分：</p>
+
+组件 | 作用
+-- | --
+TeX Live | 提供 XeLaTeX、PDFLaTeX、LuaLaTeX、latexmk、BibTeX、Biber 和宏包
+VS Code | 编辑器
+LaTeX Workshop | 在 VS Code 中调用 TeX Live、预览 PDF、代码补全和 SyncTeX
+
+<!--EndFragment-->
+</body>
+</html># 一、需要配置的内容
+
+需要安装三部分：
+
+| 组件             | 作用                                                    |
+| -------------- | ----------------------------------------------------- |
+| TeX Live       | 提供 XeLaTeX、PDFLaTeX、LuaLaTeX、latexmk、BibTeX、Biber 和宏包 |
+| VS Code        | 编辑器                                                   |
+| LaTeX Workshop | 在 VS Code 中调用 TeX Live、预览 PDF、代码补全和 SyncTeX           |
+
+注意：**LaTeX Workshop 本身不是编译器**。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://luffysolution-svg.github.io/luffy.github.io/post/Latex-shi-yong-xiang-jie-jiao-xue-%EF%BC%88-han-VScode-huan-jing-pei-zhi-he-mo-ban-zi-yuan-%EF%BC%89%EF%BC%8C-qi-kan-wen-xian-xie-zuo-he-shu-xue-jian-mo-zhuan-yong.html">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/228253165?v=4&size=64">
+<title>Latex使用详解教学（含VScode环境配置和模板资源），期刊文献写作和数学建模专用</title>
+<link href="//unpkg.com/@wooorm/starry-night@2.1.1/style/both.css" rel="stylesheet" />
+
+
+</head>
+<style>
+body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;padding: 45px;font-size: 16px;font-family: sans-serif;line-height: 1.25;}
+#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
+#footer {margin-top:64px; text-align: center;font-size: small;}
+
+</style>
+
+<style>
+.postTitle{margin: auto 0;font-size:40px;font-weight:bold;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
+@media (max-width: 600px) {
+    body {padding: 8px;}
+    .postTitle{font-size:24px;}
+}
+.copy-feedback {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 50px;
+    color: var(--color-fg-on-emphasis);
+    background-color: var(--color-fg-muted);
+    border-radius: 3px;
+    padding: 5px 8px;
+    font-size: 12px;
+}
+</style>
+
+
+
+
+<body>
+    <div id="header">
+<h1 class="postTitle">Latex使用详解教学（含VScode环境配置和模板资源），期刊文献写作和数学建模专用</h1>
+<div class="title-right">
+    <a href="https://luffysolution-svg.github.io/luffy.github.io" id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+    <a href="https://github.com/luffysolution-svg/luffy.github.io/issues/9" target="_blank" class="btn btn-invisible circle" title="Issue">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathIssue" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+
+    <a class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题">
+        <svg class="octicon" width="16" height="16" >
+            <path id="themeSwitch" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+
+</div>
+</div>
+    <div id="content">
+<div class="markdown-body" id="postBody">
+
+<h1>一、需要配置的内容</h1>
+<p>需要安装三部分：</p>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>组件</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TeX Live</td>
+<td>提供 XeLaTeX、PDFLaTeX、LuaLaTeX、latexmk、BibTeX、Biber 和宏包</td>
+</tr>
+<tr>
+<td>VS Code</td>
+<td>编辑器</td>
+</tr>
+<tr>
+<td>LaTeX Workshop</td>
+<td>在 VS Code 中调用 TeX Live、预览 PDF、代码补全和 SyncTeX</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+
+
+# 一、需要配置的内容
+<p>需要安装三部分：</p>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>组件</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TeX Live</td>
+<td>提供 XeLaTeX、PDFLaTeX、LuaLaTeX、latexmk、BibTeX、Biber 和宏包</td>
+</tr>
+<tr>
+<td>VS Code</td>
+<td>编辑器</td>
+</tr>
+<tr>
+<td>LaTeX Workshop</td>
+<td>在 VS Code 中调用 TeX Live、预览 PDF、代码补全和 SyncTeX</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<p>注意：<strong>LaTeX Workshop 本身不是编译器</strong>。仅安装扩展而没有安装 TeX Live，无法编译。</p>
+<hr>
+<h1>二、安装 VS Code</h1>
+<h2>1. 下载官方版本</h2>
+<p><a href="https://code.visualstudio.com/" rel="nofollow">https://code.visualstudio.com/</a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/b972587c619f43b8cdef95e59286fecd80202fb4068ec147793c7db36fca2389/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d32335f31342d32342d33382e706e67"><img src="https://camo.githubusercontent.com/b972587c619f43b8cdef95e59286fecd80202fb4068ec147793c7db36fca2389/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d32335f31342d32342d33382e706e67" alt="PixPin_2026-07-23_14-24-38.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-07-23_14-24-38.png" style="max-width: 100%;"></a></p>
+<h2>2. 安装选项</h2>
+<p>运行安装程序时，建议勾选：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">添加到 PATH
+将“通过 Code 打开”添加到 Windows 资源管理器文件上下文菜单
+将“通过 Code 打开”添加到目录上下文菜单
+将 Code 注册为受支持文件类型的编辑器
+</code></pre>
+<p>安装完成后，关闭并重新打开 PowerShell，测试：</p>
+<div class="highlight highlight-source-powershell"><pre class="notranslate">code <span class="pl-k">--</span>version</pre></div>
+<p>注意：CMD和Powershell可以通过<code class="notranslate">Win</code>+<code class="notranslate">R</code>弹出窗口后输入cmd或者powershell使用</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/46c363ead6451348a0b4243b2f4c7c031708ffe0535aec5f7bf08085d20cb01e/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d32335f31342d32332d34352e706e67"><img src="https://camo.githubusercontent.com/46c363ead6451348a0b4243b2f4c7c031708ffe0535aec5f7bf08085d20cb01e/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d32335f31342d32332d34352e706e67" alt="PixPin_2026-07-23_14-23-45.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-07-23_14-23-45.png" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/01f1b64e0ed182ea067db43f95e35365edfdf9b5c8ef5aa0177e646068d97711/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d32335f31342d32362d31382e706e67"><img src="https://camo.githubusercontent.com/01f1b64e0ed182ea067db43f95e35365edfdf9b5c8ef5aa0177e646068d97711/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d32335f31342d32362d31382e706e67" alt="PixPin_2026-07-23_14-26-18.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-07-23_14-26-18.png" style="max-width: 100%;"></a></p>
+<p>能够显示版本号即正常。</p>
+<hr>
+<h1>三、安装最新稳定版本 TeX Live</h1>
+<h2>1. 为什么选择 TeX Live</h2>
+<p>对于数学建模和期刊论文，建议使用 TeX Live 完整版，原因是：</p>
+<ul>
+<li>包含绝大多数常见宏包</li>
+<li>Windows 版自带 Perl，可直接运行 <code class="notranslate">latexmk</code></li>
+<li>包含 XeLaTeX、PDFLaTeX、LuaLaTeX</li>
+<li>包含 BibTeX、Biber</li>
+<li>不依赖编译时临时下载宏包</li>
+</ul>
+<p>LaTeX Workshop 官方推荐 TeX Live；MiKTeX 虽然体积较小，但 <code class="notranslate">latexmk</code> 还需要额外处理 Perl 环境。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/d88647a9263d6078c00d6d7dd0b59d5260e624724e14c8308cd9e23c58a4e002/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d32335f31342d34382d32312e706e67"><img src="https://camo.githubusercontent.com/d88647a9263d6078c00d6d7dd0b59d5260e624724e14c8308cd9e23c58a4e002/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d32335f31342d34382d32312e706e67" alt="PixPin_2026-07-23_14-48-21.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-07-23_14-48-21.png" style="max-width: 100%;"></a></p>
+<p>官方下载地址<br>
+<a href="https://www.latex-project.org/get/" rel="nofollow">https://www.latex-project.org/get/</a></p>
+<hr>
+<h2>2. 选择国内镜像</h2>
+<h3>推荐：清华大学 TUNA</h3>
+<p><a href="https://mirrors.tuna.tsinghua.edu.cn/help/CTAN/" rel="nofollow">https://mirrors.tuna.tsinghua.edu.cn/help/CTAN/</a></p>
+<p>镜像目录：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet/
+</code></pre>
+<p>Windows 安装器：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet/install-tl-windows.exe
+</code></pre>
+<p>ZIP 安装器：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet/install-tl.zip
+</code></pre>
+<p>清华镜像官方提供了 TeX Live 安装和 <code class="notranslate">tlmgr</code> 镜像配置方法。([<a href="https://mirrors.tuna.tsinghua.edu.cn/help/CTAN/" rel="nofollow">清华镜像站</a>](<a href="https://mirrors.tuna.tsinghua.edu.cn/help/CTAN/" rel="nofollow">https://mirrors.tuna.tsinghua.edu.cn/help/CTAN/</a> "Ctan | 镜像站使用帮助 | 清华大学开源软件镜像站 | Tsinghua Open Source Mirror"))</p>
+<h3>备用：阿里云</h3>
+<pre lang="text" class="notranslate"><code class="notranslate">https://mirrors.aliyun.com/CTAN/systems/texlive/tlnet/
+</code></pre>
+<p>该目录提供当前 TeX Live 网络安装器和安装仓库。([<a href="https://mirrors.aliyun.com/CTAN/systems/texlive/" rel="nofollow">阿里云镜像</a>](<a href="https://mirrors.aliyun.com/CTAN/systems/texlive/" rel="nofollow">https://mirrors.aliyun.com/CTAN/systems/texlive/</a> "CTAN-systems-texlive安装包下载-开源镜像站-阿里云"))</p>
+<h3>自动选择 CTAN 镜像</h3>
+<pre lang="text" class="notranslate"><code class="notranslate">https://mirror.ctan.org/systems/texlive/tlnet/install-tl-windows.exe
+</code></pre>
+<p><code class="notranslate">mirror.ctan.org</code> 会自动跳转到附近的 CTAN 镜像，但自动选择的节点不一定对当前网络最快。([<a href="https://tug.org/texlive/acquire-netinstall.html" rel="nofollow">TeX Users Group</a>](<a href="https://tug.org/texlive/acquire-netinstall.html" rel="nofollow">https://tug.org/texlive/acquire-netinstall.html</a> "Installing TeX Live over the Internet - TeX Users Group"))</p>
+<hr>
+<h2>3. 图形界面安装方法</h2>
+<p>下载：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">install-tl-windows.exe
+</code></pre>
+<p>双击运行，然后：</p>
+<ol>
+<li>选择 <strong>Install</strong>。</li>
+<li>进入 TeX Live 安装界面。</li>
+<li>点击 <strong>Advanced</strong>。</li>
+<li>检查或修改 Repository。</li>
+<li>选择安装方案。</li>
+<li>设置安装路径。</li>
+<li>开始安装。</li>
+</ol>
+<h3>推荐设置</h3>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>项目</th>
+<th>推荐值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Repository</td>
+<td>清华 TUNA</td>
+</tr>
+<tr>
+<td>Selected scheme</td>
+<td><code class="notranslate">scheme-full</code></td>
+</tr>
+<tr>
+<td>Installation root</td>
+<td><code class="notranslate">C:\texlive\2026</code></td>
+</tr>
+<tr>
+<td>Default paper size</td>
+<td>A4</td>
+</tr>
+<tr>
+<td>Install documentation</td>
+<td>保留</td>
+</tr>
+<tr>
+<td>Install source files</td>
+<td>可取消，节省空间</td>
+</tr>
+<tr>
+<td>Create shortcuts</td>
+<td>可选</td>
+</tr>
+<tr>
+<td>Adjust PATH</td>
+<td>开启或保持默认</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<h3>安装路径要求</h3>
+<p>建议使用：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">C:\texlive\2026
+</code></pre>
+<p>TeX Live 官方明确建议 Windows 安装路径避免中文等非 ASCII 字符。([<a href="https://www.tug.org/texlive/doc/texlive-en/texlive-en.html" rel="nofollow">TeX Users Group</a>](<a href="https://www.tug.org/texlive/doc/texlive-en/texlive-en.html" rel="nofollow">https://www.tug.org/texlive/doc/texlive-en/texlive-en.html</a> "The TeX Live Guide—2026"))</p>
+<hr>
+<h2>4. 使用命令行强制指定镜像</h2>
+<p>若图形安装器下载较慢，可以下载：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">install-tl.zip
+</code></pre>
+<p>解压到纯英文目录，例如：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">C:\Temp\install-tl
+</code></pre>
+<p>在该文件夹打开 PowerShell，运行：</p>
+<div class="highlight highlight-source-powershell"><pre class="notranslate">.<span class="pl-c1">\install-tl-windows.bat</span> <span class="pl-k">-</span>repository https:<span class="pl-k">//</span>mirrors.tuna.tsinghua.edu.cn<span class="pl-k">/</span>CTAN<span class="pl-k">/</span>systems<span class="pl-k">/</span>texlive<span class="pl-k">/</span>tlnet</pre></div>
+<p>安装器支持通过 <code class="notranslate">-repository</code> 明确指定仓库。([<a href="https://tug.org/texlive/doc/texlive-en/texlive-en.html?utm_source=chatgpt.com" rel="nofollow">TeX Users Group</a>](<a href="https://tug.org/texlive/doc/texlive-en/texlive-en.html?utm_source=chatgpt.com" rel="nofollow">https://tug.org/texlive/doc/texlive-en/texlive-en.html?utm_source=chatgpt.com</a> "The TeX Live Guide—2026"))</p>
+<hr>
+<h1>四、检查 TeX Live 是否安装成功</h1>
+<p>安装完成后：</p>
+<ol>
+<li>完全关闭 VS Code。</li>
+<li>关闭所有 PowerShell 和 CMD。</li>
+<li>重新打开 PowerShell。</li>
+</ol>
+<p>依次执行：</p>
+<div class="highlight highlight-source-powershell"><pre class="notranslate">xelatex <span class="pl-k">--</span>version
+pdflatex <span class="pl-k">--</span>version
+lualatex <span class="pl-k">--</span>version
+latexmk <span class="pl-k">-</span>v
+bibtex <span class="pl-k">--</span>version
+biber <span class="pl-k">--</span>version
+chktex <span class="pl-k">-</span>v
+latexindent <span class="pl-k">-</span>v</pre></div>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/15b531f10655bf04e46110040eafc9a1e0a5f46d285011530a42dbb952ea912f/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d32335f31342d32342d30392e706e67"><img src="https://camo.githubusercontent.com/15b531f10655bf04e46110040eafc9a1e0a5f46d285011530a42dbb952ea912f/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d32335f31342d32342d30392e706e67" alt="PixPin_2026-07-23_14-24-09.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-07-23_14-24-09.png" style="max-width: 100%;"></a></p>
+<p>检查实际路径：</p>
+<div class="highlight highlight-source-powershell"><pre class="notranslate"><span class="pl-c1">where.exe</span> xelatex
+<span class="pl-c1">where.exe</span> latexmk
+<span class="pl-c1">where.exe</span> biber</pre></div>
+<p>正常情况下应指向类似：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">C:\texlive\2026\bin\windows\xelatex.exe
+C:\texlive\2026\bin\windows\latexmk.exe
+C:\texlive\2026\bin\windows\biber.exe
+</code></pre>
+<h2>如果提示“无法识别命令”</h2>
+<p>将以下目录添加到 Windows <code class="notranslate">Path</code>：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">C:\texlive\2026\bin\windows
+</code></pre>
+<p>操作路径：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">设置
+→ 系统
+→ 系统信息
+→ 高级系统设置
+→ 环境变量
+→ 用户变量或系统变量中的 Path
+→ 新建
+</code></pre>
+<p>添加后重新启动 VS Code。LaTeX Workshop 只调用系统 <code class="notranslate">PATH</code> 中的程序，不会自行修复 TeX Live 环境变量。([<a href="https://github.com/James-Yu/latex-workshop/wiki/Install?utm_source=chatgpt.com">GitHub</a>](<a href="https://github.com/James-Yu/latex-workshop/wiki/Install?utm_source=chatgpt.com">https://github.com/James-Yu/latex-workshop/wiki/Install?utm_source=chatgpt.com</a> "Install · James-Yu/LaTeX-Workshop Wiki · GitHub"))</p>
+<hr>
+<h1>五、安装 LaTeX Workshop</h1>
+<p>（Windows）打开 VS Code，按：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">Ctrl + Shift + X
+</code></pre>
+<p>搜索：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">LaTeX Workshop
+</code></pre>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/3dff956b172732bf591a21f0ab22677ec5e110cececa3e7fdea34314649ef0b6/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d32335f31342d32302d35392e706e67"><img src="https://camo.githubusercontent.com/3dff956b172732bf591a21f0ab22677ec5e110cececa3e7fdea34314649ef0b6/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d32335f31342d32302d35392e706e67" alt="PixPin_2026-07-23_14-20-59.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-07-23_14-20-59.png" style="max-width: 100%;"></a></p>
+<p>确认：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">名称：LaTeX Workshop
+发布者：James Yu
+扩展 ID：James-Yu.latex-workshop
+</code></pre>
+<p>然后点击安装。</p>
+<p>也可以在 PowerShell 中执行：</p>
+<div class="highlight highlight-source-powershell"><pre class="notranslate">code <span class="pl-k">--</span><span class="pl-c1">install-extension</span> James<span class="pl-k">-</span>Yu.latex<span class="pl-k">-</span>workshop</pre></div>
+<p>VS Code 支持通过扩展 ID 安装扩展；当前 LaTeX Workshop 要求较新的 VS Code 版本，因此应使用当前官方 VS Code。([<a href="https://code.visualstudio.com/docs/configure/extensions/extension-marketplace" rel="nofollow">Visual Studio Code</a>](<a href="https://code.visualstudio.com/docs/configure/extensions/extension-marketplace" rel="nofollow">https://code.visualstudio.com/docs/configure/extensions/extension-marketplace</a> "Extension Marketplace"))</p>
+<hr>
+<h1>六、配置 <code class="notranslate">settings.json</code></h1>
+<h2>1. 打开配置文件</h2>
+<p>按：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">Ctrl + Shift + P
+</code></pre>
+<p>搜索：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">Preferences: Open User Settings (JSON)
+</code></pre>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/516f92ad4a554a4d090cb4abdb5041d262deb8303da3870fb0346926ab173c66/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d32335f31342d32302d31342e706e67"><img src="https://camo.githubusercontent.com/516f92ad4a554a4d090cb4abdb5041d262deb8303da3870fb0346926ab173c66/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d32335f31342d32302d31342e706e67" alt="PixPin_2026-07-23_14-20-14.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-07-23_14-20-14.png" style="max-width: 100%;"></a></p>
+<p>如果原文件已经存在其他配置，不要重复写最外层 <code class="notranslate">{}</code>，只把对应属性合并进去。</p>
+<h2>2. 推荐完整配置</h2>
+<div class="highlight highlight-source-json-comments"><pre class="notranslate">{
+    <span class="pl-c"><span class="pl-c">//</span> ==============================</span>
+    <span class="pl-c"><span class="pl-c">//</span> LaTeX 自动编译</span>
+    <span class="pl-c"><span class="pl-c">//</span> ==============================</span>
+
+    <span class="pl-c"><span class="pl-c">//</span> 保存 .tex 文件时自动编译</span>
+    <span class="pl-ent">"latex-workshop.latex.autoBuild.run"</span>: <span class="pl-s"><span class="pl-pds">"</span>onSave<span class="pl-pds">"</span></span>,
+
+    <span class="pl-c"><span class="pl-c">//</span> 使用上一次手动选择的编译方案</span>
+    <span class="pl-ent">"latex-workshop.latex.recipe.default"</span>: <span class="pl-s"><span class="pl-pds">"</span>lastUsed<span class="pl-pds">"</span></span>,
+
+    <span class="pl-c"><span class="pl-c">//</span> PDF 和辅助文件统一放入 build 文件夹</span>
+    <span class="pl-ent">"latex-workshop.latex.outDir"</span>: <span class="pl-s"><span class="pl-pds">"</span>%DIR%/build<span class="pl-pds">"</span></span>,
+
+    <span class="pl-c"><span class="pl-c">//</span> 显示当前识别到的主文件</span>
+    <span class="pl-ent">"latex-workshop.latex.build.rootfileInStatus"</span>: <span class="pl-c1">true</span>,
+
+    <span class="pl-c"><span class="pl-c">//</span> 允许识别 % !TEX root 等魔法注释</span>
+    <span class="pl-ent">"latex-workshop.latex.build.enableMagicComments"</span>: <span class="pl-c1">true</span>,
+
+    <span class="pl-c"><span class="pl-c">//</span> 编译失败后清理辅助文件并重试一次</span>
+    <span class="pl-ent">"latex-workshop.latex.autoBuild.cleanAndRetry.enabled"</span>: <span class="pl-c1">true</span>,
+
+    <span class="pl-c"><span class="pl-c">//</span> 不在成功编译后自动删除日志和辅助文件</span>
+    <span class="pl-ent">"latex-workshop.latex.autoClean.run"</span>: <span class="pl-s"><span class="pl-pds">"</span>never<span class="pl-pds">"</span></span>,
+
+    <span class="pl-c"><span class="pl-c">//</span> ==============================</span>
+    <span class="pl-c"><span class="pl-c">//</span> 编译方案</span>
+    <span class="pl-c"><span class="pl-c">//</span> ==============================</span>
+
+    <span class="pl-ent">"latex-workshop.latex.recipes"</span>: [
+        {
+            <span class="pl-ent">"name"</span>: <span class="pl-s"><span class="pl-pds">"</span>latexmk (XeLaTeX)<span class="pl-pds">"</span></span>,
+            <span class="pl-ent">"tools"</span>: [
+                <span class="pl-s"><span class="pl-pds">"</span>latexmk-xelatex<span class="pl-pds">"</span></span>
+            ]
+        },
+        {
+            <span class="pl-ent">"name"</span>: <span class="pl-s"><span class="pl-pds">"</span>latexmk (PDFLaTeX)<span class="pl-pds">"</span></span>,
+            <span class="pl-ent">"tools"</span>: [
+                <span class="pl-s"><span class="pl-pds">"</span>latexmk-pdflatex<span class="pl-pds">"</span></span>
+            ]
+        },
+        {
+            <span class="pl-ent">"name"</span>: <span class="pl-s"><span class="pl-pds">"</span>latexmk (LuaLaTeX)<span class="pl-pds">"</span></span>,
+            <span class="pl-ent">"tools"</span>: [
+                <span class="pl-s"><span class="pl-pds">"</span>latexmk-lualatex<span class="pl-pds">"</span></span>
+            ]
+        }
+    ],
+
+    <span class="pl-c"><span class="pl-c">//</span> ==============================</span>
+    <span class="pl-c"><span class="pl-c">//</span> 编译工具</span>
+    <span class="pl-c"><span class="pl-c">//</span> ==============================</span>
+
+    <span class="pl-ent">"latex-workshop.latex.tools"</span>: [
+        {
+            <span class="pl-ent">"name"</span>: <span class="pl-s"><span class="pl-pds">"</span>latexmk-xelatex<span class="pl-pds">"</span></span>,
+            <span class="pl-ent">"command"</span>: <span class="pl-s"><span class="pl-pds">"</span>latexmk<span class="pl-pds">"</span></span>,
+            <span class="pl-ent">"args"</span>: [
+                <span class="pl-s"><span class="pl-pds">"</span>-synctex=1<span class="pl-pds">"</span></span>,
+                <span class="pl-s"><span class="pl-pds">"</span>-interaction=nonstopmode<span class="pl-pds">"</span></span>,
+                <span class="pl-s"><span class="pl-pds">"</span>-file-line-error<span class="pl-pds">"</span></span>,
+                <span class="pl-s"><span class="pl-pds">"</span>-xelatex<span class="pl-pds">"</span></span>,
+                <span class="pl-s"><span class="pl-pds">"</span>-outdir=%OUTDIR%<span class="pl-pds">"</span></span>,
+                <span class="pl-s"><span class="pl-pds">"</span>%DOC%<span class="pl-pds">"</span></span>
+            ],
+            <span class="pl-ent">"env"</span>: {}
+        },
+        {
+            <span class="pl-ent">"name"</span>: <span class="pl-s"><span class="pl-pds">"</span>latexmk-pdflatex<span class="pl-pds">"</span></span>,
+            <span class="pl-ent">"command"</span>: <span class="pl-s"><span class="pl-pds">"</span>latexmk<span class="pl-pds">"</span></span>,
+            <span class="pl-ent">"args"</span>: [
+                <span class="pl-s"><span class="pl-pds">"</span>-synctex=1<span class="pl-pds">"</span></span>,
+                <span class="pl-s"><span class="pl-pds">"</span>-interaction=nonstopmode<span class="pl-pds">"</span></span>,
+                <span class="pl-s"><span class="pl-pds">"</span>-file-line-error<span class="pl-pds">"</span></span>,
+                <span class="pl-s"><span class="pl-pds">"</span>-pdf<span class="pl-pds">"</span></span>,
+                <span class="pl-s"><span class="pl-pds">"</span>-outdir=%OUTDIR%<span class="pl-pds">"</span></span>,
+                <span class="pl-s"><span class="pl-pds">"</span>%DOC%<span class="pl-pds">"</span></span>
+            ],
+            <span class="pl-ent">"env"</span>: {}
+        },
+        {
+            <span class="pl-ent">"name"</span>: <span class="pl-s"><span class="pl-pds">"</span>latexmk-lualatex<span class="pl-pds">"</span></span>,
+            <span class="pl-ent">"command"</span>: <span class="pl-s"><span class="pl-pds">"</span>latexmk<span class="pl-pds">"</span></span>,
+            <span class="pl-ent">"args"</span>: [
+                <span class="pl-s"><span class="pl-pds">"</span>-synctex=1<span class="pl-pds">"</span></span>,
+                <span class="pl-s"><span class="pl-pds">"</span>-interaction=nonstopmode<span class="pl-pds">"</span></span>,
+                <span class="pl-s"><span class="pl-pds">"</span>-file-line-error<span class="pl-pds">"</span></span>,
+                <span class="pl-s"><span class="pl-pds">"</span>-lualatex<span class="pl-pds">"</span></span>,
+                <span class="pl-s"><span class="pl-pds">"</span>-outdir=%OUTDIR%<span class="pl-pds">"</span></span>,
+                <span class="pl-s"><span class="pl-pds">"</span>%DOC%<span class="pl-pds">"</span></span>
+            ],
+            <span class="pl-ent">"env"</span>: {}
+        }
+    ],
+
+    <span class="pl-c"><span class="pl-c">//</span> ==============================</span>
+    <span class="pl-c"><span class="pl-c">//</span> PDF 预览和 SyncTeX</span>
+    <span class="pl-c"><span class="pl-c">//</span> ==============================</span>
+
+    <span class="pl-c"><span class="pl-c">//</span> 使用 VS Code 内置 PDF 阅读器</span>
+    <span class="pl-ent">"latex-workshop.view.pdf.viewer"</span>: <span class="pl-s"><span class="pl-pds">"</span>tab<span class="pl-pds">"</span></span>,
+
+    <span class="pl-c"><span class="pl-c">//</span> PDF 默认在右侧显示</span>
+    <span class="pl-ent">"latex-workshop.view.pdf.tab.editorGroup"</span>: <span class="pl-s"><span class="pl-pds">"</span>right<span class="pl-pds">"</span></span>,
+
+    <span class="pl-c"><span class="pl-c">//</span> 默认适应页面宽度</span>
+    <span class="pl-ent">"latex-workshop.view.pdf.zoom"</span>: <span class="pl-s"><span class="pl-pds">"</span>page-width<span class="pl-pds">"</span></span>,
+
+    <span class="pl-c"><span class="pl-c">//</span> 编译后不强制跳动 PDF 页面</span>
+    <span class="pl-ent">"latex-workshop.synctex.afterBuild.enabled"</span>: <span class="pl-c1">false</span>,
+
+    <span class="pl-c"><span class="pl-c">//</span> ==============================</span>
+    <span class="pl-c"><span class="pl-c">//</span> 检查与格式化</span>
+    <span class="pl-c"><span class="pl-c">//</span> ==============================</span>
+
+    <span class="pl-c"><span class="pl-c">//</span> 检查重复 label</span>
+    <span class="pl-ent">"latex-workshop.check.duplicatedLabels.enabled"</span>: <span class="pl-c1">true</span>,
+
+    <span class="pl-c"><span class="pl-c">//</span> 默认关闭 ChkTeX，避免初学阶段出现大量排版建议</span>
+    <span class="pl-ent">"latex-workshop.linting.chktex.enabled"</span>: <span class="pl-c1">false</span>,
+
+    <span class="pl-c"><span class="pl-c">//</span> 启用 latexindent 作为手动格式化工具</span>
+    <span class="pl-ent">"latex-workshop.formatting.latex"</span>: <span class="pl-s"><span class="pl-pds">"</span>latexindent<span class="pl-pds">"</span></span>,
+
+    <span class="pl-c"><span class="pl-c">//</span> ==============================</span>
+    <span class="pl-c"><span class="pl-c">//</span> 编辑器设置</span>
+    <span class="pl-c"><span class="pl-c">//</span> ==============================</span>
+
+    <span class="pl-ent">"[latex]"</span>: {
+        <span class="pl-ent">"editor.wordWrap"</span>: <span class="pl-s"><span class="pl-pds">"</span>on<span class="pl-pds">"</span></span>,
+        <span class="pl-ent">"editor.tabSize"</span>: <span class="pl-c1">2</span>,
+        <span class="pl-ent">"editor.insertSpaces"</span>: <span class="pl-c1">true</span>,
+        <span class="pl-ent">"editor.formatOnSave"</span>: <span class="pl-c1">false</span>
+    },
+
+    <span class="pl-ent">"[bibtex]"</span>: {
+        <span class="pl-ent">"editor.tabSize"</span>: <span class="pl-c1">2</span>,
+        <span class="pl-ent">"editor.insertSpaces"</span>: <span class="pl-c1">true</span>,
+        <span class="pl-ent">"editor.wordWrap"</span>: <span class="pl-s"><span class="pl-pds">"</span>on<span class="pl-pds">"</span></span>
+    }
+}</pre></div>
+<p>LaTeX Workshop 的 recipe 是一组按顺序调用的编译工具；<code class="notranslate">latexmk</code> 是默认且推荐的构建方式，可以管理重复编译和参考文献依赖。<code class="notranslate">first</code> 和 <code class="notranslate">lastUsed</code> 都是官方支持的默认 recipe 选择方式</p>
+<p>内置 PDF 阅读器支持源码到 PDF、PDF 到源码的 SyncTeX 定位。</p>
+<hr>
+<h1>八、创建测试文件</h1>
+<h2>1. <code class="notranslate">test.tex</code></h2>
+<div class="highlight highlight-text-tex-latex"><pre class="notranslate"><span class="pl-k">\documentclass</span>[<span class="pl-v">UTF8,a4paper,12pt</span>]{<span class="pl-c1">ctexart</span>}
+
+<span class="pl-k">\usepackage</span>{<span class="pl-c1">amsmath</span>}
+<span class="pl-k">\usepackage</span>{<span class="pl-c1">amssymb</span>}
+<span class="pl-k">\usepackage</span>{<span class="pl-c1">booktabs</span>}
+<span class="pl-k">\usepackage</span>{<span class="pl-c1">graphicx</span>}
+<span class="pl-k">\usepackage</span>{<span class="pl-c1">siunitx</span>}
+
+<span class="pl-c1">\usepackage</span>[
+  backend=biber,
+  style=numeric,
+  sorting=none
+]{biblatex}
+
+<span class="pl-c1">\addbibresource</span>{refs.bib}
+
+<span class="pl-c1">\usepackage</span>[
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue
+]{hyperref}
+
+<span class="pl-c1">\title</span>{VS Code 与 LaTeX 环境测试}
+<span class="pl-c1">\author</span>{Luffy}
+<span class="pl-c1">\date</span>{<span class="pl-c1">\today</span>}
+
+<span class="pl-c1">\begin</span>{<span class="pl-smi">document</span>}
+
+<span class="pl-c1">\maketitle</span>
+
+<span class="pl-c1">\tableofcontents</span>
+
+<span class="pl-c1">\section</span>{<span class="pl-en">中文测试</span>}
+
+这是一段中文内容，用于测试 <span class="pl-c1">\LaTeX</span>{} 中文排版。
+
+<span class="pl-c1">\section</span>{<span class="pl-en">数学公式</span>}
+
+爱因斯坦质能方程为
+
+<span class="pl-c1">\begin</span>{<span class="pl-smi">equation</span>}<span class="pl-s"></span>
+<span class="pl-s">  E = mc^2.</span>
+<span class="pl-s"></span><span class="pl-c1">\end</span>{<span class="pl-smi">equation</span>}
+
+一个简单的优化模型为
+
+<span class="pl-c1">\begin</span>{<span class="pl-smi">align</span>}<span class="pl-s"></span>
+<span class="pl-s">  <span class="pl-c1">\min</span>_{x_1,x_2}<span class="pl-c1">\quad</span></span>
+<span class="pl-s">  &amp; f(x_1,x_2)=x_1^2+x_2^2, <span class="pl-c1">\\</span></span>
+<span class="pl-s">  <span class="pl-c1">\text</span>{s.t.}<span class="pl-c1">\quad</span></span>
+<span class="pl-s">  &amp; x_1+x_2<span class="pl-c1">\geq</span> 1, <span class="pl-c1">\\</span></span>
+<span class="pl-s">  &amp; x_1,x_2<span class="pl-c1">\geq</span> 0.</span>
+<span class="pl-s"></span><span class="pl-c1">\end</span>{<span class="pl-smi">align</span>}
+
+<span class="pl-c1">\section</span>{<span class="pl-en">表格测试</span>}
+
+<span class="pl-c1">\begin</span>{<span class="pl-smi">table</span>}[htbp]
+  <span class="pl-c1">\centering</span>
+  <span class="pl-c1">\caption</span>{实验数据示例}
+  <span class="pl-k">\label</span>{<span class="pl-v">tab:data</span>}
+  <span class="pl-c1">\begin</span>{<span class="pl-smi">tabular</span>}{lcc}
+    <span class="pl-c1">\toprule</span>
+    样品 &amp; 温度 &amp; 转化率 \\
+    <span class="pl-c1">\midrule</span>
+    A &amp; 300 &amp; 82.5<span class="pl-cce">\%</span> \\
+    B &amp; 350 &amp; 91.2<span class="pl-cce">\%</span> \\
+    <span class="pl-c1">\bottomrule</span>
+  <span class="pl-c1">\end</span>{<span class="pl-smi">tabular</span>}
+<span class="pl-c1">\end</span>{<span class="pl-smi">table</span>}
+
+表~<span class="pl-k">\ref</span>{<span class="pl-c1">tab:data</span>} 展示了测试数据。
+
+<span class="pl-c1">\section</span>{<span class="pl-en">参考文献测试</span>}
+
+LaTeX 是常用的科技文档排版系统<span class="pl-k">\cite</span>{<span class="pl-c1">lamport1994</span>}。
+
+<span class="pl-c1">\printbibliography</span>
+
+<span class="pl-c1">\end</span>{<span class="pl-smi">document</span>}</pre></div>
+<h2>2. <code class="notranslate">refs.bib</code></h2>
+<div class="highlight highlight-text-bibtex"><pre class="notranslate"><span class="pl-k">@book</span>{<span class="pl-en">lamport1994</span>,
+  <span class="pl-s">author</span>    = <span class="pl-s"><span class="pl-pds">{</span>Leslie Lamport<span class="pl-pds">}</span></span>,
+  <span class="pl-s">title</span>     = <span class="pl-s"><span class="pl-pds">{</span>LaTeX: A Document Preparation System<span class="pl-pds">}</span></span>,
+  <span class="pl-s">edition</span>   = <span class="pl-s"><span class="pl-pds">{</span>2<span class="pl-pds">}</span></span>,
+  <span class="pl-s">publisher</span> = <span class="pl-s"><span class="pl-pds">{</span>Addison-Wesley<span class="pl-pds">}</span></span>,
+  <span class="pl-s">year</span>      = <span class="pl-s"><span class="pl-pds">{</span>1994<span class="pl-pds">}</span></span>
+}</pre></div>
+<hr>
+<h1>九、编译</h1>
+<h2>1. 确保当前窗口是 <code class="notranslate">test.tex</code></h2>
+<p>点击：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">test.tex
+</code></pre>
+<p>根据中英文情况选择编译方案</p>
+<h2>2. 执行编译</h2>
+<p>快捷键：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">Ctrl + Alt + B
+</code></pre>
+<p>成功后会生成：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">build/test.pdf
+</code></pre>
+<h2>3. 打开 PDF</h2>
+<p>快捷键：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">Ctrl + Alt + V
+</code></pre>
+<h2>4. 正向定位</h2>
+<p>将光标放在 <code class="notranslate">.tex</code> 源码某一行，按：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">Ctrl + Alt + J
+</code></pre>
+<p>PDF 会跳转到对应位置。</p>
+<h2>5. 反向定位</h2>
+<p>在 VS Code 内置 PDF 中：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">Ctrl + 鼠标左键
+</code></pre>
+<hr>
+<h1>十、不同场景如何选择编译器</h1>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>使用场景</th>
+<th>编译方案</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>中文数学建模</td>
+<td><code class="notranslate">latexmk (XeLaTeX)</code></td>
+</tr>
+<tr>
+<td>中文学位论文</td>
+<td>优先按模板说明，通常 XeLaTeX</td>
+</tr>
+<tr>
+<td>英文数学建模</td>
+<td>通常 PDFLaTeX</td>
+</tr>
+<tr>
+<td>国外期刊模板</td>
+<td>按期刊模板说明</td>
+</tr>
+<tr>
+<td>使用 <code class="notranslate">fontspec</code></td>
+<td>XeLaTeX 或 LuaLaTeX</td>
+</tr>
+<tr>
+<td>使用系统中文字体</td>
+<td>XeLaTeX 或 LuaLaTeX</td>
+</tr>
+<tr>
+<td>传统 <code class="notranslate">.cls</code>、<code class="notranslate">.bst</code> 模板</td>
+<td>通常 PDFLaTeX</td>
+</tr>
+<tr>
+<td><code class="notranslate">biblatex + biber</code></td>
+<td>三种引擎均可，交给 latexmk</td>
+</tr>
+<tr>
+<td><code class="notranslate">natbib + bibtex</code></td>
+<td>三种引擎均可，交给 latexmk</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<p>不要为了统一而强行用 XeLaTeX 编译所有模板。期刊模板明确要求 PDFLaTeX 时，应切换到：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">latexmk (PDFLaTeX)
+</code></pre>
+<hr>
+<h1>十一、多文件论文配置</h1>
+<p>项目结构：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">paper/
+├─ main.tex
+├─ refs.bib
+├─ chapters/
+│  ├─ introduction.tex
+│  ├─ methods.tex
+│  └─ results.tex
+├─ figures/
+└─ build/
+</code></pre>
+<p><code class="notranslate">main.tex</code>：</p>
+<div class="highlight highlight-text-tex-latex"><pre class="notranslate"><span class="pl-k">\documentclass</span>{<span class="pl-c1">ctexart</span>}
+
+<span class="pl-c1">\begin</span>{<span class="pl-smi">document</span>}
+
+<span class="pl-k">\input</span>{<span class="pl-c1">chapters/introduction</span>}
+<span class="pl-k">\input</span>{<span class="pl-c1">chapters/methods</span>}
+<span class="pl-k">\input</span>{<span class="pl-c1">chapters/results</span>}
+
+<span class="pl-c1">\end</span>{<span class="pl-smi">document</span>}</pre></div>
+<p>在 <code class="notranslate">chapters/introduction.tex</code> 第一行写：</p>
+<div class="highlight highlight-text-tex-latex"><pre class="notranslate"><span class="pl-c"><span class="pl-c">%</span> !TEX root = ../main.tex</span></pre></div>
+<p>这样即使当前编辑的是子文件，LaTeX Workshop 也会编译 <code class="notranslate">main.tex</code>。根文件魔法注释是官方支持的识别机制。</p>
+<hr>
+<h1>十二、可选：开启语法检查</h1>
+<p>确认以下命令正常：</p>
+<div class="highlight highlight-source-powershell"><pre class="notranslate">chktex <span class="pl-k">-</span>v</pre></div>
+<p>然后在 <code class="notranslate">settings.json</code> 中修改：</p>
+<div class="highlight highlight-source-json-comments"><pre class="notranslate"><span class="pl-s"><span class="pl-pds">"</span>latex-workshop.linting.chktex.enabled<span class="pl-pds">"</span></span>: <span class="pl-c1">true</span>,
+<span class="pl-s"><span class="pl-pds">"</span>latex-workshop.linting.run<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>onSave<span class="pl-pds">"</span></span></pre></div>
+<p>ChkTeX 会检查常见 LaTeX 书写和排版问题，并把结果显示在 VS Code 的“问题”面板，但部分警告只是风格建议，并不代表无法编译。</p>
+<hr>
+<h1>十三、可选：格式化 LaTeX</h1>
+<p>确认：</p>
+<div class="highlight highlight-source-powershell"><pre class="notranslate">latexindent <span class="pl-k">-</span>v</pre></div>
+<p>然后打开 <code class="notranslate">.tex</code> 文件，按：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">Shift + Alt + F
+</code></pre>
+<p>LaTeX Workshop 可以调用 <code class="notranslate">latexindent</code> 格式化 LaTeX 源码。([<a href="https://github.com/James-Yu/latex-workshop/wiki/Format?utm_source=chatgpt.com">GitHub</a>](<a href="https://github.com/James-Yu/latex-workshop/wiki/Format?utm_source=chatgpt.com">https://github.com/James-Yu/latex-workshop/wiki/Format?utm_source=chatgpt.com</a> "Format · James-Yu/LaTeX-Workshop Wiki · GitHub"))</p>
+<p>不建议刚开始就启用：</p>
+<div class="highlight highlight-source-json-comments"><pre class="notranslate"><span class="pl-s"><span class="pl-pds">"</span>editor.formatOnSave<span class="pl-pds">"</span></span>: <span class="pl-c1">true</span></pre></div>
+<p>复杂期刊模板中，自动格式化可能造成大量无意义的代码差异。</p>
+<hr>
+<h1>十四、常见错误排查</h1>
+<h2>1. <code class="notranslate">Cannot find LaTeX root file</code></h2>
+<p>原因通常是当前活动窗口不是 <code class="notranslate">.tex</code> 文件。</p>
+<p>处理：</p>
+<ol>
+<li>点击 <code class="notranslate">test.tex</code>。</li>
+<li>确认包含：</li>
+</ol>
+<div class="highlight highlight-text-tex-latex"><pre class="notranslate"><span class="pl-k">\documentclass</span>{<span class="pl-c1">...</span>}
+<span class="pl-c1">\begin</span>{<span class="pl-smi">document</span>}</pre></div>
+<ol start="3">
+<li>打开整个项目文件夹。</li>
+<li>子文件添加：</li>
+</ol>
+<div class="highlight highlight-text-tex-latex"><pre class="notranslate"><span class="pl-c"><span class="pl-c">%</span> !TEX root = ../main.tex</span></pre></div>
+<p>LaTeX Workshop 的根文件识别首先检查当前活动编辑器，因此在日志窗口触发编译会导致无法找到主文件。([<a href="https://github.com/james-yu/latex-workshop/wiki/compile?utm_source=chatgpt.com">GitHub</a>](<a href="https://github.com/james-yu/latex-workshop/wiki/compile?utm_source=chatgpt.com">https://github.com/james-yu/latex-workshop/wiki/compile?utm_source=chatgpt.com</a> "Compile · James-Yu/LaTeX-Workshop Wiki · GitHub"))</p>
+<hr>
+<h2>2. <code class="notranslate">spawn latexmk ENOENT</code></h2>
+<p>原因：VS Code 找不到 <code class="notranslate">latexmk</code>。</p>
+<p>检查：</p>
+<div class="highlight highlight-source-powershell"><pre class="notranslate"><span class="pl-c1">where.exe</span> latexmk
+latexmk <span class="pl-k">-</span>v</pre></div>
+<p>若找不到，将：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">C:\texlive\2026\bin\windows
+</code></pre>
+<p>加入 <code class="notranslate">Path</code>，然后彻底重启 VS Code。</p>
+<hr>
+<h2>3. <code class="notranslate">xelatex is not recognized</code></h2>
+<p>检查：</p>
+<div class="highlight highlight-source-powershell"><pre class="notranslate"><span class="pl-c1">where.exe</span> xelatex</pre></div>
+<p>仍然是 TeX Live 环境变量问题，不是 <code class="notranslate">.tex</code> 文件名问题。</p>
+<hr>
+<h2>4. <code class="notranslate">File xxx.sty not found</code></h2>
+<p>安装缺失宏包：</p>
+<div class="highlight highlight-source-powershell"><pre class="notranslate">tlmgr search <span class="pl-k">--</span>global <span class="pl-k">--</span>file xxx.sty</pre></div>
+<p>根据搜索结果安装：</p>
+<div class="highlight highlight-source-powershell"><pre class="notranslate">tlmgr install 宏包名称</pre></div>
+<p>若使用 <code class="notranslate">scheme-full</code>，这种情况通常只会出现在非常新的或模板私有宏包中。</p>
+<hr>
+<h2>5. Biber 报错</h2>
+<p>检查：</p>
+<div class="highlight highlight-source-powershell"><pre class="notranslate">biber <span class="pl-k">--</span>version</pre></div>
+<p>清理项目：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">Ctrl + Alt + C
+</code></pre>
+<p>然后重新编译：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">Ctrl + Alt + B
+</code></pre>
+<p>同时检查：</p>
+<div class="highlight highlight-text-tex-latex"><pre class="notranslate"><span class="pl-k">\usepackage</span>[<span class="pl-v">backend=biber</span>]{<span class="pl-c1">biblatex</span>}</pre></div>
+<p>和：</p>
+<div class="highlight highlight-text-tex-latex"><pre class="notranslate"><span class="pl-c1">\addbibresource</span>{refs.bib}</pre></div>
+<p>文件名是否正确。</p>
+<hr>
+<h2>6. PDF 没有更新</h2>
+<p>依次执行：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">Ctrl + Alt + C
+Ctrl + Alt + B
+Ctrl + Alt + V
+</code></pre>
+<p>然后查看：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">查看 → 输出 → LaTeX Workshop
+</code></pre>
+<p>以及：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">build/test.log
+</code></pre>
+<hr>
+<h2>7. 中文字体报错</h2>
+<p>初期不要自行指定：</p>
+<div class="highlight highlight-text-tex-latex"><pre class="notranslate"><span class="pl-c1">\setCJKmainfont</span>{某个字体}</pre></div>
+<p>先使用：</p>
+<div class="highlight highlight-text-tex-latex"><pre class="notranslate"><span class="pl-k">\documentclass</span>[<span class="pl-v">UTF8</span>]{<span class="pl-c1">ctexart</span>}</pre></div>
+<p>让 <code class="notranslate">ctex</code> 自动选择可用字体。确认基础环境正常后，再配置具体字体。</p>
+<hr>
+<h1>十五、期刊投稿注意事项</h1>
+<p>期刊提供模板时，通常会包含：</p>
+<pre lang="text" class="notranslate"><code class="notranslate">journal-template/
+├─ manuscript.tex
+├─ journal.cls
+├─ journal.bst
+├─ references.bib
+└─ figures/
+</code></pre>
+<p>处理原则：</p>
+<ol>
+<li>不要修改 <code class="notranslate">.cls</code> 和 <code class="notranslate">.bst</code>，除非期刊明确要求。</li>
+<li>不要把 <code class="notranslate">ctex</code> 强行加入英文期刊模板。</li>
+<li>按模板说明选择 PDFLaTeX、XeLaTeX 或 LuaLaTeX。</li>
+<li>使用期刊已有的参考文献命令。</li>
+<li>提交前检查期刊是否要求上传 <code class="notranslate">.bbl</code>。</li>
+<li>不要把本机绝对路径写入论文：</li>
+</ol>
+<div class="highlight highlight-text-tex-latex"><pre class="notranslate"><span class="pl-c"><span class="pl-c">%</span> 错误</span>
+<span class="pl-c1">\includegraphics</span>{D:/MyFiles/paper/figures/a.png}
+
+<span class="pl-c"><span class="pl-c">%</span> 正确</span>
+<span class="pl-c1">\includegraphics</span>{figures/a.png}</pre></div>
+<hr>
+<h1>十六、期刊模板来源</h1>
+<h2>1.GitHub搜索学校学位论文模板</h2>
+<p><a href="https://github.com/search?q=Chinese+University+Thesis+LaTeX&amp;type=repositories&amp;p=2">https://github.com/search?q=Chinese+University+Thesis+LaTeX&amp;type=repositories&amp;p=2</a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/6a3c56608fb2c79f6d6a9671914aa1c70b4c03dfc5eb654026254a3c3724b219/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d32335f31332d35392d34342e706e67"><img src="https://camo.githubusercontent.com/6a3c56608fb2c79f6d6a9671914aa1c70b4c03dfc5eb654026254a3c3724b219/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d32335f31332d35392d34342e706e67" alt="PixPin_2026-07-23_13-59-44.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-07-23_13-59-44.png" style="max-width: 100%;"></a></p>
+<h2>2.学位论文Latex官方模板：</h2>
+<p><a href="https://ctan.org/topic/dissertation" rel="nofollow">https://ctan.org/topic/dissertation</a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/2ae66049b7590278a4a7a3b0b3274a667144e491dd3d22d6e5fda250002b07ac/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d32335f31342d30302d32312e706e67"><img src="https://camo.githubusercontent.com/2ae66049b7590278a4a7a3b0b3274a667144e491dd3d22d6e5fda250002b07ac/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d32335f31342d30302d32312e706e67" alt="PixPin_2026-07-23_14-00-21.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-07-23_14-00-21.png" style="max-width: 100%;"></a></p>
+<h2>3.Latex官方文档模板</h2>
+<p><a href="https://ctan.org/topic/doc-templ" rel="nofollow">https://ctan.org/topic/doc-templ</a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/a34a94dbc83a52c0d794f099b4885977bd8fcc745594b5538533f7a55f9d4fce/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d32335f31342d30342d34362e706e67"><img src="https://camo.githubusercontent.com/a34a94dbc83a52c0d794f099b4885977bd8fcc745594b5538533f7a55f9d4fce/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d32335f31342d30342d34362e706e67" alt="PixPin_2026-07-23_14-04-46.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-07-23_14-04-46.png" style="max-width: 100%;"></a></p>
+<h2>4.Overleaf 模板</h2>
+<p><a href="https://www.overleaf.com/latex/templates" rel="nofollow">https://www.overleaf.com/latex/templates</a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/ce4086dbe77e2c909bfd05376bdb1b15ef30debc9956a51ab83c60e4172d6f50/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d32335f31342d30312d34322e706e67"><img src="https://camo.githubusercontent.com/ce4086dbe77e2c909bfd05376bdb1b15ef30debc9956a51ab83c60e4172d6f50/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d32335f31342d30312d34322e706e67" alt="PixPin_2026-07-23_14-01-42.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-07-23_14-01-42.png" style="max-width: 100%;"></a></p>
+<h2>5.Latex Template</h2>
+<p><a href="https://www.latextemplates.com/" rel="nofollow">https://www.latextemplates.com/</a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/df37600fe5c9000e1bb5b0359d82ccab61d4621d7dddf0c8a46561db0aa55953/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d32335f31342d30372d30302e706e67"><img src="https://camo.githubusercontent.com/df37600fe5c9000e1bb5b0359d82ccab61d4621d7dddf0c8a46561db0aa55953/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d32335f31342d30372d30302e706e67" alt="PixPin_2026-07-23_14-07-00.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-07-23_14-07-00.png" style="max-width: 100%;"></a></p>
+<h2>6.Latex工作室</h2>
+<p><a href="https://www.latexstudio.net/" rel="nofollow">https://www.latexstudio.net/</a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/8aa6fb8015dee8f0ab734562a9f4207034e7da1d8f83628a29a98387e60faac7/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d32335f31342d30372d35352e706e67"><img src="https://camo.githubusercontent.com/8aa6fb8015dee8f0ab734562a9f4207034e7da1d8f83628a29a98387e60faac7/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d32335f31342d30372d35352e706e67" alt="PixPin_2026-07-23_14-07-55.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-07-23_14-07-55.png" style="max-width: 100%;"></a></p>
+<p>Overleaf 覆盖期刊文章、论文、简历、报告、演示和海报等类型；CTAN 则更适合获取宏包的正式版本、文档和源文件。</p>
+<h2>7.期刊出版社模板</h2>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>出版社</th>
+<th>官方入口</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IEEE</td>
+<td>[<a href="https://journals.ieeeauthorcenter.ieee.org/create-your-ieee-journal-article/authoring-tools-and-templates/" rel="nofollow">IEEE Author Templates</a>](<a href="https://journals.ieeeauthorcenter.ieee.org/create-your-ieee-journal-article/authoring-tools-and-templates/" rel="nofollow">https://journals.ieeeauthorcenter.ieee.org/create-your-ieee-journal-article/authoring-tools-and-templates/</a>)</td>
+</tr>
+<tr>
+<td>Elsevier</td>
+<td>[<a href="https://www.elsevier.com/en-gb/researcher/author/policies-and-guidelines/latex-instructions" rel="nofollow">Elsevier LaTeX Instructions</a>](<a href="https://www.elsevier.com/en-gb/researcher/author/policies-and-guidelines/latex-instructions" rel="nofollow">https://www.elsevier.com/en-gb/researcher/author/policies-and-guidelines/latex-instructions</a>)</td>
+</tr>
+<tr>
+<td>Springer Nature</td>
+<td>[<a href="https://www.springernature.com/gp/authors/campaigns/latex-author-support" rel="nofollow">Springer Nature LaTeX Support</a>](<a href="https://www.springernature.com/gp/authors/campaigns/latex-author-support" rel="nofollow">https://www.springernature.com/gp/authors/campaigns/latex-author-support</a>)</td>
+</tr>
+<tr>
+<td>Wiley</td>
+<td>[<a href="https://authors.wiley.com/author-resources/Journal-Authors/Prepare/new-journal-design.html" rel="nofollow">Wiley LaTeX Template</a>](<a href="https://authors.wiley.com/author-resources/Journal-Authors/Prepare/new-journal-design.html" rel="nofollow">https://authors.wiley.com/author-resources/Journal-Authors/Prepare/new-journal-design.html</a>)</td>
+</tr>
+<tr>
+<td>Taylor &amp; Francis</td>
+<td>[<a href="https://authorservices.taylorandfrancis.com/publishing-your-research/writing-your-paper/formatting-and-templates/" rel="nofollow">LaTeX Templates</a>](<a href="https://authorservices.taylorandfrancis.com/publishing-your-research/writing-your-paper/formatting-and-templates/" rel="nofollow">https://authorservices.taylorandfrancis.com/publishing-your-research/writing-your-paper/formatting-and-templates/</a>)</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<p>IEEE 提供按具体出版物选择模板的工具；Elsevier 使用 <code class="notranslate">elsarticle</code> 等官方文档类；Springer Nature 和 Wiley 也提供模板包，但都要求同时核对目标期刊自己的作者指南。</p>
+<h3>化学与材料方向</h3>
+<ul>
+<li>[<a href="https://pubs.acs.org/page/4authors/submission/tex.html" rel="nofollow">ACS LaTeX 投稿模板与说明</a>](<a href="https://pubs.acs.org/page/4authors/submission/tex.html" rel="nofollow">https://pubs.acs.org/page/4authors/submission/tex.html</a>)</li>
+<li>[<a href="https://www.rsc.org/publishing/publish-with-us/publish-a-journal-article/article-templates" rel="nofollow">RSC 文章模板</a>](<a href="https://www.rsc.org/publishing/publish-with-us/publish-a-journal-article/article-templates" rel="nofollow">https://www.rsc.org/publishing/publish-with-us/publish-a-journal-article/article-templates</a>)</li>
+<li>[<a href="https://www.elsevier.com/en-gb/researcher/author/policies-and-guidelines/latex-instructions" rel="nofollow">Elsevier LaTeX 模板</a>](<a href="https://www.elsevier.com/en-gb/researcher/author/policies-and-guidelines/latex-instructions" rel="nofollow">https://www.elsevier.com/en-gb/researcher/author/policies-and-guidelines/latex-instructions</a>)</li>
+<li>[<a href="https://authors.wiley.com/author-resources/Journal-Authors/Prepare/new-journal-design.html" rel="nofollow">Wiley 期刊 LaTeX 模板</a>](<a href="https://authors.wiley.com/author-resources/Journal-Authors/Prepare/new-journal-design.html" rel="nofollow">https://authors.wiley.com/author-resources/Journal-Authors/Prepare/new-journal-design.html</a>)</li>
+<li>[<a href="https://www.springernature.com/gp/authors/campaigns/latex-author-support" rel="nofollow">Springer Nature 模板</a>](<a href="https://www.springernature.com/gp/authors/campaigns/latex-author-support" rel="nofollow">https://www.springernature.com/gp/authors/campaigns/latex-author-support</a>)</li>
+</ul>
+<p>ACS 提供官方样式包和投稿文件要求；RSC 提供 Article、Communication 和 Faraday Discussions 等不同类型的 LaTeX 模板。</p>
+<h2>8. 数学建模模板</h2>
+<h3>MCM/ICM 美赛</h3>
+<ul>
+<li>[<a href="https://ctan.org/pkg/mcmthesis" rel="nofollow">CTAN：mcmthesis</a>](<a href="https://ctan.org/pkg/mcmthesis" rel="nofollow">https://ctan.org/pkg/mcmthesis</a>)</li>
+<li>[<a href="https://github.com/latexstudio-org/mcmthesis">GitHub：mcmthesis 源码</a>](<a href="https://github.com/latexstudio-org/mcmthesis">https://github.com/latexstudio-org/mcmthesis</a>)</li>
+<li>[<a href="https://cn.overleaf.com/latex/templates/latex-template-for-mcm-icm/rwgdhsxfxkwj" rel="nofollow">Overleaf：MCM/ICM 模板</a>](<a href="https://cn.overleaf.com/latex/templates/latex-template-for-mcm-icm/rwgdhsxfxkwj" rel="nofollow">https://cn.overleaf.com/latex/templates/latex-template-for-mcm-icm/rwgdhsxfxkwj</a>)</li>
+</ul>
+<p><code class="notranslate">mcmthesis</code> 是专门为 MCM/ICM 论文设计的文档类，TeX Live 通常已经包含该宏包。</p>
+<h3>全国大学生数学建模竞赛</h3>
+<ul>
+<li><a href="https://www.latexstudio.net/index/details/index/mid/762.html" rel="nofollow">https://www.latexstudio.net/index/details/index/mid/762.html</a></li>
+<li>GitHub 搜索：CUMCM LaTeX</li>
+<li>Overleaf 搜索：CUMCM</li>
+</ul>
+<p>社区模板可能没有同步当年竞赛要求，参赛前必须对照主办方最新论文格式检查页边距、摘要页、编号和承诺书。</p>
+<h1>十七、效率工具</h1>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>网站</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[<a href="https://www.tablesgenerator.com/" rel="nofollow">Tables Generator</a>](<a href="https://www.tablesgenerator.com/" rel="nofollow">https://www.tablesgenerator.com/</a>)</td>
+<td>可视化生成普通表格和 <code class="notranslate">booktabs</code> 三线表</td>
+</tr>
+<tr>
+<td>[<a href="https://detexify.kirelabs.org/" rel="nofollow">Detexify</a>](<a href="https://detexify.kirelabs.org/" rel="nofollow">https://detexify.kirelabs.org/</a>)</td>
+<td>手写符号，识别相应 LaTeX 命令和宏包</td>
+</tr>
+<tr>
+<td>[<a href="https://tikz.net/" rel="nofollow">TikZ.net</a>](<a href="https://tikz.net/" rel="nofollow">https://tikz.net/</a>)</td>
+<td>数学、物理、化学和流程图的 TikZ 源码</td>
+</tr>
+<tr>
+<td>[<a href="https://tikz.org/" rel="nofollow">TikZ.org</a>](<a href="https://tikz.org/" rel="nofollow">https://tikz.org/</a>)</td>
+<td>TikZ 系统教程和完整示例</td>
+</tr>
+<tr>
+<td>[<a href="https://texample.net/" rel="nofollow">TeXample</a>](<a href="https://texample.net/" rel="nofollow">https://texample.net/</a>)</td>
+<td>TikZ/PGF 绘图案例库</td>
+</tr>
+<tr>
+<td>[<a href="https://pgfplots.net/" rel="nofollow">PGFPlots</a>](<a href="https://pgfplots.net/" rel="nofollow">https://pgfplots.net/</a>)</td>
+<td>二维、三维科学曲线和数据绘图示例</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<h1>十八、快捷键</h1>
+<h2>1.通用</h2>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>功能</th>
+<th>Windows/Linux</th>
+<th>macOS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>编译 LaTeX 项目</td>
+<td><code class="notranslate">Ctrl + Alt + B</code></td>
+<td><code class="notranslate">Cmd + Option + B</code></td>
+</tr>
+<tr>
+<td>打开编译后的 PDF</td>
+<td><code class="notranslate">Ctrl + Alt + V</code></td>
+<td><code class="notranslate">Cmd + Option + V</code></td>
+</tr>
+<tr>
+<td>源码定位到 PDF</td>
+<td><code class="notranslate">Ctrl + Alt + J</code></td>
+<td><code class="notranslate">Cmd + Option + J</code></td>
+</tr>
+<tr>
+<td>清理辅助文件</td>
+<td><code class="notranslate">Ctrl + Alt + C</code></td>
+<td><code class="notranslate">Cmd + Option + C</code></td>
+</tr>
+<tr>
+<td>PDF 反向定位源码</td>
+<td><code class="notranslate">Ctrl + 单击 PDF</code></td>
+<td><code class="notranslate">Cmd + 单击 PDF</code></td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<h2>2.字体样式</h2>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>快捷键</th>
+<th>生成命令</th>
+<th>属性</th>
+<th>常见用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class="notranslate">Ctrl+M</code>，<code class="notranslate">Ctrl+B</code></td>
+<td><code class="notranslate">\mathbf{}</code></td>
+<td>数学粗体</td>
+<td>向量、矩阵</td>
+</tr>
+<tr>
+<td><code class="notranslate">Ctrl+M</code>，<code class="notranslate">Ctrl+Shift+B</code></td>
+<td><code class="notranslate">\mathbb{}</code></td>
+<td>黑板粗体</td>
+<td>数集、数域</td>
+</tr>
+<tr>
+<td><code class="notranslate">Ctrl+M</code>，<code class="notranslate">Ctrl+C</code></td>
+<td><code class="notranslate">\mathcal{}</code></td>
+<td>花体</td>
+<td>集合族、函数空间、算子</td>
+</tr>
+<tr>
+<td><code class="notranslate">Ctrl+M</code>，<code class="notranslate">Ctrl+R</code></td>
+<td><code class="notranslate">\mathrm{}</code></td>
+<td>直立衬线体</td>
+<td>单位、算子名称、说明性下标</td>
+</tr>
+<tr>
+<td><code class="notranslate">Ctrl+M</code>，<code class="notranslate">Ctrl+I</code></td>
+<td><code class="notranslate">\mathit{}</code></td>
+<td>数学斜体</td>
+<td>多字母变量或斜体文本</td>
+</tr>
+<tr>
+<td><code class="notranslate">Ctrl+M</code>，<code class="notranslate">Ctrl+S</code></td>
+<td><code class="notranslate">\mathsf{}</code></td>
+<td>无衬线体</td>
+<td>特殊向量、矩阵或分类符号</td>
+</tr>
+<tr>
+<td><code class="notranslate">Ctrl+M</code>，<code class="notranslate">Ctrl+T</code></td>
+<td><code class="notranslate">\mathtt{}</code></td>
+<td>等宽字体</td>
+<td>代码、算法变量、字符串</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<h2>3.LaTeX Workshop 常用代码片段</h2>
+<p>输入缩写后按 <code class="notranslate">Tab</code> 或从补全列表选择：</p>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>输入</th>
+<th>生成内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class="notranslate">BEQ</code></td>
+<td><code class="notranslate">equation</code> 环境</td>
+</tr>
+<tr>
+<td><code class="notranslate">BSEQ</code></td>
+<td><code class="notranslate">equation*</code> 环境</td>
+</tr>
+<tr>
+<td><code class="notranslate">BAL</code></td>
+<td><code class="notranslate">align</code> 环境</td>
+</tr>
+<tr>
+<td><code class="notranslate">BSAL</code></td>
+<td><code class="notranslate">align*</code> 环境</td>
+</tr>
+<tr>
+<td><code class="notranslate">BGA</code></td>
+<td><code class="notranslate">gather</code> 环境</td>
+</tr>
+<tr>
+<td><code class="notranslate">FBF</code></td>
+<td><code class="notranslate">\textbf{}</code></td>
+</tr>
+<tr>
+<td><code class="notranslate">FIT</code></td>
+<td><code class="notranslate">\textit{}</code></td>
+</tr>
+<tr>
+<td><code class="notranslate">MBF</code></td>
+<td><code class="notranslate">\mathbf{}</code></td>
+</tr>
+<tr>
+<td><code class="notranslate">MBB</code></td>
+<td><code class="notranslate">\mathbb{}</code></td>
+</tr>
+<tr>
+<td><code class="notranslate">MCA</code></td>
+<td><code class="notranslate">\mathcal{}</code></td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<p>LaTeX Workshop 还支持使用 <code class="notranslate">@</code> 前缀输入希腊字母和数学符号。</p>
+<h2>4.查看和修改全部快捷键</h2>
+<p>依次连续按：</p>
+<pre class="notranslate"><code class="notranslate">Ctrl + K
+Ctrl + S
+</code></pre>
+<p>然后搜索：</p>
+<pre class="notranslate"><code class="notranslate">LaTeX Workshop
+</code></pre>
+<p>即可查看当前版本实际生效的所有快捷键；这比依赖固定列表更可靠，因为快捷键可能被其他扩展或个人配置覆盖。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/8a990ff4a6e3909b70ed24daabf79992dbfea1f57241fe197cd882f4e4469305/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d32335f31342d33342d35352e706e67"><img src="https://camo.githubusercontent.com/8a990ff4a6e3909b70ed24daabf79992dbfea1f57241fe197cd882f4e4469305/68747470733a2f2f6f6273696469616e2d696d6167652d6265642d313337393532343935332e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f4f6273696469616e2f50697850696e5f323032362d30372d32335f31342d33342d35352e706e67" alt="PixPin_2026-07-23_14-34-55.png" data-canonical-src="https://obsidian-image-bed-1379524953.cos.ap-guangzhou.myqcloud.com/Obsidian/PixPin_2026-07-23_14-34-55.png" style="max-width: 100%;"></a></p>
+<h1>十九、基础Latex语法</h1>
+<p><strong>下面这份命令速查表已经覆盖 LaTeX 入门写作、公式、图表、引用和中文排版的核心需求。</strong></p>
+<h2>1. 最小中文文档</h2>
+<div class="highlight highlight-text-tex-latex"><pre class="notranslate"><span class="pl-k">\documentclass</span>[<span class="pl-v">UTF8</span>]{<span class="pl-c1">ctexart</span>}
+
+<span class="pl-c1">\title</span>{论文标题}
+<span class="pl-c1">\author</span>{作者}
+<span class="pl-c1">\date</span>{<span class="pl-c1">\today</span>}
+
+<span class="pl-c1">\begin</span>{<span class="pl-smi">document</span>}
+
+<span class="pl-c1">\maketitle</span>
+<span class="pl-c1">\tableofcontents</span>
+
+<span class="pl-c1">\section</span>{<span class="pl-en">引言</span>}
+
+这是正文。
+
+<span class="pl-c1">\end</span>{<span class="pl-smi">document</span>}</pre></div>
+<hr>
+<h2>2. 标题层级</h2>
+<div class="highlight highlight-text-tex-latex"><pre class="notranslate"><span class="pl-c1">\section</span>{<span class="pl-en">一级标题</span>}
+<span class="pl-c1">\subsection</span>{<span class="pl-en">二级标题</span>}
+<span class="pl-c1">\subsubsection</span>{<span class="pl-en">三级标题</span>}</pre></div>
+<p>换段：源码中空一行。</p>
+<p>强制换行：</p>
+<div class="highlight highlight-text-tex-latex"><pre class="notranslate">第一行<span class="pl-c1">\\</span>
+第二行</pre></div>
+<hr>
+<h2>3. 文字格式</h2>
+<div class="highlight highlight-text-tex-latex"><pre class="notranslate"><span class="pl-c1">\textbf</span>{<span class="pl-mb">粗体</span>}
+<span class="pl-c1">\textit</span>{<span class="pl-mi">斜体</span>}
+<span class="pl-c1">\underline</span>{下划线}
+<span class="pl-c1">\emph</span>{<span class="pl-mi">强调</span>}
+<span class="pl-c1">\texttt</span>{<span class="pl-c1">等宽字体</span>}</pre></div>
+<p>字号：</p>
+<div class="highlight highlight-text-tex-latex"><pre class="notranslate">{<span class="pl-c1">\small</span> 小号文字}
+{<span class="pl-c1">\large</span> 大号文字}
+{<span class="pl-c1">\Large</span> 更大文字}</pre></div>
+<p>居中：</p>
+<div class="highlight highlight-text-tex-latex"><pre class="notranslate"><span class="pl-c1">\begin</span>{<span class="pl-smi">center</span>}
+居中内容
+<span class="pl-c1">\end</span>{<span class="pl-smi">center</span>}</pre></div>
+<hr>
+<h2>4. 列表</h2>
+<p>无序列表：</p>
+<div class="highlight highlight-text-tex-latex"><pre class="notranslate"><span class="pl-c1">\begin</span>{<span class="pl-smi">itemize</span>}
+  <span class="pl-k">\item</span> 第一项
+  <span class="pl-k">\item</span> 第二项
+<span class="pl-c1">\end</span>{<span class="pl-smi">itemize</span>}</pre></div>
+<p>有序列表：</p>
+<div class="highlight highlight-text-tex-latex"><pre class="notranslate"><span class="pl-c1">\begin</span>{<span class="pl-smi">enumerate</span>}
+  <span class="pl-k">\item</span> 第一步
+  <span class="pl-k">\item</span> 第二步
+<span class="pl-c1">\end</span>{<span class="pl-smi">enumerate</span>}</pre></div>
+<hr>
+<h2>5. 数学公式</h2>
+<p>行内公式：</p>
+<div class="highlight highlight-text-tex-latex"><pre class="notranslate">函数为 <span class="pl-s"><span class="pl-pds">$</span>y=x^<span class="pl-c1">2</span><span class="pl-pds">$</span></span>。</pre></div>
+<p>独立公式：</p>
+<div class="highlight highlight-text-tex-latex"><pre class="notranslate"><span class="pl-s"><span class="pl-pds">\[</span></span>
+<span class="pl-s">E=mc^2</span>
+<span class="pl-s"><span class="pl-pds">\]</span></span></pre></div>
+<p>带编号公式：</p>
+<div class="highlight highlight-text-tex-latex"><pre class="notranslate"><span class="pl-c1">\begin</span>{<span class="pl-smi">equation</span>}<span class="pl-s"></span>
+<span class="pl-s">  E=mc^2</span>
+<span class="pl-s">  <span class="pl-k">\label</span>{<span class="pl-v">eq:energy</span>}</span>
+<span class="pl-s"></span><span class="pl-c1">\end</span>{<span class="pl-smi">equation</span>}</pre></div>
+<p>引用公式：</p>
+<div class="highlight highlight-text-tex-latex"><pre class="notranslate">式~<span class="pl-k">\ref</span>{<span class="pl-c1">eq:energy</span>}</pre></div>
+<p>常用数学命令：</p>
+<div class="highlight highlight-text-tex-latex"><pre class="notranslate">x^2              <span class="pl-c"><span class="pl-c">%</span> 上标</span>
+x_i              <span class="pl-c"><span class="pl-c">%</span> 下标</span>
+<span class="pl-c1">\frac</span>{a}{b}      <span class="pl-c"><span class="pl-c">%</span> 分数</span>
+<span class="pl-c1">\sqrt</span>{x}         <span class="pl-c"><span class="pl-c">%</span> 根号</span>
+<span class="pl-c1">\sum</span>_{i=1}^{n}   <span class="pl-c"><span class="pl-c">%</span> 求和</span>
+<span class="pl-c1">\prod</span>_{i=1}^{n}  <span class="pl-c"><span class="pl-c">%</span> 连乘</span>
+<span class="pl-c1">\int</span>_a^b f(x)<span class="pl-cce">\,</span><span class="pl-c1">\mathrm</span>{d}x
+<span class="pl-c1">\lim</span>_{x<span class="pl-c1">\to</span> 0}
+<span class="pl-c1">\infty</span>
+<span class="pl-c1">\alpha</span> <span class="pl-c1">\beta</span> <span class="pl-c1">\gamma</span>
+<span class="pl-c1">\leq</span> <span class="pl-c1">\geq</span> <span class="pl-c1">\neq</span>
+<span class="pl-c1">\approx</span></pre></div>
+<p>多行公式：</p>
+<div class="highlight highlight-text-tex-latex"><pre class="notranslate"><span class="pl-c1">\begin</span>{<span class="pl-smi">align</span>}<span class="pl-s"></span>
+<span class="pl-s">  y &amp;= ax+b, <span class="pl-c1">\\</span></span>
+<span class="pl-s">  z &amp;= cx+d.</span>
+<span class="pl-s"></span><span class="pl-c1">\end</span>{<span class="pl-smi">align</span>}</pre></div>
+<p>导言区需要：</p>
+<div class="highlight highlight-text-tex-latex"><pre class="notranslate"><span class="pl-k">\usepackage</span>{<span class="pl-c1">amsmath,amssymb</span>}</pre></div>
+<p>矩阵：</p>
+<div class="highlight highlight-text-tex-latex"><pre class="notranslate"><span class="pl-s"><span class="pl-pds">\[</span></span>
+<span class="pl-s">A=</span>
+<span class="pl-s"><span class="pl-c1">\begin</span>{<span class="pl-smi">bmatrix</span>}</span>
+<span class="pl-s">  1 &amp; 2 <span class="pl-c1">\\</span></span>
+<span class="pl-s">  3 &amp; 4</span>
+<span class="pl-s"><span class="pl-c1">\end</span>{<span class="pl-smi">bmatrix</span>}</span>
+<span class="pl-s"><span class="pl-pds">\]</span></span></pre></div>
+<hr>
+<h2>6. 图片</h2>
+<p>导言区：</p>
+<div class="highlight highlight-text-tex-latex"><pre class="notranslate"><span class="pl-k">\usepackage</span>{<span class="pl-c1">graphicx</span>}</pre></div>
+<p>正文：</p>
+<div class="highlight highlight-text-tex-latex"><pre class="notranslate"><span class="pl-c1">\begin</span>{<span class="pl-smi">figure</span>}[htbp]
+  <span class="pl-c1">\centering</span>
+  <span class="pl-c1">\includegraphics</span>[width=0.7<span class="pl-c1">\textwidth</span>]{figures/example.png}
+  <span class="pl-c1">\caption</span>{图片标题}
+  <span class="pl-k">\label</span>{<span class="pl-v">fig:example</span>}
+<span class="pl-c1">\end</span>{<span class="pl-smi">figure</span>}</pre></div>
+<p>引用：</p>
+<div class="highlight highlight-text-tex-latex"><pre class="notranslate">如图~<span class="pl-k">\ref</span>{<span class="pl-c1">fig:example</span>} 所示。</pre></div>
+<hr>
+<h2>7. 表格</h2>
+<p>推荐三线表，导言区：</p>
+<div class="highlight highlight-text-tex-latex"><pre class="notranslate"><span class="pl-k">\usepackage</span>{<span class="pl-c1">booktabs</span>}</pre></div>
+<p>正文：</p>
+<div class="highlight highlight-text-tex-latex"><pre class="notranslate"><span class="pl-c1">\begin</span>{<span class="pl-smi">table</span>}[htbp]
+  <span class="pl-c1">\centering</span>
+  <span class="pl-c1">\caption</span>{实验结果}
+  <span class="pl-k">\label</span>{<span class="pl-v">tab:result</span>}
+  <span class="pl-c1">\begin</span>{<span class="pl-smi">tabular</span>}{lcc}
+    <span class="pl-c1">\toprule</span>
+    样品 &amp; 温度 &amp; 转化率 \\
+    <span class="pl-c1">\midrule</span>
+    A &amp; 300 &amp; 82.5<span class="pl-cce">\%</span> \\
+    B &amp; 350 &amp; 91.2<span class="pl-cce">\%</span> \\
+    <span class="pl-c1">\bottomrule</span>
+  <span class="pl-c1">\end</span>{<span class="pl-smi">tabular</span>}
+<span class="pl-c1">\end</span>{<span class="pl-smi">table</span>}</pre></div>
+<p>引用：</p>
+<div class="highlight highlight-text-tex-latex"><pre class="notranslate">见表~<span class="pl-k">\ref</span>{<span class="pl-c1">tab:result</span>}。</pre></div>
+<p>列格式：</p>
+<div class="highlight highlight-text-tex-latex"><pre class="notranslate">l    <span class="pl-c"><span class="pl-c">%</span> 左对齐</span>
+c    <span class="pl-c"><span class="pl-c">%</span> 居中</span>
+r    <span class="pl-c"><span class="pl-c">%</span> 右对齐</span></pre></div>
+<hr>
+<h2>8. 超链接</h2>
+<p>导言区：</p>
+<div class="highlight highlight-text-tex-latex"><pre class="notranslate"><span class="pl-k">\usepackage</span>{<span class="pl-c1">hyperref</span>}</pre></div>
+<p>正文：</p>
+<div class="highlight highlight-text-tex-latex"><pre class="notranslate"><span class="pl-c1">\url</span>{https://example.com}
+
+<span class="pl-c1">\href</span>{https://example.com}{点击访问}</pre></div>
+<hr>
+<h2>9. 参考文献</h2>
+<p>导言区：</p>
+<div class="highlight highlight-text-tex-latex"><pre class="notranslate"><span class="pl-c1">\usepackage</span>[
+  backend=biber,
+  style=numeric,
+  sorting=none
+]{biblatex}
+
+<span class="pl-c1">\addbibresource</span>{references.bib}</pre></div>
+<p>正文引用：</p>
+<div class="highlight highlight-text-tex-latex"><pre class="notranslate">已有研究表明这一方法有效<span class="pl-k">\cite</span>{<span class="pl-c1">lamport1994</span>}。</pre></div>
+<p>文末输出：</p>
+<div class="highlight highlight-text-tex-latex"><pre class="notranslate"><span class="pl-c1">\printbibliography</span></pre></div>
+<p><code class="notranslate">references.bib</code>：</p>
+<div class="highlight highlight-text-bibtex"><pre class="notranslate"><span class="pl-k">@book</span>{<span class="pl-en">lamport1994</span>,
+  <span class="pl-s">author</span>    = <span class="pl-s"><span class="pl-pds">{</span>Leslie Lamport<span class="pl-pds">}</span></span>,
+  <span class="pl-s">title</span>     = <span class="pl-s"><span class="pl-pds">{</span>LaTeX: A Document Preparation System<span class="pl-pds">}</span></span>,
+  <span class="pl-s">publisher</span> = <span class="pl-s"><span class="pl-pds">{</span>Addison-Wesley<span class="pl-pds">}</span></span>,
+  <span class="pl-s">year</span>      = <span class="pl-s"><span class="pl-pds">{</span>1994<span class="pl-pds">}</span></span>
+}</pre></div>
+<hr>
+<h2>10. 特殊字符</h2>
+<p>以下字符需要转义：</p>
+<div class="highlight highlight-text-tex-latex"><pre class="notranslate"><span class="pl-cce">\%</span>    <span class="pl-c"><span class="pl-c">%</span> 百分号</span>
+<span class="pl-cce">\_</span>    <span class="pl-c"><span class="pl-c">%</span> 下划线</span>
+<span class="pl-cce">\&amp;</span>    <span class="pl-c"><span class="pl-c">%</span> 与符号</span>
+<span class="pl-cce">\$</span>    <span class="pl-c"><span class="pl-c">%</span> 美元符号</span>
+<span class="pl-cce">\#</span>    <span class="pl-c"><span class="pl-c">%</span> 井号</span>
+<span class="pl-cce">\{</span> <span class="pl-cce">\}</span> <span class="pl-c"><span class="pl-c">%</span> 花括号</span></pre></div>
+<p>注释：</p>
+<div class="highlight highlight-text-tex-latex"><pre class="notranslate"><span class="pl-c"><span class="pl-c">%</span> 这一行不会显示在文档中</span></pre></div>
+<hr>
+<h2>11. 推荐导言区</h2>
+<div class="highlight highlight-text-tex-latex"><pre class="notranslate"><span class="pl-k">\documentclass</span>[<span class="pl-v">UTF8,a4paper,12pt</span>]{<span class="pl-c1">ctexart</span>}
+
+<span class="pl-k">\usepackage</span>{<span class="pl-c1">amsmath,amssymb</span>}
+<span class="pl-k">\usepackage</span>{<span class="pl-c1">graphicx</span>}
+<span class="pl-k">\usepackage</span>{<span class="pl-c1">booktabs</span>}
+<span class="pl-k">\usepackage</span>{<span class="pl-c1">hyperref</span>}
+<span class="pl-k">\usepackage</span>{<span class="pl-c1">geometry</span>}
+
+<span class="pl-c1">\geometry</span>{
+  left=2.5cm,
+  right=2.5cm,
+  top=2.5cm,
+  bottom=2.5cm
+}</pre></div>
+<h2>12. VS Code 常用快捷键</h2>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>功能</th>
+<th>快捷键</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>编译</td>
+<td><code class="notranslate">Ctrl + Alt + B</code></td>
+</tr>
+<tr>
+<td>查看 PDF</td>
+<td><code class="notranslate">Ctrl + Alt + V</code></td>
+</tr>
+<tr>
+<td>源码定位 PDF</td>
+<td><code class="notranslate">Ctrl + Alt + J</code></td>
+</tr>
+<tr>
+<td>清理辅助文件</td>
+<td><code class="notranslate">Ctrl + Alt + C</code></td>
+</tr>
+<tr>
+<td>保存</td>
+<td><code class="notranslate">Ctrl + S</code></td>
+</tr>
+<tr>
+<td>格式化</td>
+<td><code class="notranslate">Shift + Alt + F</code></td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table></div>
+<div style="font-size:small;margin-top:8px;float:right;"></div>
+
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
+
+</div>
+    <div id="footer"><div id="footer1">Copyright © <span id="copyrightYear"></span> <a href="https://luffysolution-svg.github.io/luffy.github.io">三木的个人博客</a></div>
+<div id="footer2">
+    <span id="runday"></span><span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a></span>
+</div>
+
+<script>
+var now=new Date();
+document.getElementById("copyrightYear").innerHTML=now.getFullYear();
+
+if(""!=""){
+    var startSite=new Date("");
+    var diff=now.getTime()-startSite.getTime();
+    var diffDay=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("runday").innerHTML="网站运行 "+diffDay+" 天"+" • ";
+}
+</script></div>
+</body>
+<script>
+var IconList={'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'sync': 'M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z', 'copy': 'M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z', 'check': 'M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z'};
+var utterancesLoad=0;
+
+let themeSettings={
+    "dark": ["dark","moon","#00f0ff","dark-blue"],
+    "light": ["light","sun","#ff5000","github-light"],
+    "auto": ["auto","sync","","preferred-color-scheme"]
+};
+function changeTheme(mode, icon, color, utheme){
+    document.documentElement.setAttribute("data-color-mode",mode);
+    document.getElementById("themeSwitch").setAttribute("d",value=IconList[icon]);
+    document.getElementById("themeSwitch").parentNode.style.color=color;
+    if(utterancesLoad==1){utterancesTheme(utheme);}
+}
+function modeSwitch(){
+    let currentMode=document.documentElement.getAttribute('data-color-mode');
+    let newMode = currentMode === "light" ? "dark" : currentMode === "dark" ? "auto" : "light";
+    localStorage.setItem("meek_theme", newMode);
+    if(themeSettings[newMode]){
+        changeTheme(...themeSettings[newMode]);
+    }
+}
+function utterancesTheme(theme){
+    const message={type:'set-theme',theme: theme};
+    const iframe=document.getElementsByClassName('utterances-frame')[0];
+    iframe.contentWindow.postMessage(message,'https://utteranc.es');
+}
+if(themeSettings[theme]){changeTheme(...themeSettings[theme]);}
+console.log("\n %c Gmeek last https://github.com/Meekdai/Gmeek \n","padding:5px 0;background:#02d81d;color:#fff");
+</script>
+
+<script>
+document.getElementById("pathHome").setAttribute("d",IconList["home"]);
+document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
+
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.disabled=true;
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","luffysolution-svg/luffy.github.io");
+    script.setAttribute("issue-term","title");
+    
+    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
+    else if(localStorage.getItem("meek_theme")=="light") {script.setAttribute("theme","github-light");}
+    else{script.setAttribute("theme","preferred-color-scheme");}
+    
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
+}
+
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const createClipboardHTML = (codeContent, additionalClasses = '') => `
+        <pre class="notranslate"><code class="notranslate">${codeContent}</code></pre>
+        <div class="clipboard-container position-absolute right-0 top-0 ${additionalClasses}">
+            <clipboard-copy class="ClipboardButton btn m-2 p-0" role="button" style="display: inherit;">
+                <svg height="16" width="16" class="octicon octicon-copy m-2"><path d="${IconList["copy"]}"></path></svg>
+                <svg height="16" width="16" class="octicon octicon-check color-fg-success m-2 d-none"><path d="${IconList["check"]}"></path></svg>
+            </clipboard-copy>
+            <div class="copy-feedback">Copied!</div>
+        </div>
+    `;
+
+    const handleCodeElements = (selector = '') => {
+        document.querySelectorAll(selector).forEach(codeElement => {
+            const codeContent = codeElement.innerHTML;
+            const newStructure = document.createElement('div');
+            newStructure.className = 'snippet-clipboard-content position-relative overflow-auto';
+            newStructure.innerHTML = createClipboardHTML(codeContent);
+
+            const parentElement = codeElement.parentElement;
+            if (selector.includes('highlight')) {
+                parentElement.insertBefore(newStructure, codeElement.nextSibling);
+                parentElement.removeChild(codeElement);
+            } else {
+                parentElement.parentElement.replaceChild(newStructure, parentElement);
+            }
+        });
+    };
+
+    handleCodeElements('pre.notranslate > code.notranslate');
+    handleCodeElements('div.highlight > pre.notranslate');
+
+    let currentFeedback = null;
+    document.querySelectorAll('clipboard-copy').forEach(copyButton => {
+        copyButton.addEventListener('click', () => {
+            const codeContent = copyButton.closest('.snippet-clipboard-content').innerText;
+            const tempTextArea = document.createElement('textarea');
+            tempTextArea.value = codeContent;
+            document.body.appendChild(tempTextArea);
+            tempTextArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempTextArea);
+
+            const copyIcon = copyButton.querySelector('.octicon-copy');
+            const checkIcon = copyButton.querySelector('.octicon-check');
+            const copyFeedback = copyButton.nextElementSibling;
+
+            if (currentFeedback && currentFeedback !== copyFeedback) {currentFeedback.style.display = 'none';}
+            currentFeedback = copyFeedback;
+
+            copyIcon.classList.add('d-none');
+            checkIcon.classList.remove('d-none');
+            copyFeedback.style.display = 'block';
+            copyButton.style.borderColor = 'var(--color-success-fg)';
+
+            setTimeout(() => {
+                copyIcon.classList.remove('d-none');
+                checkIcon.classList.add('d-none');
+                copyFeedback.style.display = 'none';
+                copyButton.style.borderColor = '';
+            }, 2000);
+        });
+    });
+});
+
+</script>
+
+
+</html>
